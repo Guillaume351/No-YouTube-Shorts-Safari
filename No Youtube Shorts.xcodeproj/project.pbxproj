@@ -17,8 +17,6 @@
 		C5FFA7342B4C2FF2007C8919 /* No Youtube Shorts Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C5FFA7332B4C2FF2007C8919 /* No Youtube Shorts Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C5FFA73A2B4C2FF2007C8919 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = C5FFA6F52B4C2FED007C8919 /* Main.html */; };
 		C5FFA73B2B4C2FF2007C8919 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = C5FFA6F52B4C2FED007C8919 /* Main.html */; };
-		C5FFA73C2B4C2FF2007C8919 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C5FFA6F72B4C2FED007C8919 /* Icon.png */; };
-		C5FFA73D2B4C2FF2007C8919 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C5FFA6F72B4C2FED007C8919 /* Icon.png */; };
 		C5FFA73E2B4C2FF2007C8919 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = C5FFA6F82B4C2FED007C8919 /* Style.css */; };
 		C5FFA73F2B4C2FF2007C8919 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = C5FFA6F82B4C2FED007C8919 /* Style.css */; };
 		C5FFA7402B4C2FF2007C8919 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = C5FFA6F92B4C2FED007C8919 /* Script.js */; };
@@ -45,6 +43,8 @@
 		C5FFA7552B4C2FF2007C8919 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = C5FFA7052B4C2FF1007C8919 /* popup.css */; };
 		C5FFA7562B4C2FF2007C8919 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = C5FFA7062B4C2FF1007C8919 /* popup.js */; };
 		C5FFA7572B4C2FF2007C8919 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = C5FFA7062B4C2FF1007C8919 /* popup.js */; };
+		F0ADD4B82DF833C7004D23F3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F0ADD4B72DF833C7004D23F3 /* Icon.png */; };
+		F0ADD4B92DF833C7004D23F3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F0ADD4B72DF833C7004D23F3 /* Icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,7 +91,6 @@
 
 /* Begin PBXFileReference section */
 		C5FFA6F62B4C2FED007C8919 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
-		C5FFA6F72B4C2FED007C8919 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		C5FFA6F82B4C2FED007C8919 /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
 		C5FFA6F92B4C2FED007C8919 /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
 		C5FFA6FA2B4C2FED007C8919 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +119,7 @@
 		C5FFA7332B4C2FF2007C8919 /* No Youtube Shorts Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "No Youtube Shorts Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5FFA7382B4C2FF2007C8919 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5FFA7392B4C2FF2007C8919 /* No Youtube Shorts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "No Youtube Shorts.entitlements"; sourceTree = "<group>"; };
+		F0ADD4B72DF833C7004D23F3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,7 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				C5FFA6F52B4C2FED007C8919 /* Main.html */,
-				C5FFA6F72B4C2FED007C8919 /* Icon.png */,
+				F0ADD4B72DF833C7004D23F3 /* Icon.png */,
 				C5FFA6F82B4C2FED007C8919 /* Style.css */,
 				C5FFA6F92B4C2FED007C8919 /* Script.js */,
 			);
@@ -387,11 +387,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5FFA73C2B4C2FF2007C8919 /* Icon.png in Resources */,
 				C5FFA7142B4C2FF1007C8919 /* LaunchScreen.storyboard in Resources */,
 				C5FFA73A2B4C2FF2007C8919 /* Main.html in Resources */,
 				C5FFA7402B4C2FF2007C8919 /* Script.js in Resources */,
 				C5FFA7442B4C2FF2007C8919 /* Assets.xcassets in Resources */,
+				F0ADD4B92DF833C7004D23F3 /* Icon.png in Resources */,
 				C5FFA7172B4C2FF1007C8919 /* Main.storyboard in Resources */,
 				C5FFA73E2B4C2FF2007C8919 /* Style.css in Resources */,
 			);
@@ -401,10 +401,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5FFA73D2B4C2FF2007C8919 /* Icon.png in Resources */,
 				C5FFA73F2B4C2FF2007C8919 /* Style.css in Resources */,
 				C5FFA7232B4C2FF2007C8919 /* Main.storyboard in Resources */,
 				C5FFA7412B4C2FF2007C8919 /* Script.js in Resources */,
+				F0ADD4B82DF833C7004D23F3 /* Icon.png in Resources */,
 				C5FFA7452B4C2FF2007C8919 /* Assets.xcassets in Resources */,
 				C5FFA73B2B4C2FF2007C8919 /* Main.html in Resources */,
 			);
@@ -853,9 +853,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/No Youtube Shorts.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = K29MSNV5QP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -868,7 +869,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.3;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -889,9 +890,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/No Youtube Shorts.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = K29MSNV5QP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -904,7 +906,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.3;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
