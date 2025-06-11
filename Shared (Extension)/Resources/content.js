@@ -44,6 +44,23 @@ function removeShortsSearchFilter() {
     });
 }
 
+function removeMobileShortsMenuItem() {
+    document.querySelectorAll('ytm-pivot-bar-item-renderer').forEach(item => {
+        const titleElement = item.querySelector('.pivot-bar-item-title.pivot-shorts');
+        if (titleElement && titleElement.textContent.trim() === 'Shorts') {
+            item.remove();
+            console.log("Removed Shorts menu item from mobile");
+        }
+    });
+}
+
+function removeMobileReelShelf() {
+    document.querySelectorAll('ytm-reel-shelf-renderer').forEach(item => {
+        item.remove();
+        console.log("Removed Shorts reel shelf from mobile");
+    });
+}
+
 function hideYouTubeShortsElements() {
     console.log("Hiding");
 
@@ -76,6 +93,10 @@ function hideYouTubeShortsElements() {
     removeShortsMenuItem();
     removeShortsMiniMenuItem();
     removeShortsReelShelf();
+    
+    // iOS (m.youtube.com)
+    removeMobileShortsMenuItem();
+    removeMobileReelShelf();
 }
 
 function removeShortsHeader() {
