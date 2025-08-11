@@ -80,15 +80,15 @@ function removeMobileRichSectionShorts() {
   });
 }
 
-function removeMobileGridShelfShorts() {
-  // Remove standalone grid-shelf-view-model sections with Shorts
-  document.querySelectorAll("grid-shelf-view-model").forEach((shelf) => {
-    const shortsHeader = shelf.querySelector(
-      'yt-section-header-view-model yt-shelf-header-layout .shelf-header-layout-wiz__title [role="text"]'
-    );
-    if (shortsHeader && shortsHeader.textContent.trim() === "Shorts") {
-      shelf.remove();
-      console.log("Removed mobile grid shelf Shorts");
+function removeGridShelfShorts() {
+  document.querySelectorAll('grid-shelf-view-model').forEach((shelf) => {
+    const shortsHeader = shelf.querySelector('span.yt-core-attributed-string[role="text"]');
+    if (shortsHeader && shortsHeader.textContent.trim() === 'Shorts') {
+        const headerContainer = shortsHeader.closest('yt-shelf-header-layout');
+        if (headerContainer) {
+            shelf.remove();
+            console.log('Removed grid shelf with Shorts');
+        }
     }
   });
 }
@@ -163,7 +163,7 @@ function hideYouTubeShortsElements() {
 
   // New mobile Shorts structures
   removeMobileRichSectionShorts();
-  removeMobileGridShelfShorts();
+  removeGridShelfShorts();
   removeMobileSectionHeaderShorts();
   removeMobileShortsLockups();
 }
