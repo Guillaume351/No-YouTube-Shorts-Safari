@@ -11,7 +11,7 @@ function removeShortsMenuItem() {
 
 function removeShortsMiniMenuItem() {
   const shortsMiniMenuItem = document.querySelector(
-    'ytd-mini-guide-entry-renderer[aria-label="Shorts"]'
+    'ytd-mini-guide-entry-renderer[aria-label="Shorts"]',
   );
   if (shortsMiniMenuItem) {
     shortsMiniMenuItem.remove();
@@ -29,7 +29,7 @@ function removeShortsReelShelf() {
 function removeShortsFromSearchResults() {
   document.querySelectorAll("ytd-video-renderer").forEach((video) => {
     const badge = video.querySelector(
-      'ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]'
+      'ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]',
     );
     if (badge) {
       video.remove();
@@ -49,72 +49,98 @@ function removeShortsSearchFilter() {
 }
 
 function removeMobileShortsMenuItem() {
-  document.querySelectorAll("ytm-pivot-bar-item-renderer").forEach((item) => {
-    const titleElement = item.querySelector(
-      ".pivot-bar-item-title.pivot-shorts"
-    );
-    if (titleElement && titleElement.textContent.trim() === "Shorts") {
-      item.remove();
-      console.log("Removed Shorts menu item from mobile");
-    }
-  });
+  document
+    .querySelectorAll(
+      "ytm-pivot-bar-item-renderer:not([data-processed-menu-item])",
+    )
+    .forEach((item) => {
+      const titleElement = item.querySelector(
+        ".pivot-bar-item-title.pivot-shorts",
+      );
+      if (titleElement && titleElement.textContent.trim() === "Shorts") {
+        item.style.display = "none";
+        item.setAttribute("data-processed-menu-item", "true");
+        console.log("Hid Shorts menu item from mobile");
+      }
+    });
 }
 
 function removeMobileReelShelf() {
-  document.querySelectorAll("ytm-reel-shelf-renderer").forEach((item) => {
-    item.remove();
-    console.log("Removed Shorts reel shelf from mobile");
-  });
+  document
+    .querySelectorAll(
+      "ytm-reel-shelf-renderer:not([data-processed-reel-shelf])",
+    )
+    .forEach((item) => {
+      item.style.display = "none";
+      item.setAttribute("data-processed-reel-shelf", "true");
+      console.log("Hid Shorts reel shelf from mobile");
+    });
 }
 
 function removeMobileRichSectionShorts() {
-  // Remove ytm-rich-section-renderer that contains Shorts
-  document.querySelectorAll("ytm-rich-section-renderer").forEach((section) => {
-    const shortsHeader = section.querySelector(
-      'yt-shelf-header-layout .shelf-header-layout-wiz__title [role="text"]'
-    );
-    if (shortsHeader && shortsHeader.textContent.trim() === "Shorts") {
-      section.remove();
-      console.log("Removed mobile rich section Shorts");
-    }
-  });
+  // Hide ytm-rich-section-renderer that contains Shorts
+  document
+    .querySelectorAll(
+      "ytm-rich-section-renderer:not([data-processed-rich-section])",
+    )
+    .forEach((section) => {
+      const shortsHeader = section.querySelector(
+        'yt-shelf-header-layout .shelf-header-layout-wiz__title [role="text"]',
+      );
+      if (shortsHeader && shortsHeader.textContent.trim() === "Shorts") {
+        section.style.display = "none";
+        section.setAttribute("data-processed-rich-section", "true");
+        console.log("Hid mobile rich section Shorts");
+      }
+    });
 }
 
 function removeGridShelfShorts() {
-  document.querySelectorAll('grid-shelf-view-model').forEach((shelf) => {
-    const shortsHeader = shelf.querySelector('span.yt-core-attributed-string[role="text"]');
-    if (shortsHeader && shortsHeader.textContent.trim() === 'Shorts') {
-        const headerContainer = shortsHeader.closest('yt-shelf-header-layout');
+  document
+    .querySelectorAll("grid-shelf-view-model:not([data-processed-grid-shelf])")
+    .forEach((shelf) => {
+      const shortsHeader = shelf.querySelector(
+        'span.yt-core-attributed-string[role="text"]',
+      );
+      if (shortsHeader && shortsHeader.textContent.trim() === "Shorts") {
+        const headerContainer = shortsHeader.closest("yt-shelf-header-layout");
         if (headerContainer) {
-            shelf.remove();
-            console.log('Removed grid shelf with Shorts');
+          shelf.style.display = "none";
+          shelf.setAttribute("data-processed-grid-shelf", "true");
+          console.log("Hid grid shelf with Shorts");
         }
-    }
-  });
+      }
+    });
 }
 
 function removeMobileSectionHeaderShorts() {
-  // Remove standalone yt-section-header-view-model with Shorts title
+  // Hide standalone yt-section-header-view-model with Shorts title
   document
-    .querySelectorAll("yt-section-header-view-model")
+    .querySelectorAll(
+      "yt-section-header-view-model:not([data-processed-section-header])",
+    )
     .forEach((header) => {
       const shortsTitle = header.querySelector(
-        'yt-shelf-header-layout .shelf-header-layout-wiz__title [role="text"]'
+        'yt-shelf-header-layout .shelf-header-layout-wiz__title [role="text"]',
       );
       if (shortsTitle && shortsTitle.textContent.trim() === "Shorts") {
-        header.remove();
-        console.log("Removed mobile section header Shorts");
+        header.style.display = "none";
+        header.setAttribute("data-processed-section-header", "true");
+        console.log("Hid mobile section header Shorts");
       }
     });
 }
 
 function removeMobileShortsLockups() {
-  // Remove individual ytm-shorts-lockup-view-model elements
+  // Hide individual ytm-shorts-lockup-view-model elements
   document
-    .querySelectorAll("ytm-shorts-lockup-view-model")
+    .querySelectorAll(
+      "ytm-shorts-lockup-view-model:not([data-processed-lockup])",
+    )
     .forEach((lockup) => {
-      lockup.remove();
-      console.log("Removed mobile shorts lockup");
+      lockup.style.display = "none";
+      lockup.setAttribute("data-processed-lockup", "true");
+      console.log("Hid mobile shorts lockup");
     });
 }
 
@@ -138,7 +164,7 @@ function hideYouTubeShortsElements() {
   // Hide Shorts videos in the feed
   document
     .querySelectorAll(
-      "ytd-rich-grid-slim-media[is-short]:not([data-processed])"
+      "ytd-rich-grid-slim-media[is-short]:not([data-processed])",
     )
     .forEach((video) => {
       video.style.display = "none";
@@ -170,7 +196,7 @@ function hideYouTubeShortsElements() {
 
 function removeShortsHeader() {
   const shortsHeaderContainer = document.getElementById(
-    "rich-shelf-header-container"
+    "rich-shelf-header-container",
   );
   if (shortsHeaderContainer) {
     shortsHeaderContainer.parentElement.remove();
