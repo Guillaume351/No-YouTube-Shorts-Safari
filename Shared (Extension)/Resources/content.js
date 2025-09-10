@@ -38,6 +38,29 @@ function removeShortsFromSearchResults() {
   });
 }
 
+function removeMobileShortsFromSearchResults() {
+  // Hide Shorts results on m.youtube.com search results
+  document
+    .querySelectorAll(
+      "ytm-video-with-context-renderer:not([data-processed-mobile-search])",
+    )
+    .forEach((item) => {
+      const isShortByBadge = item.querySelector(
+        'ytm-thumbnail-overlay-time-status-renderer[data-style="SHORTS"]',
+      );
+      const isShortByClass = item.querySelector(
+        "ytm-media-item.big-shorts-singleton",
+      );
+      const isShortByLink = !!item.querySelector('a[href^="/shorts/"]');
+
+      if (isShortByBadge || isShortByClass || isShortByLink) {
+        item.style.display = "none";
+        item.setAttribute("data-processed-mobile-search", "true");
+        console.log("Hid mobile Shorts result from search");
+      }
+    });
+}
+
 function removeShortsSearchFilter() {
   document.querySelectorAll("yt-chip-cloud-chip-renderer").forEach((chip) => {
     const textElement = chip.querySelector("#text");
@@ -174,6 +197,7 @@ function hideYouTubeShortsElements() {
 
   // Hide Shorts from search results
   removeShortsFromSearchResults();
+  removeMobileShortsFromSearchResults();
 
   // Hide Shorts search filter
   removeShortsSearchFilter();
