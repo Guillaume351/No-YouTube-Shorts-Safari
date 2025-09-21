@@ -28,6 +28,68 @@ body {
     text-align: center;
 }
 
+.platform-ios,
+.platform-mac {
+    text-align: left;
+}
+
+.help-link {
+    display: block;
+    margin-top: 12px;
+}
+
+ol {
+    text-align: left;
+    margin: 12px 0 0;
+    padding-left: 24px;
+}
+
+[dir="rtl"] .platform-ios,
+[dir="rtl"] .platform-mac {
+    text-align: right;
+}
+
+[dir="rtl"] ol {
+    text-align: right;
+    padding-right: 24px;
+    padding-left: 0;
+}
+
+[dir="rtl"] .language-controls {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .language-controls label {
+    text-align: right;
+}
+
+[dir="rtl"] .language-controls select {
+    direction: rtl;
+}
+
+.language-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.language-controls label {
+    font-weight: 600;
+}
+
+.language-controls select {
+    font: inherit;
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.contact-button {
+    text-decoration: none;
+    color: inherit;
+}
+
 body:not(.platform-mac, .platform-ios) :is(.platform-mac, .platform-ios) {
     display: none;
 }
@@ -56,6 +118,11 @@ body.state-off :is(.state-on, .state-unknown) {
     display: none;
 }
 
-button {
+button,
+.contact-button {
     font-size: 1em;
+    padding: 10px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.05);
 }

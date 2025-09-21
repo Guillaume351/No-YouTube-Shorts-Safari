@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -13,31 +13,20 @@
 
 <body>
     <img src="../Icon.png" width="128" height="128" alt="No YouTube Shorts Icon">
-        <p class="platform-ios">
-            To enable No Shorts: Blocker for YouTube on your iPhone or iPad:<br>
-            1. Open the <b>Settings</b> app.<br>
-            2. Scroll down and select <b>Safari</b>.<br>
-            3. Tap <b>Extensions</b>.<br>
-            4. Find <b>No Shorts: Blocker for YouTube</b> and enable it.<br><br>
-            For more help, see <a href="https://support.apple.com/en-us/guide/iphone/iphab0432bf6/ios" target="_blank">Apple's guide to Safari extensions on iPhone and iPad</a>.
-        </p>
+    <div class="language-controls">
+        <label for="language-selector" data-i18n="languageLabel"></label>
+        <select id="language-selector"></select>
+    </div>
 
-        <p class="platform-mac state-unknown">
-            To enable No Shorts: Blocker for YouTube on your Mac:<br>
-            1. Open <b>Safari</b>.<br>
-            2. In the menu bar, go to <b>Safari &gt; Settings</b> (or <b>Preferences</b> on older versions).<br>
-            3. Select the <b>Extensions</b> tab.<br>
-            4. Check the box next to <b>No Shorts: Blocker for YouTube</b> to enable it.<br><br>
-            For full instructions, visit <a href="https://support.apple.com/fr-fr/102343#:~:text=Ouvrez%20Safari%20et%20choisissez%20Safari,aide%20de%20votre%20compte%20Apple." target="_blank">Apple's guide to Safari extensions on Mac</a>.
-        </p>
+    <div class="platform-ios" data-i18n="iosInstructions"></div>
+    <button id="open-ios-settings" class="platform-ios" data-i18n="iosButton"></button>
 
-        <p class="platform-mac state-on">
-            No YouTube Shorts is currently enabled. You can turn it off in Safari → Settings → Extensions.
-        </p>
+    <div class="platform-mac state-unknown" data-i18n="macUnknown"></div>
+    <div class="platform-mac state-on" data-i18n="macOn"></div>
+    <div class="platform-mac state-off" data-i18n="macOff"></div>
+    <button id="open-mac-preferences" class="platform-mac" data-i18n="macButton"></button>
 
-        <p class="platform-mac state-off">
-            No YouTube Shorts is currently disabled. You can turn it on in Safari → Settings → Extensions.
-        </p>
+    <a id="contact-developer" class="contact-button" href="mailto:guillaume.claverie@mail.com" data-i18n="contactButton"></a>
 </body>
 
 </html>
