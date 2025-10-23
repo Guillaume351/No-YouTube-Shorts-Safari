@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; media-src 'self' https://nextcloud.d1.guillaumeclaverie.com">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
@@ -12,21 +12,32 @@
 </head>
 
 <body>
-    <img src="../Icon.png" width="128" height="128" alt="No YouTube Shorts Icon">
-    <div class="language-controls">
-        <label for="language-selector" data-i18n="languageLabel"></label>
-        <select id="language-selector"></select>
+    <div class="scroll-wrapper">
+        <main class="page-content">
+            <img src="../Icon.png" width="128" height="128" alt="No YouTube Shorts Icon">
+            <div class="language-controls">
+                <label for="language-selector" data-i18n="languageLabel"></label>
+                <select id="language-selector"></select>
+            </div>
+
+            <div class="platform-ios" data-i18n="iosInstructions"></div>
+            <div class="platform-ios video-guide">
+                <p class="video-title" data-i18n="iosVideoLabel"></p>
+                <video class="video-player" controls playsinline webkit-playsinline preload="metadata"
+                    controlslist="nodownload"
+                    src="https://nextcloud.d1.guillaumeclaverie.com/s/xWa7SHes2orZDsa/download?path=%2F&amp;files=How%20to%20install.mp4"></video>
+            </div>
+            <button id="open-ios-settings" class="platform-ios" data-i18n="iosButton"></button>
+
+            <div class="platform-mac state-unknown" data-i18n="macUnknown"></div>
+            <div class="platform-mac state-on" data-i18n="macOn"></div>
+            <div class="platform-mac state-off" data-i18n="macOff"></div>
+            <button id="open-mac-preferences" class="platform-mac" data-i18n="macButton"></button>
+
+            <a id="contact-developer" class="contact-button" href="mailto:guillaume.claverie@mail.com"
+                data-i18n="contactButton"></a>
+        </main>
     </div>
-
-    <div class="platform-ios" data-i18n="iosInstructions"></div>
-    <button id="open-ios-settings" class="platform-ios" data-i18n="iosButton"></button>
-
-    <div class="platform-mac state-unknown" data-i18n="macUnknown"></div>
-    <div class="platform-mac state-on" data-i18n="macOn"></div>
-    <div class="platform-mac state-off" data-i18n="macOff"></div>
-    <button id="open-mac-preferences" class="platform-mac" data-i18n="macButton"></button>
-
-    <a id="contact-developer" class="contact-button" href="mailto:guillaume.claverie@mail.com" data-i18n="contactButton"></a>
 </body>
 
 </html>

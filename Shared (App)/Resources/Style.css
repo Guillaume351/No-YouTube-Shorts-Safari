@@ -15,17 +15,45 @@ html {
 }
 
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
-    gap: var(--spacing);
-    margin: 0 calc(var(--spacing) * 2);
+    margin: 0;
     height: 100%;
-
+    width: 100%;
     font: -apple-system-short-body;
     text-align: center;
+}
+
+.scroll-wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: var(--spacing) 0 calc(var(--spacing) * 2);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+}
+
+.page-content {
+    width: 100%;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing);
+    padding: 0 calc(var(--spacing) * 2);
+    box-sizing: border-box;
+}
+
+.page-content > img {
+    align-self: center;
+}
+
+.page-content > :is(.platform-ios, .platform-mac, .video-guide, #open-ios-settings, #open-mac-preferences, #contact-developer) {
+    align-self: stretch;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .platform-ios,
@@ -125,4 +153,30 @@ button,
     border-radius: 12px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     background: rgba(0, 0, 0, 0.05);
+}
+
+.video-guide {
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    text-align: left;
+}
+
+[dir="rtl"] .video-guide {
+    text-align: right;
+}
+
+.video-title {
+    font-weight: 600;
+    margin: 0;
+}
+
+.video-player {
+    width: 100%;
+    border-radius: 16px;
+    background: #000;
+    aspect-ratio: 16 / 9;
 }

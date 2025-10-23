@@ -17,6 +17,7 @@ const translations = {
       </ol>
       <span class="help-link">For more help, see <a href="https://support.apple.com/en-us/guide/iphone/iphab0432bf6/ios" target="_blank" rel="noreferrer noopener">Apple's guide to Safari extensions on iPhone and iPad</a>.</span>
     `,
+    iosVideoLabel: "Watch the step-by-step setup video:",
     iosButton: "Open Safari Settings",
     macUnknown: {
       preferences: `
@@ -71,6 +72,7 @@ const translations = {
       </ol>
       <span class="help-link">Besoin d’aide&nbsp;? Consultez <a href="https://support.apple.com/fr-fr/guide/iphone/iphab0432bf6/ios" target="_blank" rel="noreferrer noopener">le guide Apple sur les extensions Safari pour iPhone et iPad</a>.</span>
     `,
+    iosVideoLabel: "Regardez la vidéo d’installation pas à pas&nbsp;:",
     iosButton: "Ouvrir les réglages de Safari",
     macUnknown: {
       preferences: `
@@ -125,6 +127,7 @@ const translations = {
       </ol>
       <span class="help-link">Si necesitas ayuda, visita <a href="https://support.apple.com/es-es/guide/iphone/iphab0432bf6/ios" target="_blank" rel="noreferrer noopener">la guía de Apple sobre las extensiones de Safari en iPhone y iPad</a>.</span>
     `,
+    iosVideoLabel: "Mira el vídeo de configuración paso a paso:",
     iosButton: "Abrir los ajustes de Safari",
     macUnknown: {
       preferences: `
@@ -179,6 +182,7 @@ const translations = {
       </ol>
       <span class="help-link">Weitere Hilfe findest du im <a href="https://support.apple.com/de-de/guide/iphone/iphab0432bf6/ios" target="_blank" rel="noreferrer noopener">Apple-Leitfaden zu Safari-Erweiterungen auf iPhone und iPad</a>.</span>
     `,
+    iosVideoLabel: "Sieh dir das Schritt-für-Schritt-Video zur Einrichtung an:",
     iosButton: "Safari-Einstellungen öffnen",
     macUnknown: {
       preferences: `
@@ -233,6 +237,7 @@ const translations = {
       </ol>
       <span class="help-link">Подробнее см. в <a href="https://support.apple.com/ru-ru/guide/iphone/iphab0432bf6/ios" target="_blank" rel="noreferrer noopener">руководстве Apple по расширениям Safari на iPhone и iPad</a>.</span>
     `,
+    iosVideoLabel: "Посмотрите пошаговое видео по настройке:",
     iosButton: "Открыть настройки Safari",
     macUnknown: {
       preferences: `
@@ -287,6 +292,7 @@ const translations = {
       </ol>
       <span class="help-link">لمزيد من المساعدة، يمكنك مراجعة <a href="https://support.apple.com/ar-sa/guide/iphone/iphab0432bf6/ios" target="_blank" rel="noreferrer noopener">دليل Apple حول إضافات Safari على iPhone وiPad</a>.</span>
     `,
+    iosVideoLabel: "شاهد فيديو شرح الإعداد خطوة بخطوة:",
     iosButton: "فتح إعدادات Safari",
     macUnknown: {
       preferences: `
