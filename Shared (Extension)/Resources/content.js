@@ -1,22 +1,42 @@
 function removeShortsMenuItem() {
-  const shortsMenuItem = document.querySelector('a[title="Shorts"]');
-  if (shortsMenuItem) {
-    const grandParent = shortsMenuItem.closest("ytd-guide-entry-renderer");
-    if (grandParent) {
-      grandParent.remove();
+  document.querySelectorAll("ytd-guide-entry-renderer").forEach((entry) => {
+    const link = entry.querySelector("a.yt-simple-endpoint");
+    if (!link) {
+      return;
+    }
+
+    const href = link.getAttribute("href") || "";
+    const linkTitle = (link.getAttribute("title") || "").trim().toLowerCase();
+    const labelText =
+      (entry.querySelector(".title")?.textContent || "").trim().toLowerCase();
+
+    const isShorts =
+      href.includes("/shorts") || linkTitle === "shorts" || labelText === "shorts";
+
+    if (isShorts) {
+      entry.remove();
       console.log("Removed Shorts menu item");
     }
-  }
+  });
 }
 
 function removeShortsMiniMenuItem() {
-  const shortsMiniMenuItem = document.querySelector(
-    'ytd-mini-guide-entry-renderer[aria-label="Shorts"]',
-  );
-  if (shortsMiniMenuItem) {
-    shortsMiniMenuItem.remove();
-    console.log("Removed Shorts mini menu item");
-  }
+  document
+    .querySelectorAll("ytd-mini-guide-entry-renderer")
+    .forEach((entry) => {
+      if (entry.dataset.processedMiniShort === "true") {
+        return;
+      }
+
+      const shortsLink = entry.querySelector('a[href*="/shorts"]');
+
+      if (shortsLink) {
+        entry.remove();
+        console.log("Removed Shorts mini menu item");
+      } else {
+        entry.dataset.processedMiniShort = "true";
+      }
+    });
 }
 
 function removeShortsReelShelf() {
@@ -63,10 +83,28 @@ function removeMobileShortsFromSearchResults() {
 
 function removeShortsSearchFilter() {
   document.querySelectorAll("yt-chip-cloud-chip-renderer").forEach((chip) => {
+    if (chip.dataset.processedShortsFilter === "true") {
+      return;
+    }
+
     const textElement = chip.querySelector("#text");
-    if (textElement && textElement.title === "Shorts") {
+    const chipContent = chip.querySelector(".ytChipShapeChip");
+
+    const textLabel = (textElement?.title || textElement?.textContent || "")
+      .trim()
+      .toLowerCase();
+    const chipLabel = (chipContent?.textContent || "").trim().toLowerCase();
+    const ariaLabel = (chip.getAttribute("aria-label") || "").trim().toLowerCase();
+
+    if (
+      textLabel.includes("shorts") ||
+      chipLabel.includes("shorts") ||
+      ariaLabel.includes("shorts")
+    ) {
       chip.remove();
       console.log("Removed Shorts search filter");
+    } else {
+      chip.dataset.processedShortsFilter = "true";
     }
   });
 }
@@ -171,18 +209,22 @@ function hideYouTubeShortsElements() {
   console.log("Hiding");
 
   // Hide the Shorts menu in the sidebar
-  document
-    .querySelectorAll("ytd-guide-renderer:not([data-processed])")
-    .forEach((item) => {
-      if (item.querySelector('a[title="Shorts"]')) {
-        const grandParent = item.closest("ytd-guide-entry-renderer");
-        if (grandParent) {
-          grandParent.style.display = "none";
-          grandParent.setAttribute("data-processed", "true");
-          console.log("Removed Shorts from sidebar");
-        }
-      }
-    });
+  document.querySelectorAll("ytd-guide-entry-renderer").forEach((entry) => {
+    const link = entry.querySelector("a.yt-simple-endpoint");
+    if (!link) {
+      return;
+    }
+
+    const href = link.getAttribute("href") || "";
+    const linkTitle = (link.getAttribute("title") || "").trim().toLowerCase();
+    const labelText =
+      (entry.querySelector(".title")?.textContent || "").trim().toLowerCase();
+
+    if (href.includes("/shorts") || linkTitle === "shorts" || labelText === "shorts") {
+      entry.remove();
+      console.log("Removed Shorts from sidebar");
+    }
+  });
 
   // Hide Shorts videos in the feed
   document
