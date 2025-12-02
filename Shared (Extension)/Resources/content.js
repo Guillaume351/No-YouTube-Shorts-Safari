@@ -56,7 +56,8 @@ function registerSettingsListener() {
 
     if (Object.prototype.hasOwnProperty.call(changes, "hideRecommendations")) {
       currentSettings.hideRecommendations =
-        changes.hideRecommendations.newValue ?? DEFAULT_SETTINGS.hideRecommendations;
+        changes.hideRecommendations.newValue ??
+        DEFAULT_SETTINGS.hideRecommendations;
       shouldReprocess = true;
     }
 
@@ -81,16 +82,20 @@ function hideElement(element, reason) {
 }
 
 function restoreElements(selector, reason) {
-  document.querySelectorAll(`${selector}[data-nyts-hidden="${reason}"]`).forEach((el) => {
-    el.style.display = "";
-    delete el.dataset.nytsHidden;
-  });
+  document
+    .querySelectorAll(`${selector}[data-nyts-hidden="${reason}"]`)
+    .forEach((el) => {
+      el.style.display = "";
+      delete el.dataset.nytsHidden;
+    });
 }
 
 function injectHomePlaceholder() {
   const container =
     document.querySelector("ytd-two-column-browse-results-renderer #primary") ||
-    document.querySelector("ytd-browse");
+    document.querySelector("ytd-browse") ||
+    document.querySelector("ytm-browse") ||
+    document.querySelector("ytm-rich-grid-renderer");
 
   if (!container || container.querySelector("#nyts-placeholder")) {
     return;
@@ -110,14 +115,14 @@ function injectHomePlaceholder() {
 
   placeholder.innerHTML = `
     <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <rect x="6" y="14" width="60" height="44" rx="8" stroke="#1976d2" stroke-width="4" fill="rgba(25,118,210,0.04)"/>
-      <path d="M30 28L46 36L30 44V28Z" fill="#1976d2"/>
-      <path d="M12 20L60 20" stroke="#1976d2" stroke-width="3" stroke-linecap="round"/>
+      <rect x="6" y="14" width="60" height="44" rx="8" stroke="#353738ff" stroke-width="4" fill="rgba(25,118,210,0.04)"/>
+      <path d="M30 28L46 36L30 44V28Z" fill="#353738ff"/>
+      <path d="M12 20L60 20" stroke="#353738ff" stroke-width="3" stroke-linecap="round"/>
     </svg>
     <div style="max-width: 520px;">
-      <div style="font-weight: 600; font-size: 18px; color: #202020;">Recommandations masquées</div>
+      <div style="font-weight: 600; font-size: 18px; color: #202020;">Hidden</div>
       <div style="margin-top: 6px; font-size: 14px; line-height: 1.5;">
-        Cette page est épurée par No YouTube Shorts. Désactivez “Hide recommendations” dans l’extension pour les revoir.
+        No Shorts: Blocker for YouTube
       </div>
     </div>
   `;
@@ -141,11 +146,14 @@ function removeShortsMenuItem() {
 
     const href = link.getAttribute("href") || "";
     const linkTitle = (link.getAttribute("title") || "").trim().toLowerCase();
-    const labelText =
-      (entry.querySelector(".title")?.textContent || "").trim().toLowerCase();
+    const labelText = (entry.querySelector(".title")?.textContent || "")
+      .trim()
+      .toLowerCase();
 
     const isShorts =
-      href.includes("/shorts") || linkTitle === "shorts" || labelText === "shorts";
+      href.includes("/shorts") ||
+      linkTitle === "shorts" ||
+      labelText === "shorts";
 
     if (isShorts) {
       entry.remove();
@@ -183,7 +191,7 @@ function removeShortsReelShelf() {
 function removeShortsFromSearchResults() {
   document.querySelectorAll("ytd-video-renderer").forEach((video) => {
     const badge = video.querySelector(
-      'ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]',
+      'ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]'
     );
     if (badge) {
       video.remove();
@@ -196,14 +204,14 @@ function removeMobileShortsFromSearchResults() {
   // Hide Shorts results on m.youtube.com search results
   document
     .querySelectorAll(
-      "ytm-video-with-context-renderer:not([data-processed-mobile-search])",
+      "ytm-video-with-context-renderer:not([data-processed-mobile-search])"
     )
     .forEach((item) => {
       const isShortByBadge = item.querySelector(
-        'ytm-thumbnail-overlay-time-status-renderer[data-style="SHORTS"]',
+        'ytm-thumbnail-overlay-time-status-renderer[data-style="SHORTS"]'
       );
       const isShortByClass = item.querySelector(
-        "ytm-media-item.big-shorts-singleton",
+        "ytm-media-item.big-shorts-singleton"
       );
       const isShortByLink = !!item.querySelector('a[href^="/shorts/"]');
 
@@ -228,7 +236,9 @@ function removeShortsSearchFilter() {
       .trim()
       .toLowerCase();
     const chipLabel = (chipContent?.textContent || "").trim().toLowerCase();
-    const ariaLabel = (chip.getAttribute("aria-label") || "").trim().toLowerCase();
+    const ariaLabel = (chip.getAttribute("aria-label") || "")
+      .trim()
+      .toLowerCase();
 
     if (
       textLabel.includes("shorts") ||
@@ -246,11 +256,11 @@ function removeShortsSearchFilter() {
 function removeMobileShortsMenuItem() {
   document
     .querySelectorAll(
-      "ytm-pivot-bar-item-renderer:not([data-processed-menu-item])",
+      "ytm-pivot-bar-item-renderer:not([data-processed-menu-item])"
     )
     .forEach((item) => {
       const titleElement = item.querySelector(
-        ".pivot-bar-item-title.pivot-shorts",
+        ".pivot-bar-item-title.pivot-shorts"
       );
       if (titleElement && titleElement.textContent.trim() === "Shorts") {
         item.style.display = "none";
@@ -263,7 +273,7 @@ function removeMobileShortsMenuItem() {
 function removeMobileReelShelf() {
   document
     .querySelectorAll(
-      "ytm-reel-shelf-renderer:not([data-processed-reel-shelf])",
+      "ytm-reel-shelf-renderer:not([data-processed-reel-shelf])"
     )
     .forEach((item) => {
       item.style.display = "none";
@@ -276,11 +286,11 @@ function removeMobileRichSectionShorts() {
   // Hide ytm-rich-section-renderer that contains Shorts
   document
     .querySelectorAll(
-      "ytm-rich-section-renderer:not([data-processed-rich-section])",
+      "ytm-rich-section-renderer:not([data-processed-rich-section])"
     )
     .forEach((section) => {
       const shortsHeader = section.querySelector(
-        'yt-shelf-header-layout .shelf-header-layout-wiz__title [role="text"]',
+        'yt-shelf-header-layout .shelf-header-layout-wiz__title [role="text"]'
       );
       if (shortsHeader && shortsHeader.textContent.trim() === "Shorts") {
         section.style.display = "none";
@@ -295,7 +305,7 @@ function removeGridShelfShorts() {
     .querySelectorAll("grid-shelf-view-model:not([data-processed-grid-shelf])")
     .forEach((shelf) => {
       const shortsHeader = shelf.querySelector(
-        'span.yt-core-attributed-string[role="text"]',
+        'span.yt-core-attributed-string[role="text"]'
       );
       if (shortsHeader && shortsHeader.textContent.trim() === "Shorts") {
         const headerContainer = shortsHeader.closest("yt-shelf-header-layout");
@@ -312,11 +322,11 @@ function removeMobileSectionHeaderShorts() {
   // Hide standalone yt-section-header-view-model with Shorts title
   document
     .querySelectorAll(
-      "yt-section-header-view-model:not([data-processed-section-header])",
+      "yt-section-header-view-model:not([data-processed-section-header])"
     )
     .forEach((header) => {
       const shortsTitle = header.querySelector(
-        'yt-shelf-header-layout .shelf-header-layout-wiz__title [role="text"]',
+        'yt-shelf-header-layout .shelf-header-layout-wiz__title [role="text"]'
       );
       if (shortsTitle && shortsTitle.textContent.trim() === "Shorts") {
         header.style.display = "none";
@@ -330,7 +340,7 @@ function removeMobileShortsLockups() {
   // Hide individual ytm-shorts-lockup-view-model elements
   document
     .querySelectorAll(
-      "ytm-shorts-lockup-view-model:not([data-processed-lockup])",
+      "ytm-shorts-lockup-view-model:not([data-processed-lockup])"
     )
     .forEach((lockup) => {
       lockup.style.display = "none";
@@ -355,10 +365,15 @@ function hideYouTubeShortsElements() {
 
     const href = link.getAttribute("href") || "";
     const linkTitle = (link.getAttribute("title") || "").trim().toLowerCase();
-    const labelText =
-      (entry.querySelector(".title")?.textContent || "").trim().toLowerCase();
+    const labelText = (entry.querySelector(".title")?.textContent || "")
+      .trim()
+      .toLowerCase();
 
-    if (href.includes("/shorts") || linkTitle === "shorts" || labelText === "shorts") {
+    if (
+      href.includes("/shorts") ||
+      linkTitle === "shorts" ||
+      labelText === "shorts"
+    ) {
       entry.remove();
       console.log("Removed Shorts from sidebar");
     }
@@ -367,7 +382,7 @@ function hideYouTubeShortsElements() {
   // Hide Shorts videos in the feed
   document
     .querySelectorAll(
-      "ytd-rich-grid-slim-media[is-short]:not([data-processed])",
+      "ytd-rich-grid-slim-media[is-short]:not([data-processed])"
     )
     .forEach((video) => {
       video.style.display = "none";
@@ -400,7 +415,7 @@ function hideYouTubeShortsElements() {
 
 function removeShortsHeader() {
   const shortsHeaderContainer = document.getElementById(
-    "rich-shelf-header-container",
+    "rich-shelf-header-container"
   );
   if (shortsHeaderContainer) {
     shortsHeaderContainer.parentElement.remove();
@@ -434,6 +449,12 @@ function hideHomeRecommendations() {
     "ytd-two-column-browse-results-renderer #primary",
     "ytd-ghost-grid-renderer",
     "ytd-continuation-item-renderer",
+    // Mobile structures
+    "ytm-rich-grid-renderer",
+    "ytm-rich-item-renderer",
+    "ytm-rich-section-renderer",
+    "ytm-video-with-context-renderer",
+    "ytm-continuation-item-renderer",
   ].forEach((selector) => {
     homeContainer.querySelectorAll(selector).forEach((node) => {
       hideElement(node, "home-recommendations");
@@ -453,6 +474,12 @@ function restoreHomeRecommendations() {
     "ytd-two-column-browse-results-renderer #primary",
     "ytd-ghost-grid-renderer",
     "ytd-continuation-item-renderer",
+    // Mobile structures
+    "ytm-rich-grid-renderer",
+    "ytm-rich-item-renderer",
+    "ytm-rich-section-renderer",
+    "ytm-video-with-context-renderer",
+    "ytm-continuation-item-renderer",
   ].forEach((selector) => restoreElements(selector, "home-recommendations"));
 
   removeHomePlaceholder();
@@ -468,6 +495,7 @@ function isWatchPage() {
 
 function hideWatchRecommendations() {
   if (!isWatchPage()) {
+    removeHomePlaceholder();
     return;
   }
 
@@ -476,6 +504,10 @@ function hideWatchRecommendations() {
     "ytd-watch-next-secondary-results-renderer",
     "#related",
     "ytd-compact-autoplay-renderer",
+    // Mobile watch page
+    "ytm-item-section-renderer[section-identifier='related-items']",
+    "ytm-video-with-context-renderer.item.adaptive-feed-item",
+    "ytm-related-chip-cloud-renderer",
   ];
 
   selectors.forEach((selector) => {
@@ -486,9 +518,17 @@ function hideWatchRecommendations() {
 }
 
 function restoreWatchRecommendations() {
-  ["#secondary", "ytd-watch-next-secondary-results-renderer", "#related", "ytd-compact-autoplay-renderer"].forEach(
-    (selector) => restoreElements(selector, "watch-recommendations"),
-  );
+  [
+    "#secondary",
+    "ytd-watch-next-secondary-results-renderer",
+    "#related",
+    "ytd-compact-autoplay-renderer",
+    // Mobile watch page
+    "ytm-single-column-watch-next-results-renderer",
+    "ytm-item-section-renderer[section-identifier='related-items']",
+    "ytm-video-with-context-renderer.item.adaptive-feed-item",
+    "ytm-related-chip-cloud-renderer",
+  ].forEach((selector) => restoreElements(selector, "watch-recommendations"));
 }
 
 function hideCommentsSection() {
@@ -498,6 +538,11 @@ function hideCommentsSection() {
     "ytd-item-section-renderer#sections",
     "ytm-comment-section-renderer",
     "ytd-continuation-item-renderer #ghost-comment-section",
+    // Mobile watch comments
+    "ytm-video-metadata-carousel-view-model",
+    "ytm-comment-input-box-carousel-item-view-model",
+    "ytm-item-section-renderer.scwnr-content",
+    "ytm-item-section-renderer[section-identifier='comments']",
   ];
 
   selectors.forEach((selector) => {
@@ -508,9 +553,16 @@ function hideCommentsSection() {
 }
 
 function restoreComments() {
-  ["ytd-comments", "#comments", "ytd-item-section-renderer#sections", "ytm-comment-section-renderer"].forEach(
-    (selector) => restoreElements(selector, "comments"),
-  );
+  [
+    "ytd-comments",
+    "#comments",
+    "ytd-item-section-renderer#sections",
+    "ytm-comment-section-renderer",
+    "ytm-video-metadata-carousel-view-model",
+    "ytm-comment-input-box-carousel-item-view-model",
+    "ytm-item-section-renderer.scwnr-content",
+    "ytm-item-section-renderer[section-identifier='comments']",
+  ].forEach((selector) => restoreElements(selector, "comments"));
 }
 
 function debounce(func, wait) {
@@ -528,7 +580,11 @@ function processPage() {
   }
 
   if (currentSettings.hideRecommendations) {
-    hideHomeRecommendations();
+    if (isHomePage()) {
+      hideHomeRecommendations();
+    } else {
+      removeHomePlaceholder();
+    }
     hideWatchRecommendations();
   } else {
     restoreHomeRecommendations();
