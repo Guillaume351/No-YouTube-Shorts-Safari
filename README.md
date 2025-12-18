@@ -45,3 +45,11 @@ Contributions are welcome! If you have suggestions for improvements or find any 
 ## Contact
 
 For any questions or support, please open an issue on the [GitHub repository](https://github.com/Guillaume351/No-YouTube-Shorts).
+
+## License
+
+This project is licensed under the PolyForm Noncommercial License 1.0.0 (non-commercial use only). See `LICENSE`.
+
+In particular, redistributing/publishing this app (or a substantially similar fork) on the Apple App Store (or any other app marketplace) is not permitted.
+
+The name and branding are also protected—see `TRADEMARKS.md`.
