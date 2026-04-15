@@ -1,12 +1,40 @@
 const extensionAPI = typeof browser !== "undefined" ? browser : chrome;
 const DEFAULT_SETTINGS = {
   hideShorts: true,
-  hideRecommendations: false,
+  hideHomeFeed: false,
+  hideWatchRecommendations: false,
   hideComments: false,
 };
+const LEGACY_HIDE_RECOMMENDATIONS_KEY = "hideRecommendations";
 
 function getStorageArea() {
   return extensionAPI?.storage?.sync || extensionAPI?.storage?.local || null;
+}
+
+function normalizeStoredSettings(items = {}) {
+  const legacyRecommendationsSetting =
+    typeof items[LEGACY_HIDE_RECOMMENDATIONS_KEY] === "boolean"
+      ? items[LEGACY_HIDE_RECOMMENDATIONS_KEY]
+      : null;
+
+  return {
+    hideShorts:
+      typeof items.hideShorts === "boolean"
+        ? items.hideShorts
+        : DEFAULT_SETTINGS.hideShorts,
+    hideHomeFeed:
+      typeof items.hideHomeFeed === "boolean"
+        ? items.hideHomeFeed
+        : legacyRecommendationsSetting ?? DEFAULT_SETTINGS.hideHomeFeed,
+    hideWatchRecommendations:
+      typeof items.hideWatchRecommendations === "boolean"
+        ? items.hideWatchRecommendations
+        : legacyRecommendationsSetting ?? DEFAULT_SETTINGS.hideWatchRecommendations,
+    hideComments:
+      typeof items.hideComments === "boolean"
+        ? items.hideComments
+        : DEFAULT_SETTINGS.hideComments,
+  };
 }
 
 function getStoredSettings() {
@@ -18,17 +46,17 @@ function getStoredSettings() {
     }
 
     try {
-      const result = storageArea.get(DEFAULT_SETTINGS, (items) => {
+      const result = storageArea.get(null, (items) => {
         if (extensionAPI.runtime?.lastError) {
           resolve({ ...DEFAULT_SETTINGS });
           return;
         }
-        resolve({ ...DEFAULT_SETTINGS, ...items });
+        resolve(normalizeStoredSettings(items));
       });
 
       if (result && typeof result.then === "function") {
         result
-          .then((items) => resolve({ ...DEFAULT_SETTINGS, ...items }))
+          .then((items) => resolve(normalizeStoredSettings(items)))
           .catch(() => resolve({ ...DEFAULT_SETTINGS }));
       }
     } catch (_err) {
@@ -73,6 +101,11 @@ function wireToggle(id, key, settings) {
 document.addEventListener("DOMContentLoaded", async () => {
   const settings = await getStoredSettings();
   wireToggle("hide-shorts", "hideShorts", settings);
-  wireToggle("hide-recommendations", "hideRecommendations", settings);
+  wireToggle("hide-home-feed", "hideHomeFeed", settings);
+  wireToggle(
+    "hide-watch-recommendations",
+    "hideWatchRecommendations",
+    settings
+  );
   wireToggle("hide-comments", "hideComments", settings);
 });

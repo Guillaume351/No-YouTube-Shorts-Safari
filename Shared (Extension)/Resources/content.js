@@ -1,7 +1,8 @@
 const extensionAPI = typeof browser !== "undefined" ? browser : chrome;
 const DEFAULT_SETTINGS = {
   hideShorts: true,
-  hideRecommendations: false,
+  hideHomeFeed: false,
+  hideWatchRecommendations: false,
   hideComments: false,
 };
 let currentSettings = { ...DEFAULT_SETTINGS };
@@ -9,9 +10,46 @@ let currentSettings = { ...DEFAULT_SETTINGS };
 const CRITICAL_HIDE_STYLE_ID = "nyts-critical-hide-style";
 const NYTS_NAV_HOOK_INSTALLED = "__nytsNavHookInstalled";
 const NYTS_LAST_URL = "__nytsLastUrl";
+const LEGACY_HIDE_RECOMMENDATIONS_KEY = "hideRecommendations";
+const SUBSCRIPTIONS_FEED_PATH = "/feed/subscriptions";
+const HOME_NAV_LABELS = new Set([
+  "home",
+  "accueil",
+  "inicio",
+  "inizio",
+  "startseite",
+  "домой",
+  "الرئيسية",
+]);
 
 function getStorageArea() {
   return extensionAPI?.storage?.sync || extensionAPI?.storage?.local || null;
+}
+
+function normalizeStoredSettings(items = {}) {
+  const legacyRecommendationsSetting =
+    typeof items[LEGACY_HIDE_RECOMMENDATIONS_KEY] === "boolean"
+      ? items[LEGACY_HIDE_RECOMMENDATIONS_KEY]
+      : null;
+
+  return {
+    hideShorts:
+      typeof items.hideShorts === "boolean"
+        ? items.hideShorts
+        : DEFAULT_SETTINGS.hideShorts,
+    hideHomeFeed:
+      typeof items.hideHomeFeed === "boolean"
+        ? items.hideHomeFeed
+        : legacyRecommendationsSetting ?? DEFAULT_SETTINGS.hideHomeFeed,
+    hideWatchRecommendations:
+      typeof items.hideWatchRecommendations === "boolean"
+        ? items.hideWatchRecommendations
+        : legacyRecommendationsSetting ?? DEFAULT_SETTINGS.hideWatchRecommendations,
+    hideComments:
+      typeof items.hideComments === "boolean"
+        ? items.hideComments
+        : DEFAULT_SETTINGS.hideComments,
+  };
 }
 
 function injectCriticalStyles() {
@@ -119,17 +157,17 @@ function getStoredSettings() {
     }
 
     try {
-      const result = storageArea.get(DEFAULT_SETTINGS, (items) => {
+      const result = storageArea.get(null, (items) => {
         if (extensionAPI.runtime?.lastError) {
           resolve({ ...DEFAULT_SETTINGS });
           return;
         }
-        resolve({ ...DEFAULT_SETTINGS, ...items });
+        resolve(normalizeStoredSettings(items));
       });
 
       if (result && typeof result.then === "function") {
         result
-          .then((items) => resolve({ ...DEFAULT_SETTINGS, ...items }))
+          .then((items) => resolve(normalizeStoredSettings(items)))
           .catch(() => resolve({ ...DEFAULT_SETTINGS }));
       }
     } catch (_err) {
@@ -147,6 +185,18 @@ function registerSettingsListener() {
     if (area && area !== "sync" && area !== "local") return;
 
     let shouldReprocess = false;
+    const hasHomeFeedChange = Object.prototype.hasOwnProperty.call(
+      changes,
+      "hideHomeFeed"
+    );
+    const hasWatchRecommendationsChange = Object.prototype.hasOwnProperty.call(
+      changes,
+      "hideWatchRecommendations"
+    );
+    const hasLegacyRecommendationsChange = Object.prototype.hasOwnProperty.call(
+      changes,
+      LEGACY_HIDE_RECOMMENDATIONS_KEY
+    );
 
     if (Object.prototype.hasOwnProperty.call(changes, "hideShorts")) {
       currentSettings.hideShorts =
@@ -154,10 +204,32 @@ function registerSettingsListener() {
       shouldReprocess = true;
     }
 
-    if (Object.prototype.hasOwnProperty.call(changes, "hideRecommendations")) {
-      currentSettings.hideRecommendations =
-        changes.hideRecommendations.newValue ??
-        DEFAULT_SETTINGS.hideRecommendations;
+    if (hasHomeFeedChange) {
+      currentSettings.hideHomeFeed =
+        changes.hideHomeFeed.newValue ?? DEFAULT_SETTINGS.hideHomeFeed;
+      shouldReprocess = true;
+    }
+
+    if (hasWatchRecommendationsChange) {
+      currentSettings.hideWatchRecommendations =
+        changes.hideWatchRecommendations.newValue ??
+        DEFAULT_SETTINGS.hideWatchRecommendations;
+      shouldReprocess = true;
+    }
+
+    if (hasLegacyRecommendationsChange) {
+      const legacyValue =
+        changes[LEGACY_HIDE_RECOMMENDATIONS_KEY].newValue ??
+        DEFAULT_SETTINGS.hideHomeFeed;
+
+      if (!hasHomeFeedChange) {
+        currentSettings.hideHomeFeed = legacyValue;
+      }
+
+      if (!hasWatchRecommendationsChange) {
+        currentSettings.hideWatchRecommendations = legacyValue;
+      }
+
       shouldReprocess = true;
     }
 
@@ -188,6 +260,13 @@ function restoreElements(selector, reason) {
       el.style.display = "";
       delete el.dataset.nytsHidden;
     });
+}
+
+function restoreElementsByReason(reason) {
+  document.querySelectorAll(`[data-nyts-hidden="${reason}"]`).forEach((el) => {
+    el.style.display = "";
+    delete el.dataset.nytsHidden;
+  });
 }
 
 function injectHomePlaceholder() {
@@ -661,6 +740,73 @@ function isHomePage() {
   );
 }
 
+function redirectHomeToSubscriptions() {
+  if (!currentSettings.hideHomeFeed || !isHomePage()) {
+    return;
+  }
+
+  window.location.replace(
+    new URL(SUBSCRIPTIONS_FEED_PATH, window.location.origin).toString()
+  );
+}
+
+function isHomeNavigationHref(href) {
+  if (!href) {
+    return false;
+  }
+
+  try {
+    const url = new URL(href, window.location.origin);
+    return url.pathname === "/" || url.pathname === "/feed/home";
+  } catch (_err) {
+    return false;
+  }
+}
+
+function normalizeNavigationLabel(value) {
+  return (value || "").toLowerCase().replace(/\s+/g, " ").trim();
+}
+
+function isHomeNavigationLabel(value) {
+  const normalized = normalizeNavigationLabel(value);
+  if (!normalized) {
+    return false;
+  }
+  return HOME_NAV_LABELS.has(normalized);
+}
+
+function hideHomeNavigationEntrypoints() {
+  document.body.dataset.nytsHideHomeNav = "true";
+
+  const containers = document.querySelectorAll(
+    "ytd-guide-entry-renderer, ytd-mini-guide-entry-renderer, ytm-pivot-bar-item-renderer"
+  );
+
+  containers.forEach((container) => {
+    const link = container.querySelector("a[href]");
+    const href = link?.getAttribute("href") || "";
+    const title = link?.getAttribute("title") || "";
+    const ariaLabel =
+      link?.getAttribute("aria-label") || container.getAttribute("aria-label");
+    const sectionTitle =
+      container.querySelector(".title")?.textContent || container.textContent;
+
+    if (
+      isHomeNavigationHref(href) ||
+      isHomeNavigationLabel(title) ||
+      isHomeNavigationLabel(ariaLabel) ||
+      isHomeNavigationLabel(sectionTitle)
+    ) {
+      hideElement(container, "home-navigation");
+    }
+  });
+}
+
+function restoreHomeNavigationEntrypoints() {
+  delete document.body.dataset.nytsHideHomeNav;
+  restoreElementsByReason("home-navigation");
+}
+
 function hideHomeRecommendations() {
   if (!isHomePage()) {
     delete document.body.dataset.nytsHideHome;
@@ -904,16 +1050,24 @@ function processPage() {
     removeCriticalStyles();
   }
 
-  if (currentSettings.hideRecommendations) {
+  if (currentSettings.hideHomeFeed) {
+    hideHomeNavigationEntrypoints();
+    redirectHomeToSubscriptions();
+
     if (isHomePage()) {
       hideHomeRecommendations();
     } else {
       restoreHomeRecommendations();
       removeHomePlaceholder();
     }
+  } else {
+    restoreHomeNavigationEntrypoints();
+    restoreHomeRecommendations();
+  }
+
+  if (currentSettings.hideWatchRecommendations) {
     hideWatchRecommendations();
   } else {
-    restoreHomeRecommendations();
     restoreWatchRecommendations();
   }
 
@@ -950,7 +1104,7 @@ whenBodyReady(() => {
 
 // Initial execution to handle already loaded elements
 getStoredSettings().then((settings) => {
-  currentSettings = { ...DEFAULT_SETTINGS, ...settings };
+  currentSettings = { ...settings };
   processPage();
 });
 

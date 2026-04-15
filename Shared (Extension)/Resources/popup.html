@@ -39,11 +39,22 @@
 
                 <label class="toggle">
                     <div class="toggle-copy">
-                        <span class="toggle-title">Hide recommendations</span>
-                        <span class="toggle-description">Remove home feed and sidebar suggestions (off by default).</span>
+                        <span class="toggle-title">Hide home page</span>
+                        <span class="toggle-description">Hide the home feed and redirect to Subscriptions by default.</span>
                     </div>
                     <div class="switch">
-                        <input type="checkbox" id="hide-recommendations" />
+                        <input type="checkbox" id="hide-home-feed" />
+                        <span class="slider"></span>
+                    </div>
+                </label>
+
+                <label class="toggle">
+                    <div class="toggle-copy">
+                        <span class="toggle-title">Hide video recommendations</span>
+                        <span class="toggle-description">Remove related videos around the player on watch pages.</span>
+                    </div>
+                    <div class="switch">
+                        <input type="checkbox" id="hide-watch-recommendations" />
                         <span class="slider"></span>
                     </div>
                 </label>
