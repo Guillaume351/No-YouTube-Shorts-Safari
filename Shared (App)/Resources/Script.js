@@ -167,6 +167,61 @@ const translations = {
     },
     contactButton: "¿Dudas o problemas? Escribe a <b>guillaume.claverie@mail.com</b>; no dudes en hacerlo, respondo enseguida.",
   },
+  it: {
+    direction: "ltr",
+    languageName: "Italiano",
+    languageLabel: "Lingua",
+    iosInstructions: `
+      <strong>Attiva No Shorts: Blocker for YouTube su iPhone o iPad</strong>
+      <ol>
+        <li>Apri l'app <b>Impostazioni</b>.</li>
+        <li>Scorri in basso e seleziona <b>Safari</b>.</li>
+        <li>Tocca <b>Estensioni</b>.</li>
+        <li>Attiva <b>No Shorts: Blocker for YouTube</b> e imposta <b>Consenti</b> su <b>Tutti i siti web</b>.</li>
+        <li>Apri <b>Safari</b>, visita <b>YouTube.com</b>, tocca il pulsante delle estensioni (icona puzzle o il pulsante <b>aA</b>), scegli <b>No Shorts</b>, poi seleziona <b>Consenti sempre su questo sito web</b>.</li>
+      </ol>
+      <span class="help-link">Per maggiori dettagli, consulta <a href="https://support.apple.com/it-it/guide/iphone/iphab0432bf6/ios" target="_blank" rel="noreferrer noopener">la guida Apple alle estensioni Safari su iPhone e iPad</a>.</span>
+    `,
+    iosVideoLabel: "Guarda il video di configurazione passo dopo passo:",
+    iosButton: "Apri le impostazioni di Safari",
+    macUnknown: {
+      preferences: `
+        <strong>Attiva No Shorts: Blocker for YouTube su Mac</strong>
+        <ol>
+          <li>Apri <b>Safari</b>.</li>
+          <li>Dalla barra dei menu, scegli <b>Safari → Preferenze</b>.</li>
+          <li>Seleziona il pannello <b>Estensioni</b>.</li>
+          <li>Attiva <b>No Shorts: Blocker for YouTube</b> e imposta <b>Consenti</b> su <b>Tutti i siti web</b>.</li>
+          <li>Vai su <b>YouTube.com</b>, fai clic sul pulsante delle estensioni (icona puzzle), scegli <b>No Shorts</b>, quindi fai clic su <b>Consenti sempre su questo sito web</b>.</li>
+        </ol>
+        <span class="help-link">Per istruzioni complete, consulta <a href="https://support.apple.com/it-it/guide/safari/sfri32509/mac" target="_blank" rel="noreferrer noopener">la guida Apple alle estensioni Safari su Mac</a>.</span>
+      `,
+      settings: `
+        <strong>Attiva No Shorts: Blocker for YouTube su Mac</strong>
+        <ol>
+          <li>Apri <b>Safari</b>.</li>
+          <li>Dalla barra dei menu, scegli <b>Safari → Impostazioni</b>.</li>
+          <li>Seleziona il pannello <b>Estensioni</b>.</li>
+          <li>Attiva <b>No Shorts: Blocker for YouTube</b> e imposta <b>Consenti</b> su <b>Tutti i siti web</b>.</li>
+          <li>Vai su <b>YouTube.com</b>, fai clic sul pulsante delle estensioni (icona puzzle), scegli <b>No Shorts</b>, quindi fai clic su <b>Consenti sempre su questo sito web</b>.</li>
+        </ol>
+        <span class="help-link">Per istruzioni complete, consulta <a href="https://support.apple.com/it-it/guide/safari/sfri32509/mac" target="_blank" rel="noreferrer noopener">la guida Apple alle estensioni Safari su Mac</a>.</span>
+      `,
+    },
+    macOn: {
+      preferences: "No YouTube Shorts è attualmente attivo. Puoi disattivarlo da Safari → Preferenze → Estensioni o gestire l'accesso ai siti dal pulsante estensioni su YouTube.com.",
+      settings: "No YouTube Shorts è attualmente attivo. Puoi disattivarlo da Safari → Impostazioni → Estensioni o gestire l'accesso ai siti dal pulsante estensioni su YouTube.com.",
+    },
+    macOff: {
+      preferences: "No YouTube Shorts è attualmente disattivato. Puoi attivarlo da Safari → Preferenze → Estensioni e verificare dal pulsante estensioni su YouTube.com che l'accesso sia consentito.",
+      settings: "No YouTube Shorts è attualmente disattivato. Puoi attivarlo da Safari → Impostazioni → Estensioni e verificare dal pulsante estensioni su YouTube.com che l'accesso sia consentito.",
+    },
+    macButton: {
+      preferences: "Chiudi e apri le Preferenze di Safari…",
+      settings: "Chiudi e apri le Impostazioni di Safari…",
+    },
+    contactButton: "Hai domande o problemi? Scrivi a <b>guillaume.claverie@mail.com</b> — rispondo velocemente.",
+  },
   de: {
     direction: "ltr",
     languageName: "Deutsch",

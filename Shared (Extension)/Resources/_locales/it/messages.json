@@ -1,0 +1,10 @@
+{
+  "extension_name": {
+    "message": "No Shorts: Blocco per YouTube",
+    "description": "No Shorts: Blocker for YouTube"
+  },
+  "extension_description": {
+    "message": "Nasconde gli Shorts dal sito YouTube su Safari.",
+    "description": "Rimuove automaticamente le sezioni Shorts da tutte le pagine del sito YouTube."
+  }
+}
