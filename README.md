@@ -10,6 +10,8 @@
 
 - Hides YouTube Shorts from the homepage.
 - Removes Shorts from the sidebar and other sections.
+- Optional toggle to hide the Home feed and redirect to Subscriptions.
+- Optional toggle to hide related recommendations on watch pages only.
 - Simple and lightweight extension with no performance overhead.
 - Works seamlessly across Mac, iPhone, iPad, and Apple Vision devices.
 
