@@ -76,6 +76,46 @@ function injectCriticalStyles() {
       display: none !important;
     }
 
+    ytm-pivot-bar-item-renderer:has(.pivot-shorts),
+    ytm-pivot-bar-item-renderer:has(a[href*="/shorts"]) {
+      display: none !important;
+      flex: 0 0 0 !important;
+      width: 0 !important;
+      min-width: 0 !important;
+      max-width: 0 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      overflow: hidden !important;
+      pointer-events: none !important;
+    }
+
+    ytm-pivot-bar-item-renderer[data-nyts-hidden-shorts-pivot="true"] {
+      display: none !important;
+      flex: 0 0 0 !important;
+      width: 0 !important;
+      min-width: 0 !important;
+      max-width: 0 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      overflow: hidden !important;
+      pointer-events: none !important;
+    }
+
+    ytm-pivot-bar-renderer[data-nyts-pivot-rebalanced="true"],
+    [data-nyts-pivot-layout-container="true"] {
+      display: flex !important;
+      align-items: stretch !important;
+      justify-content: space-around !important;
+    }
+
+    ytm-pivot-bar-renderer[data-nyts-pivot-rebalanced="true"] ytm-pivot-bar-item-renderer:not([data-nyts-hidden-shorts-pivot="true"]),
+    [data-nyts-pivot-layout-container="true"] > ytm-pivot-bar-item-renderer:not([data-nyts-hidden-shorts-pivot="true"]) {
+      flex: 1 1 0 !important;
+      width: auto !important;
+      min-width: 0 !important;
+      max-width: none !important;
+    }
+
     /* Reduce initial flash of home feed when recommendations are disabled */
     body[data-nyts-hide-home="true"] ytd-two-column-browse-results-renderer[page-subtype="home"] ytd-rich-grid-renderer,
     body[data-nyts-hide-home="true"] ytd-two-column-browse-results-renderer[page-subtype="home"] ytd-rich-section-renderer,
@@ -116,6 +156,23 @@ function injectCriticalStyles() {
     body[data-nyts-collapse-watch-sidebar="true"] ytd-watch-grid #columns {
       max-width: none !important;
       width: 100% !important;
+    }
+
+    body[data-nyts-hide-comments="true"] ytd-comments,
+    body[data-nyts-hide-comments="true"] #comments,
+    body[data-nyts-hide-comments="true"] ytd-item-section-renderer#sections,
+    body[data-nyts-hide-comments="true"] ytm-comment-section-renderer,
+    body[data-nyts-hide-comments="true"] ytm-comment-input-box-carousel-item-view-model,
+    body[data-nyts-hide-comments="true"] yt-comment-input-box-carousel-item-view-model,
+    body[data-nyts-hide-comments="true"] ytm-item-section-renderer[section-identifier="comments"] {
+      display: none !important;
+    }
+
+    body[data-nyts-hide-comments="true"] ytm-item-section-renderer.scwnr-content:has(yt-comment-input-box-carousel-item-view-model),
+    body[data-nyts-hide-comments="true"] ytm-item-section-renderer.scwnr-content:has(ytm-comment-input-box-carousel-item-view-model),
+    body[data-nyts-hide-comments="true"] yt-video-metadata-carousel-view-model:has(yt-comment-input-box-carousel-item-view-model),
+    body[data-nyts-hide-comments="true"] ytm-video-metadata-carousel-view-model:has(ytm-comment-input-box-carousel-item-view-model) {
+      display: none !important;
     }
   `;
 
@@ -559,18 +616,111 @@ function removeShortsSearchFilter() {
   });
 }
 
+function isMobileShortsPivotItem(item) {
+  const titleElement = item.querySelector(".pivot-bar-item-title");
+  const titleText = (titleElement?.textContent || "").trim().toLowerCase();
+  const ariaLabel = (
+    item.getAttribute("aria-label") ||
+    item.querySelector("[aria-label]")?.getAttribute("aria-label") ||
+    ""
+  )
+    .trim()
+    .toLowerCase();
+  const shortsLink = item.querySelector('a[href*="/shorts"]');
+  const shortsClass = item.querySelector(".pivot-shorts");
+
+  return (
+    !!shortsLink ||
+    !!shortsClass ||
+    titleText === "shorts" ||
+    ariaLabel === "shorts"
+  );
+}
+
+function findMobilePivotLayoutContainer(item) {
+  let node = item.parentElement;
+
+  while (node && node !== document.body) {
+    const directPivotItems = Array.from(node.children).filter((child) =>
+      child.matches?.("ytm-pivot-bar-item-renderer")
+    );
+
+    if (directPivotItems.length > 1) {
+      return node;
+    }
+
+    node = node.parentElement;
+  }
+
+  return item.closest("ytm-pivot-bar-renderer") || item.parentElement;
+}
+
+function rebalanceMobilePivotContainer(container) {
+  if (!container) {
+    return;
+  }
+
+  const pivotItems = Array.from(container.children).filter((child) =>
+    child.matches?.("ytm-pivot-bar-item-renderer")
+  );
+  const visibleItems = pivotItems.filter(
+    (child) => child.dataset.nytsHiddenShortsPivot !== "true"
+  );
+
+  if (visibleItems.length < 2) {
+    return;
+  }
+
+  container.dataset.nytsPivotLayoutContainer = "true";
+  container.style.setProperty("display", "flex", "important");
+  container.style.setProperty("align-items", "stretch", "important");
+  container.style.setProperty("justify-content", "space-around", "important");
+
+  visibleItems.forEach((visibleItem) => {
+    visibleItem.style.setProperty("flex", "1 1 0", "important");
+    visibleItem.style.setProperty("width", "auto", "important");
+    visibleItem.style.setProperty("min-width", "0", "important");
+    visibleItem.style.setProperty("max-width", "none", "important");
+  });
+}
+
+function collapseMobileShortsPivotItem(item) {
+  if (!item || item.dataset.nytsHiddenShortsPivot === "true") {
+    return;
+  }
+
+  item.dataset.nytsHiddenShortsPivot = "true";
+  item.setAttribute("data-processed-menu-item", "true");
+  item.setAttribute("aria-hidden", "true");
+  item.setAttribute("hidden", "");
+  item.style.setProperty("display", "none", "important");
+  item.style.setProperty("flex", "0 0 0", "important");
+  item.style.setProperty("width", "0", "important");
+  item.style.setProperty("min-width", "0", "important");
+  item.style.setProperty("max-width", "0", "important");
+  item.style.setProperty("padding", "0", "important");
+  item.style.setProperty("margin", "0", "important");
+  item.style.setProperty("overflow", "hidden", "important");
+  item.style.setProperty("pointer-events", "none", "important");
+
+  const layoutContainer = findMobilePivotLayoutContainer(item);
+  const pivotRenderer = item.closest("ytm-pivot-bar-renderer");
+
+  if (pivotRenderer) {
+    pivotRenderer.dataset.nytsPivotRebalanced = "true";
+  }
+
+  rebalanceMobilePivotContainer(layoutContainer);
+}
+
 function removeMobileShortsMenuItem() {
   document
     .querySelectorAll(
       "ytm-pivot-bar-item-renderer:not([data-processed-menu-item])"
     )
     .forEach((item) => {
-      const titleElement = item.querySelector(
-        ".pivot-bar-item-title.pivot-shorts"
-      );
-      if (titleElement && titleElement.textContent.trim() === "Shorts") {
-        item.style.display = "none";
-        item.setAttribute("data-processed-menu-item", "true");
+      if (isMobileShortsPivotItem(item)) {
+        collapseMobileShortsPivotItem(item);
         console.log("Hid Shorts menu item from mobile");
       }
     });
@@ -955,7 +1105,93 @@ function restoreWatchRecommendations() {
   removeWatchPlaceholder();
 }
 
+const MOBILE_COMMENT_MARKERS = [
+  "ytm-comment-section-renderer",
+  "ytm-comment-input-box-carousel-item-view-model",
+  "yt-comment-input-box-carousel-item-view-model",
+  "ytm-comments-entry-point-header-renderer",
+  "ytm-comment-renderer",
+  "ytm-comment-thread-renderer",
+  "ytm-comment-replies-renderer",
+  "comments-entry-point-teaser-view-model",
+  "yt-comment-teaser-carousel-item-view-model",
+  "ytm-comment-teaser-carousel-item-view-model",
+  ".ytCommentsEntryPointTeaserViewModelTeaser",
+];
+
+const MOBILE_COMMENT_TITLES = new Set([
+  "comments",
+  "commentaires",
+  "comentarios",
+  "commenti",
+  "kommentare",
+]);
+
+function hasMobileCommentMarker(node) {
+  return MOBILE_COMMENT_MARKERS.some(
+    (selector) => node.matches?.(selector) || node.querySelector(selector)
+  );
+}
+
+function hasMobileCommentsTitle(node) {
+  const title = (
+    node.querySelector(".ytCarouselTitleViewModelTitle")?.textContent || ""
+  )
+    .trim()
+    .toLowerCase();
+
+  return MOBILE_COMMENT_TITLES.has(title);
+}
+
+function isMobileCommentsContainer(node) {
+  const sectionIdentifier = (node.getAttribute("section-identifier") || "")
+    .trim()
+    .toLowerCase();
+
+  if (sectionIdentifier === "comments") {
+    return true;
+  }
+
+  return hasMobileCommentMarker(node) || hasMobileCommentsTitle(node);
+}
+
+function hideMobileCommentsSection() {
+  document
+    .querySelectorAll(
+      "ytm-item-section-renderer.scwnr-content, ytm-item-section-renderer[section-identifier='comments']"
+    )
+    .forEach((section) => {
+      if (isMobileCommentsContainer(section)) {
+        hideElement(section, "comments");
+      }
+    });
+
+  document
+    .querySelectorAll(
+      [
+        "ytm-comment-section-renderer",
+        "ytm-comment-input-box-carousel-item-view-model",
+        "yt-comment-input-box-carousel-item-view-model",
+        "ytm-video-metadata-carousel-view-model",
+        "yt-video-metadata-carousel-view-model",
+      ].join(", ")
+    )
+    .forEach((node) => {
+      if (!isMobileCommentsContainer(node)) {
+        return;
+      }
+
+      const mobileSection = node.closest(
+        "ytm-item-section-renderer.scwnr-content, ytm-item-section-renderer[section-identifier='comments']"
+      );
+
+      hideElement(mobileSection || node, "comments");
+    });
+}
+
 function hideCommentsSection() {
+  document.body.dataset.nytsHideComments = "true";
+
   const selectors = [
     "ytd-comments",
     "#comments",
@@ -963,9 +1199,8 @@ function hideCommentsSection() {
     "ytm-comment-section-renderer",
     "ytd-continuation-item-renderer #ghost-comment-section",
     // Mobile watch comments
-    "ytm-video-metadata-carousel-view-model",
     "ytm-comment-input-box-carousel-item-view-model",
-    "ytm-item-section-renderer.scwnr-content",
+    "yt-comment-input-box-carousel-item-view-model",
     "ytm-item-section-renderer[section-identifier='comments']",
   ];
 
@@ -974,19 +1209,13 @@ function hideCommentsSection() {
       hideElement(node, "comments");
     });
   });
+
+  hideMobileCommentsSection();
 }
 
 function restoreComments() {
-  [
-    "ytd-comments",
-    "#comments",
-    "ytd-item-section-renderer#sections",
-    "ytm-comment-section-renderer",
-    "ytm-video-metadata-carousel-view-model",
-    "ytm-comment-input-box-carousel-item-view-model",
-    "ytm-item-section-renderer.scwnr-content",
-    "ytm-item-section-renderer[section-identifier='comments']",
-  ].forEach((selector) => restoreElements(selector, "comments"));
+  delete document.body.dataset.nytsHideComments;
+  restoreElementsByReason("comments");
 }
 
 function debounce(func, wait) {
