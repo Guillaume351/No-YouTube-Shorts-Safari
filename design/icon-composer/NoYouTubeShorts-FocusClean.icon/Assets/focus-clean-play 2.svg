@@ -1,0 +1,14 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="playGradient" x1="420" y1="355" x2="645" y2="670" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF705A"/>
+      <stop offset="1" stop-color="#FF432E"/>
+    </linearGradient>
+    <filter id="playShadow" x="312" y="290" width="420" height="470" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#35120D" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <g filter="url(#playShadow)">
+    <path d="M401 366C401 333 437 312 466 329L664 448C693 465 693 507 664 524L466 643C437 660 401 639 401 606V366Z" fill="url(#playGradient)"/>
+  </g>
+</svg>

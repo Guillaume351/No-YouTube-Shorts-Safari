@@ -1,0 +1,20 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="accentGradient" x1="705" y1="742" x2="780" y2="820" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF4E9"/>
+      <stop offset="0.42" stop-color="#FFD5B5"/>
+      <stop offset="1" stop-color="#FF8C6A"/>
+    </linearGradient>
+    <radialGradient id="accentHighlight" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(730 764) rotate(45) scale(24)">
+      <stop stop-color="white" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="accentShadow" x="676" y="716" width="128" height="128" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#35120D" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+  <g filter="url(#accentShadow)">
+    <path d="M740 736L749 771L784 780L749 789L740 824L731 789L696 780L731 771L740 736Z" fill="url(#accentGradient)"/>
+    <circle cx="730" cy="764" r="15" fill="url(#accentHighlight)"/>
+  </g>
+</svg>
