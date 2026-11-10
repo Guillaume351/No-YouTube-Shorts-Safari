@@ -1,0 +1,195 @@
+{
+    "extension_name": {
+        "message": "No Shorts : Blocker for YouTube",
+        "description": "Extension name shown in Safari. Keep it identical in every locale."
+    },
+    "extension_description": {
+        "message": "Piilottaa Shorts-videot YouTube-sivustolla Safarissa.",
+        "description": "Extension description shown in Safari settings."
+    },
+    "popup_subtitle": {
+        "message": "YouTube-esto",
+        "description": "Subtitle under the popup title."
+    },
+    "popup_description": {
+        "message": "Piilota YouTube Shorts -videot selatessasi",
+        "description": "One-line summary at the top of the popup."
+    },
+    "popup_status_active": {
+        "message": "Laajennus käytössä",
+        "description": "Status pill shown while the extension runs."
+    },
+    "toggle_shorts_title": {
+        "message": "Piilota Shorts",
+        "description": "Toggle title."
+    },
+    "toggle_shorts_description": {
+        "message": "Piilottaa YouTube Shorts -videot Safarissa (oletuksena päällä).",
+        "description": "Toggle description."
+    },
+    "toggle_home_title": {
+        "message": "Piilota etusivu",
+        "description": "Toggle title."
+    },
+    "toggle_home_description": {
+        "message": "Jättää etusivun syötteen tyhjäksi ohjaamatta toiselle sivulle.",
+        "description": "Toggle description."
+    },
+    "toggle_recommendations_title": {
+        "message": "Piilota videosuositukset",
+        "description": "Toggle title."
+    },
+    "toggle_recommendations_description": {
+        "message": "Poistaa katselusivuilla soittimen ympäriltä aiheeseen liittyvät videot.",
+        "description": "Toggle description."
+    },
+    "toggle_comments_title": {
+        "message": "Piilota kommentit",
+        "description": "Toggle title."
+    },
+    "toggle_comments_description": {
+        "message": "Poistaa kommenttiketjut videoiden alta.",
+        "description": "Toggle description."
+    },
+    "stats_shorts_hidden": {
+        "message": "Tällä laitteella piilotetut Shorts-videot: $COUNT$",
+        "description": "Counter of Shorts hidden on this device. $COUNT$ is a formatted number.",
+        "placeholders": {
+            "count": {
+                "content": "$1",
+                "example": "1,234"
+            }
+        }
+    },
+    "rating_title": {
+        "message": "Pidätkö No Shorts -laajennuksesta?",
+        "description": "Title of the App Store rating card."
+    },
+    "rating_body": {
+        "message": "Nopea arvio App Storessa auttaa muita löytämään sen.",
+        "description": "Body of the App Store rating card."
+    },
+    "rating_button": {
+        "message": "Arvioi App Storessa",
+        "description": "Button that opens the App Store review page."
+    },
+    "rating_later": {
+        "message": "Ei nyt",
+        "description": "Button that hides the rating card for a while."
+    },
+    "bundle_text": {
+        "message": "Käytätkö Safarissa myös Instagramia tai X:ää?",
+        "description": "Cross-sell line for the bundle with the Instagram and X extensions."
+    },
+    "bundle_link": {
+        "message": "Katso 3 laajennuksen paketti",
+        "description": "Link to the App Store bundle."
+    },
+    "support_text": {
+        "message": "Tarvitsetko apua tai löysitkö virheen?",
+        "description": "Footer support prompt."
+    },
+    "contact_link": {
+        "message": "Ota yhteyttä kehittäjään",
+        "description": "Footer button that emails the developer."
+    },
+    "response_time": {
+        "message": "Nopea vastaus taattu!",
+        "description": "Footer reassurance under the contact button."
+    },
+    "toggle_community_title": {
+        "message": "Piilota yhteisöjulkaisut"
+    },
+    "toggle_community_description": {
+        "message": "Piilottaa teksti- ja kuvajulkaisut etusivun syötteestä."
+    },
+    "pin_title": {
+        "message": "Asetusten PIN-koodi"
+    },
+    "pin_note": {
+        "message": "Voit halutessasi vaatia PIN-koodin, ennen kuin asetuksia voi muuttaa tässä ikkunassa tällä laitteella. Säilytä koodi turvallisesti. Safari voi silti poistaa laajennuksen käytöstä tai poistaa sen."
+    },
+    "pin_label": {
+        "message": "PIN-koodi"
+    },
+    "pin_new": {
+        "message": "Uusi PIN-koodi (4–12 numeroa)"
+    },
+    "pin_confirm": {
+        "message": "Vahvista PIN-koodi"
+    },
+    "pin_unlock": {
+        "message": "Avaa asetusten lukitus"
+    },
+    "pin_save": {
+        "message": "Tallenna PIN-koodi"
+    },
+    "pin_lock_now": {
+        "message": "Lukitse nyt"
+    },
+    "pin_remove": {
+        "message": "Poista PIN-koodi"
+    },
+    "pin_invalid": {
+        "message": "Anna sama 4–12-numeroinen PIN-koodi kahdesti."
+    },
+    "pin_saved": {
+        "message": "PIN-koodi tallennettu. Syötä se, kun haluat muuttaa asetuksia."
+    },
+    "pin_incorrect": {
+        "message": "Väärä PIN-koodi."
+    },
+    "pin_wait": {
+        "message": "Liian monta yritystä. Odota 30 sekuntia ja yritä uudelleen."
+    },
+    "pin_unlocked": {
+        "message": "Asetusten lukitus on auki, kunnes tämä ikkuna suljetaan."
+    },
+    "pin_removed": {
+        "message": "PIN-koodi poistettu."
+    },
+    "pin_storage_error": {
+        "message": "PIN-koodia ei voitu tarkistaa tai tallentaa. Avaa laajennus uudelleen ja yritä uudestaan."
+    },
+    "settings_save_error": {
+        "message": "Asetuksia ei voitu tallentaa. Avaa laajennus uudelleen ja yritä uudestaan."
+    },
+    "settings_filters_label": {
+        "message": "YouTube-suodattimet"
+    },
+    "save_unknown": {
+        "message": "Tallennusta ei ole vielä vahvistettu. Odota tai avaa tämä ikkuna uudelleen tarkistaaksesi tallennetun tilan."
+    },
+    "storage_read_error": {
+        "message": "Tallennettuja asetuksia ei voitu lukea. Avaa laajennus uudelleen ja yritä uudestaan."
+    },
+    "pin_invalid_data": {
+        "message": "Tallennettuja PIN-tietoja ei voitu lukea. Asetukset pysyvät lukittuina. Ota yhteyttä tukeen."
+    },
+    "pin_locked": {
+        "message": "Asetukset on lukittu. Syötä PIN-koodisi, jos haluat tehdä muutoksia."
+    },
+    "pin_changed": {
+        "message": "PIN-koodi vaihdettiin toisessa ikkunassa. Avaa asetusten lukitus nykyisellä PIN-koodilla."
+    },
+    "pin_crypto_unavailable": {
+        "message": "PIN-suojaus ei ole käytettävissä tässä Safari-ympäristössä. Päivitä Safari tai avaa laajennus uudelleen."
+    },
+    "pin_save_unknown": {
+        "message": "Tallennusta ei ole vielä vahvistettu. Säilytä PIN-koodisi turvallisesti ja odota, tai avaa tämä ikkuna uudelleen tarkistaaksesi tallennetun tilan."
+    },
+    "pin_removed_elsewhere": {
+        "message": "PIN-koodi poistettiin toisessa ikkunassa. Asetusten lukitus on avattu."
+    },
+    "pin_removed_retry": {
+        "message": "PIN-koodi poistettiin toisessa ikkunassa. Muutostasi ei tallennettu. Yritä uudelleen."
+    },
+    "popup_locale": {
+        "message": "fi",
+        "description": "Metadata for popup language, selected by the same i18n message bundle as the visible copy. Not user-facing text."
+    },
+    "popup_direction": {
+        "message": "ltr",
+        "description": "Metadata for popup reading direction. Keep aligned with this locale; not user-facing text."
+    }
+}

@@ -40,6 +40,6 @@
 
 ## Security, Configuration, and Legal Notes
 
-- Keep `Shared (Extension)/Resources/manifest.json` permissions minimal (currently only `storage`).
+- Keep `Shared (Extension)/Resources/manifest.json` permissions minimal (currently `storage` and `nativeMessaging`; the latter only lets the iOS app confirm the extension ran on YouTube, through the App Group `group.com.guillaumeclaverie.No-Youtube-Shorts`).
 - Bundle identifiers are referenced in code (`Shared (App)/ViewController.swift`); coordinate any changes with project settings.
 - License/trademark terms apply; see `LICENSE` and `TRADEMARKS.md` before redistributing.

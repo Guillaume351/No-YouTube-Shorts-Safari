@@ -1,0 +1,195 @@
+{
+    "extension_name": {
+        "message": "No Shorts : Blocker for YouTube",
+        "description": "Extension name shown in Safari. Keep it identical in every locale."
+    },
+    "extension_description": {
+        "message": "Safari’de YouTube web sitesindeki Shorts’u gizler.",
+        "description": "Extension description shown in Safari settings."
+    },
+    "popup_subtitle": {
+        "message": "YouTube için engelleyici",
+        "description": "Subtitle under the popup title."
+    },
+    "popup_description": {
+        "message": "Gezinirken YouTube Shorts’u gizleyin",
+        "description": "One-line summary at the top of the popup."
+    },
+    "popup_status_active": {
+        "message": "Uzantı etkin",
+        "description": "Status pill shown while the extension runs."
+    },
+    "toggle_shorts_title": {
+        "message": "Shorts’u gizle",
+        "description": "Toggle title."
+    },
+    "toggle_shorts_description": {
+        "message": "Safari’de YouTube Shorts’u gizler (varsayılan olarak açık).",
+        "description": "Toggle description."
+    },
+    "toggle_home_title": {
+        "message": "Ana sayfayı gizle",
+        "description": "Toggle title."
+    },
+    "toggle_home_description": {
+        "message": "Başka bir sayfaya yönlendirmeden ana sayfa akışını boş bırakır.",
+        "description": "Toggle description."
+    },
+    "toggle_recommendations_title": {
+        "message": "Video önerilerini gizle",
+        "description": "Toggle title."
+    },
+    "toggle_recommendations_description": {
+        "message": "İzleme sayfalarında oynatıcının çevresindeki ilgili videoları kaldırır.",
+        "description": "Toggle description."
+    },
+    "toggle_comments_title": {
+        "message": "Yorumları gizle",
+        "description": "Toggle title."
+    },
+    "toggle_comments_description": {
+        "message": "Videoların altındaki yorumları kaldırır.",
+        "description": "Toggle description."
+    },
+    "stats_shorts_hidden": {
+        "message": "Bu cihazda gizlenen Shorts: $COUNT$",
+        "description": "Counter of Shorts hidden on this device. $COUNT$ is a formatted number.",
+        "placeholders": {
+            "count": {
+                "content": "$1",
+                "example": "1,234"
+            }
+        }
+    },
+    "rating_title": {
+        "message": "No Shorts’u beğendiniz mi?",
+        "description": "Title of the App Store rating card."
+    },
+    "rating_body": {
+        "message": "App Store’da vereceğiniz kısa bir puan, başkalarının uygulamayı bulmasına yardımcı olur.",
+        "description": "Body of the App Store rating card."
+    },
+    "rating_button": {
+        "message": "App Store’da puan ver",
+        "description": "Button that opens the App Store review page."
+    },
+    "rating_later": {
+        "message": "Şimdi değil",
+        "description": "Button that hides the rating card for a while."
+    },
+    "bundle_text": {
+        "message": "Safari’de Instagram veya X de kullanıyor musunuz?",
+        "description": "Cross-sell line for the bundle with the Instagram and X extensions."
+    },
+    "bundle_link": {
+        "message": "3 uzantılık paketi görün",
+        "description": "Link to the App Store bundle."
+    },
+    "support_text": {
+        "message": "Yardım mı gerekiyor, hata mı buldunuz?",
+        "description": "Footer support prompt."
+    },
+    "contact_link": {
+        "message": "Geliştiriciyle iletişime geç",
+        "description": "Footer button that emails the developer."
+    },
+    "response_time": {
+        "message": "Hızlı yanıt garantili!",
+        "description": "Footer reassurance under the contact button."
+    },
+    "toggle_community_title": {
+        "message": "Topluluk gönderilerini gizle"
+    },
+    "toggle_community_description": {
+        "message": "Ana sayfa akışındaki metin ve görsel gönderilerini gizler."
+    },
+    "pin_title": {
+        "message": "Ayarlar PIN’i"
+    },
+    "pin_note": {
+        "message": "İsterseniz bu cihazda bu açılır penceredeki ayarların değiştirilmesi için PIN isteyebilirsiniz. PIN’i güvenli bir yerde saklayın. Safari uzantıyı yine de kapatabilir veya kaldırabilir."
+    },
+    "pin_label": {
+        "message": "PIN"
+    },
+    "pin_new": {
+        "message": "Yeni PIN (4–12 rakam)"
+    },
+    "pin_confirm": {
+        "message": "PIN’i onayla"
+    },
+    "pin_unlock": {
+        "message": "Ayarların kilidini aç"
+    },
+    "pin_save": {
+        "message": "PIN’i kaydet"
+    },
+    "pin_lock_now": {
+        "message": "Şimdi kilitle"
+    },
+    "pin_remove": {
+        "message": "PIN’i kaldır"
+    },
+    "pin_invalid": {
+        "message": "4 ila 12 rakamdan oluşan aynı PIN’i iki kez girin."
+    },
+    "pin_saved": {
+        "message": "PIN kaydedildi. Ayarlarınızı değiştirmek için PIN’i girin."
+    },
+    "pin_incorrect": {
+        "message": "Yanlış PIN."
+    },
+    "pin_wait": {
+        "message": "Çok fazla deneme yapıldı. Lütfen 30 saniye bekleyip tekrar deneyin."
+    },
+    "pin_unlocked": {
+        "message": "Ayarların kilidi bu açılır pencere kapanana kadar açık."
+    },
+    "pin_removed": {
+        "message": "PIN kaldırıldı."
+    },
+    "pin_storage_error": {
+        "message": "PIN doğrulanamadı veya kaydedilemedi. Uzantıyı yeniden açıp tekrar deneyin."
+    },
+    "settings_save_error": {
+        "message": "Ayarlar kaydedilemedi. Lütfen uzantıyı yeniden açıp tekrar deneyin."
+    },
+    "settings_filters_label": {
+        "message": "YouTube filtreleri"
+    },
+    "save_unknown": {
+        "message": "Kayıt henüz onaylanmadı. Bekleyin veya kayıtlı durumu kontrol etmek için bu açılır pencereyi yeniden açın."
+    },
+    "storage_read_error": {
+        "message": "Kayıtlı ayarlar okunamadı. Uzantıyı yeniden açıp tekrar deneyin."
+    },
+    "pin_invalid_data": {
+        "message": "Kayıtlı PIN verileri okunamadı. Ayarlar kilitli kalacak. Lütfen destek ekibiyle iletişime geçin."
+    },
+    "pin_locked": {
+        "message": "Ayarlar kilitli. Değişiklik yapmak için PIN’inizi girin."
+    },
+    "pin_changed": {
+        "message": "PIN başka bir pencerede değiştirildi. Ayarların kilidini açmak için güncel PIN’i kullanın."
+    },
+    "pin_crypto_unavailable": {
+        "message": "PIN koruması bu Safari ortamında kullanılamıyor. Lütfen Safari’yi güncelleyin veya uzantıyı yeniden açın."
+    },
+    "pin_save_unknown": {
+        "message": "Kayıt henüz onaylanmadı. PIN’inizi güvenli bir yerde saklayıp bekleyin veya kayıtlı durumu kontrol etmek için bu açılır pencereyi yeniden açın."
+    },
+    "pin_removed_elsewhere": {
+        "message": "PIN başka bir pencerede kaldırıldı. Ayarların kilidi açık."
+    },
+    "pin_removed_retry": {
+        "message": "PIN başka bir pencerede kaldırıldı. Değişikliğiniz kaydedilmedi; lütfen tekrar deneyin."
+    },
+    "popup_locale": {
+        "message": "tr",
+        "description": "Metadata for popup language, selected by the same i18n message bundle as the visible copy. Not user-facing text."
+    },
+    "popup_direction": {
+        "message": "ltr",
+        "description": "Metadata for popup reading direction. Keep aligned with this locale; not user-facing text."
+    }
+}

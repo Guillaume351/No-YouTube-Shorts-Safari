@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; media-src 'self' https://nextcloud.d1.guillaumeclaverie.com">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="../Style.css">
     <script src="../Script.js" defer></script>
@@ -20,22 +20,59 @@
                 <select id="language-selector"></select>
             </div>
 
+            <p data-i18n="scope">Hide Shorts on YouTube in Safari. This extension does not change the YouTube app.</p>
+            <p id="setup-status" class="setup-status platform-ios" role="status" hidden></p>
             <div class="platform-ios" data-i18n="iosInstructions"></div>
-            <div class="platform-ios video-guide">
-                <p class="video-title" data-i18n="iosVideoLabel"></p>
-                <video class="video-player" controls playsinline webkit-playsinline preload="metadata"
+            <button id="open-ios-settings" class="platform-ios" data-i18n="iosButton"></button>
+            <button id="open-youtube" class="platform-ios" data-i18n="iosOpenYouTube"></button>
+            <details class="platform-ios video-guide">
+                <summary class="video-title" data-i18n="iosVideoLabel"></summary>
+                <video class="video-player" controls playsinline webkit-playsinline preload="none"
                     controlslist="nodownload"
                     src="https://nextcloud.d1.guillaumeclaverie.com/s/xWa7SHes2orZDsa/download?path=%2F&amp;files=How%20to%20install.mp4"></video>
-            </div>
-            <button id="open-ios-settings" class="platform-ios" data-i18n="iosButton"></button>
+            </details>
+
+            <section id="sister-promo" class="sister-promo platform-ios" aria-labelledby="sister-promo-title" hidden>
+                <div class="sister-promo-header">
+                    <img class="sister-promo-icon" src="../NoReelIcon.png" width="44" height="44" alt="">
+                    <h2 id="sister-promo-title" class="sister-promo-title" data-i18n="promoTitle"></h2>
+                    <button type="button" id="sister-promo-dismiss" class="sister-promo-dismiss">&#x2715;</button>
+                </div>
+                <p class="sister-promo-body" data-i18n="promoBody"></p>
+                <button type="button" id="sister-promo-open" class="sister-promo-open" data-i18n="promoButton"></button>
+                <button type="button" id="sister-promo-bundle" class="sister-promo-bundle" data-i18n="promoBundle"></button>
+                <p class="sister-promo-note" data-i18n="promoNote"></p>
+            </section>
 
             <div class="platform-mac state-unknown" data-i18n="macUnknown"></div>
             <div class="platform-mac state-on" data-i18n="macOn"></div>
             <div class="platform-mac state-off" data-i18n="macOff"></div>
             <button id="open-mac-preferences" class="platform-mac" data-i18n="macButton"></button>
 
+            <details class="safari-preview">
+                <summary data-i18n="previewTitle">What changes in Safari?</summary>
+                <p class="preview-note" data-i18n="previewNote">Illustration, not a screenshot. The YouTube app stays unchanged.</p>
+                <div class="preview-pair">
+                    <section class="preview-card" aria-labelledby="preview-before">
+                        <h2 id="preview-before" data-i18n="previewBefore">Before</h2>
+                        <p class="preview-video" data-i18n="previewVideo">Videos you choose</p>
+                        <p class="preview-shorts" data-i18n="previewShorts">Shorts suggestions</p>
+                    </section>
+                    <section class="preview-card" aria-labelledby="preview-after">
+                        <h2 id="preview-after" data-i18n="previewAfter">With No Shorts</h2>
+                        <p class="preview-video" data-i18n="previewVideo">Videos you choose</p>
+                        <p class="preview-removed" data-i18n="previewRemoved">Shorts hidden</p>
+                    </section>
+                </div>
+            </details>
+
             <a id="contact-developer" class="contact-button" href="mailto:guillaume.claverie@mail.com"
                 data-i18n="contactButton"></a>
+
+            <p class="bundle-promo">
+                <span data-i18n="bundleText"></span>
+                <button type="button" id="open-bundle" class="bundle-link" data-i18n="bundleButton"></button>
+            </p>
         </main>
     </div>
 </body>

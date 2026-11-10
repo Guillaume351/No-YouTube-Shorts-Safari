@@ -4,23 +4,32 @@ const DEFAULT_SETTINGS = {
   hideHomeFeed: false,
   hideWatchRecommendations: false,
   hideComments: false,
+  hideCommunityPosts: false,
 };
 let currentSettings = { ...DEFAULT_SETTINGS };
+let settingsLoaded = false;
 
 const CRITICAL_HIDE_STYLE_ID = "nyts-critical-hide-style";
+const SETTINGS_HIDE_STYLE_ID = "nyts-settings-hide-style";
 const NYTS_NAV_HOOK_INSTALLED = "__nytsNavHookInstalled";
 const NYTS_LAST_URL = "__nytsLastUrl";
 const LEGACY_HIDE_RECOMMENDATIONS_KEY = "hideRecommendations";
-const SUBSCRIPTIONS_FEED_PATH = "/feed/subscriptions";
-const HOME_NAV_LABELS = new Set([
-  "home",
-  "accueil",
-  "inicio",
-  "inizio",
-  "startseite",
-  "домой",
-  "الرئيسية",
-]);
+
+// Individual Shorts items (not shelves), listed outermost first so the
+// document-order walk in countHiddenShortsItems() meets containers first.
+const SHORTS_ITEM_SELECTOR = [
+  "ytd-reel-item-renderer",
+  "ytd-rich-grid-slim-media[is-short]",
+  "ytd-rich-grid-slim-media[is-reel-item]",
+  "ytm-reel-item-renderer",
+  "ytm-rich-grid-media[is-short]",
+  "ytm-shorts-lockup-view-model",
+  "ytm-shorts-lockup-view-model-v2",
+  "ytm-reel-lockup-view-model",
+].join(",");
+const STATS_FLUSH_DELAY_MS = 2000;
+const countedShorts = new WeakSet();
+let pendingHiddenShorts = 0;
 
 function getStorageArea() {
   return extensionAPI?.storage?.sync || extensionAPI?.storage?.local || null;
@@ -45,6 +54,10 @@ function normalizeStoredSettings(items = {}) {
       typeof items.hideWatchRecommendations === "boolean"
         ? items.hideWatchRecommendations
         : legacyRecommendationsSetting ?? DEFAULT_SETTINGS.hideWatchRecommendations,
+    hideCommunityPosts:
+      typeof items.hideCommunityPosts === "boolean"
+        ? items.hideCommunityPosts
+        : DEFAULT_SETTINGS.hideCommunityPosts,
     hideComments:
       typeof items.hideComments === "boolean"
         ? items.hideComments
@@ -64,6 +77,7 @@ function injectCriticalStyles() {
     ytd-reel-shelf-renderer,
     ytm-reel-shelf-renderer,
     ytm-shorts-lockup-view-model,
+    ytm-shorts-lockup-view-model-v2,
     ytm-reel-item-renderer,
     ytm-reel-lockup-view-model,
     ytd-rich-grid-slim-media[is-short],
@@ -115,7 +129,19 @@ function injectCriticalStyles() {
       min-width: 0 !important;
       max-width: none !important;
     }
+  `;
 
+  (document.head || document.documentElement).appendChild(style);
+}
+
+function injectSettingsStyles() {
+  if (document.getElementById(SETTINGS_HIDE_STYLE_ID)) {
+    return;
+  }
+
+  const style = document.createElement("style");
+  style.id = SETTINGS_HIDE_STYLE_ID;
+  style.textContent = `
     /* Reduce initial flash of home feed when recommendations are disabled */
     body[data-nyts-hide-home="true"] ytd-two-column-browse-results-renderer[page-subtype="home"] ytd-rich-grid-renderer,
     body[data-nyts-hide-home="true"] ytd-two-column-browse-results-renderer[page-subtype="home"] ytd-rich-section-renderer,
@@ -133,6 +159,10 @@ function injectCriticalStyles() {
     body[data-nyts-hide-home="true"] ytm-rich-item-renderer,
     body[data-nyts-hide-home="true"] ytm-video-with-context-renderer,
     body[data-nyts-hide-home="true"] grid-shelf-view-model {
+      display: none !important;
+    }
+
+    body[data-nyts-hide-community-posts="true"] [data-nyts-community-post="true"] {
       display: none !important;
     }
 
@@ -296,6 +326,12 @@ function registerSettingsListener() {
       shouldReprocess = true;
     }
 
+    if (Object.prototype.hasOwnProperty.call(changes, "hideCommunityPosts")) {
+      currentSettings.hideCommunityPosts =
+        changes.hideCommunityPosts.newValue ?? DEFAULT_SETTINGS.hideCommunityPosts;
+      shouldReprocess = true;
+    }
+
     if (shouldReprocess) {
       processPage();
     }
@@ -319,59 +355,108 @@ function restoreElements(selector, reason) {
     });
 }
 
+// Local, on-device counter shown in the popup ("Shorts hidden on this device").
+// Nothing leaves the device; it only feeds the popup and the rating prompt.
+function getLocalItems(keys) {
+  return new Promise((resolve) => {
+    const storageArea = extensionAPI?.storage?.local;
+    if (!storageArea) {
+      resolve({});
+      return;
+    }
+
+    try {
+      const result = storageArea.get(keys, (items) => resolve(items || {}));
+      if (result && typeof result.then === "function") {
+        result.then((items) => resolve(items || {})).catch(() => resolve({}));
+      }
+    } catch (_err) {
+      resolve({});
+    }
+  });
+}
+
+function flushHiddenShortsCount() {
+  const count = pendingHiddenShorts;
+  const storageArea = extensionAPI?.storage?.local;
+  if (!count || !storageArea) return;
+
+  pendingHiddenShorts = 0;
+  getLocalItems(["shortsHiddenCount", "firstActiveAt"]).then((items) => {
+    const payload = {
+      shortsHiddenCount: (Number(items.shortsHiddenCount) || 0) + count,
+    };
+    if (typeof items.firstActiveAt !== "number") {
+      payload.firstActiveAt = Date.now();
+    }
+
+    try {
+      const result = storageArea.set(payload, () => {});
+      if (result && typeof result.catch === "function") {
+        result.catch(() => {});
+      }
+    } catch (_err) {
+      // Counting is best effort.
+    }
+  });
+}
+
+function recordHiddenShorts(count) {
+  if (count <= 0) return;
+  pendingHiddenShorts += count;
+  flushHiddenShortsCountDebounced();
+}
+
+function isCountedOrInsideCounted(element) {
+  for (let node = element; node; node = node.parentElement) {
+    if (countedShorts.has(node)) return true;
+  }
+  return false;
+}
+
+// Call before removing a subtree from the DOM.
+function countShortsInRemovedSubtree(root) {
+  let count = 0;
+  root?.querySelectorAll?.(SHORTS_ITEM_SELECTOR).forEach((item) => {
+    if (isCountedOrInsideCounted(item)) return;
+    countedShorts.add(item);
+    count += 1;
+  });
+  recordHiddenShorts(count);
+}
+
+// Counts Shorts items that are still in the DOM but no longer rendered
+// (hidden by the critical styles or by an ancestor this script hid).
+function countHiddenShortsItems() {
+  let count = 0;
+  document.querySelectorAll(SHORTS_ITEM_SELECTOR).forEach((item) => {
+    if (isCountedOrInsideCounted(item) || item.getClientRects().length > 0) {
+      return;
+    }
+    countedShorts.add(item);
+    count += 1;
+  });
+  recordHiddenShorts(count);
+}
+
+// Lets the background script tell the containing app that the extension
+// really runs on YouTube, so the iOS app can confirm setup is complete.
+function reportYouTubeVisit() {
+  try {
+    const result = extensionAPI?.runtime?.sendMessage?.({ type: "nyts-youtube-visit" });
+    if (result && typeof result.catch === "function") {
+      result.catch(() => {});
+    }
+  } catch (_err) {
+    // The background script may be unavailable; the report is best effort.
+  }
+}
+
 function restoreElementsByReason(reason) {
   document.querySelectorAll(`[data-nyts-hidden="${reason}"]`).forEach((el) => {
     el.style.display = "";
     delete el.dataset.nytsHidden;
   });
-}
-
-function injectHomePlaceholder() {
-  const palette = getPlaceholderPalette();
-  const container =
-    document.querySelector("ytd-two-column-browse-results-renderer #primary") ||
-    document.querySelector("ytd-browse") ||
-    document.querySelector("ytm-browse") ||
-    document.querySelector("ytm-rich-grid-renderer");
-
-  if (!container || container.querySelector("#nyts-placeholder")) {
-    return;
-  }
-
-  const placeholder = document.createElement("div");
-  placeholder.id = "nyts-placeholder";
-  placeholder.style.display = "flex";
-  placeholder.style.flexDirection = "column";
-  placeholder.style.alignItems = "center";
-  placeholder.style.justifyContent = "center";
-  placeholder.style.padding = "48px 16px";
-  placeholder.style.gap = "12px";
-  placeholder.style.color = palette.text;
-  placeholder.style.fontFamily = "Arial, sans-serif";
-  placeholder.style.textAlign = "center";
-
-  placeholder.innerHTML = `
-    <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <rect x="6" y="14" width="60" height="44" rx="8" stroke="${palette.accent}" stroke-width="4" fill="${palette.accentFill}"/>
-      <path d="M30 28L46 36L30 44V28Z" fill="${palette.accent}"/>
-      <path d="M12 20L60 20" stroke="${palette.accent}" stroke-width="3" stroke-linecap="round"/>
-    </svg>
-    <div style="max-width: 520px;">
-      <div style="font-weight: 700; font-size: 18px; color: ${palette.heading};">Clean feed</div>
-      <div style="margin-top: 6px; font-size: 14px; line-height: 1.5; color: ${palette.text};">
-        No Shorts: Blocker for YouTube.
-      </div>
-    </div>
-  `;
-
-  container.prepend(placeholder);
-}
-
-function removeHomePlaceholder() {
-  const placeholder = document.getElementById("nyts-placeholder");
-  if (placeholder) {
-    placeholder.remove();
-  }
 }
 
 function getPlaceholderPalette() {
@@ -383,16 +468,12 @@ function getPlaceholderPalette() {
     ? {
         text: "#f0f0f0",
         heading: "#ffffff",
-        accent: "#ff6b6b",
-        accentFill: "rgba(255,107,107,0.08)",
         surface: "#181a1f",
         border: "#2a2c31",
       }
     : {
         text: "#1f1f1f",
         heading: "#0f0f0f",
-        accent: "#d62828",
-        accentFill: "rgba(214,40,40,0.05)",
         surface: "#fafafa",
         border: "#e0e0e0",
       };
@@ -546,6 +627,7 @@ function removeShortsMiniMenuItem() {
 
 function removeShortsReelShelf() {
   document.querySelectorAll("ytd-reel-shelf-renderer").forEach((item) => {
+    countShortsInRemovedSubtree(item);
     item.remove();
     console.log("Removed Shorts reel shelf");
   });
@@ -558,6 +640,7 @@ function removeShortsFromSearchResults() {
     );
     if (badge) {
       video.remove();
+      recordHiddenShorts(1);
       console.log("Removed a Shorts video from search results");
     }
   });
@@ -581,6 +664,7 @@ function removeMobileShortsFromSearchResults() {
       if (isShortByBadge || isShortByClass || isShortByLink) {
         item.style.display = "none";
         item.setAttribute("data-processed-mobile-search", "true");
+        recordHiddenShorts(1);
         console.log("Hid mobile Shorts result from search");
       }
     });
@@ -757,19 +841,27 @@ function removeMobileRichSectionShorts() {
 }
 
 function removeGridShelfShorts() {
+  const shortsCardSelector =
+    "ytm-shorts-lockup-view-model, ytm-shorts-lockup-view-model-v2";
+
   document
     .querySelectorAll("grid-shelf-view-model:not([data-processed-grid-shelf])")
     .forEach((shelf) => {
-      const shortsHeader = shelf.querySelector(
-        'span.yt-core-attributed-string[role="text"]'
+      // Desktop and mobile share these shelves. Titles can be "Shorts", a
+      // topic, or absent, and YouTube changes the heading markup independently.
+      const shortsCard = shelf.querySelector(shortsCardSelector);
+      const ordinaryResult = shelf.querySelector(
+        'ytd-video-renderer, ytm-video-with-context-renderer, yt-lockup-view-model, a[href*="/watch?"], a[href*="/playlist?"]'
       );
-      if (shortsHeader && shortsHeader.textContent.trim() === "Shorts") {
-        const headerContainer = shortsHeader.closest("yt-shelf-header-layout");
-        if (headerContainer) {
-          shelf.style.display = "none";
-          shelf.setAttribute("data-processed-grid-shelf", "true");
-          console.log("Hid grid shelf with Shorts");
-        }
+      const hasOtherItems = Array.from(
+        shelf.querySelectorAll(".ytGridShelfViewModelGridShelfItem")
+      ).some((item) => !item.querySelector(shortsCardSelector));
+
+      if (shortsCard && !ordinaryResult && !hasOtherItems) {
+        // Hide the container so its heading, spacing and Show more button go too.
+        shelf.style.display = "none";
+        shelf.setAttribute("data-processed-grid-shelf", "true");
+        console.log("Hid grid shelf with Shorts");
       }
     });
 }
@@ -793,10 +885,10 @@ function removeMobileSectionHeaderShorts() {
 }
 
 function removeMobileShortsLockups() {
-  // Hide individual ytm-shorts-lockup-view-model elements
+  // Hide individual Shorts lockups, including the newer outer container.
   document
     .querySelectorAll(
-      "ytm-shorts-lockup-view-model:not([data-processed-lockup])"
+      "ytm-shorts-lockup-view-model:not([data-processed-lockup]), ytm-shorts-lockup-view-model-v2:not([data-processed-lockup])"
     )
     .forEach((lockup) => {
       lockup.style.display = "none";
@@ -874,6 +966,7 @@ function removeShortsHeader() {
     "rich-shelf-header-container"
   );
   if (shortsHeaderContainer) {
+    countShortsInRemovedSubtree(shortsHeaderContainer.parentElement);
     shortsHeaderContainer.parentElement.remove();
     console.log("Removed Shorts header container");
   }
@@ -886,75 +979,9 @@ function isHomePage() {
   return (
     window.location.pathname === "/" ||
     window.location.pathname === "" ||
-    window.location.pathname === "/feed"
+    window.location.pathname === "/feed" ||
+    window.location.pathname === "/feed/home"
   );
-}
-
-function redirectHomeToSubscriptions() {
-  if (!currentSettings.hideHomeFeed || !isHomePage()) {
-    return;
-  }
-
-  window.location.replace(
-    new URL(SUBSCRIPTIONS_FEED_PATH, window.location.origin).toString()
-  );
-}
-
-function isHomeNavigationHref(href) {
-  if (!href) {
-    return false;
-  }
-
-  try {
-    const url = new URL(href, window.location.origin);
-    return url.pathname === "/" || url.pathname === "/feed/home";
-  } catch (_err) {
-    return false;
-  }
-}
-
-function normalizeNavigationLabel(value) {
-  return (value || "").toLowerCase().replace(/\s+/g, " ").trim();
-}
-
-function isHomeNavigationLabel(value) {
-  const normalized = normalizeNavigationLabel(value);
-  if (!normalized) {
-    return false;
-  }
-  return HOME_NAV_LABELS.has(normalized);
-}
-
-function hideHomeNavigationEntrypoints() {
-  document.body.dataset.nytsHideHomeNav = "true";
-
-  const containers = document.querySelectorAll(
-    "ytd-guide-entry-renderer, ytd-mini-guide-entry-renderer, ytm-pivot-bar-item-renderer"
-  );
-
-  containers.forEach((container) => {
-    const link = container.querySelector("a[href]");
-    const href = link?.getAttribute("href") || "";
-    const title = link?.getAttribute("title") || "";
-    const ariaLabel =
-      link?.getAttribute("aria-label") || container.getAttribute("aria-label");
-    const sectionTitle =
-      container.querySelector(".title")?.textContent || container.textContent;
-
-    if (
-      isHomeNavigationHref(href) ||
-      isHomeNavigationLabel(title) ||
-      isHomeNavigationLabel(ariaLabel) ||
-      isHomeNavigationLabel(sectionTitle)
-    ) {
-      hideElement(container, "home-navigation");
-    }
-  });
-}
-
-function restoreHomeNavigationEntrypoints() {
-  delete document.body.dataset.nytsHideHomeNav;
-  restoreElementsByReason("home-navigation");
 }
 
 function hideHomeRecommendations() {
@@ -994,8 +1021,6 @@ function hideHomeRecommendations() {
       hideElement(node, "home-recommendations");
     });
   });
-
-  injectHomePlaceholder();
 }
 
 function restoreHomeRecommendations() {
@@ -1021,8 +1046,6 @@ function restoreHomeRecommendations() {
     "ytm-continuation-item-renderer",
     "grid-shelf-view-model",
   ].forEach((selector) => restoreElements(selector, "home-recommendations"));
-
-  removeHomePlaceholder();
 }
 
 function isWatchPage() {
@@ -1031,9 +1054,13 @@ function isWatchPage() {
   return window.location.pathname === "/watch";
 }
 
+function hasPlaylistContext() {
+  return new URL(window.location.href).searchParams.has("list");
+}
+
 function hideWatchRecommendations() {
   if (!isWatchPage()) {
-    // Home placeholder is managed by home-page logic; only clean up watch UI.
+    // The Home feed is managed by home-page logic; only clean up watch UI.
     restoreWatchRecommendations();
     return;
   }
@@ -1050,9 +1077,21 @@ function hideWatchRecommendations() {
     "ytm-related-chip-cloud-renderer",
   ];
 
+  const protectedSidebarSelector = [
+    "#chat",
+    "ytd-live-chat-frame",
+    "ytd-live-chat-renderer",
+    "ytd-playlist-panel-renderer",
+  ].join(", ");
+
   selectors.forEach((selector) => {
     document.querySelectorAll(selector).forEach((node) => {
-      hideElement(node, "watch-recommendations");
+      if (
+        !node.matches(protectedSidebarSelector) &&
+        !node.querySelector(protectedSidebarSelector)
+      ) {
+        hideElement(node, "watch-recommendations");
+      }
     });
   });
 
@@ -1063,14 +1102,19 @@ function hideWatchRecommendations() {
     document.querySelector("ytd-watch-flexy #secondary") ||
     document.querySelector("ytd-watch-grid #secondary");
 
-  const isElementVisible = (node) => {
+  const canDisplaySidebarContent = (node) => {
     if (!node) return false;
-    if (node.hasAttribute?.("hidden")) return false;
-    const rects = node.getClientRects?.();
-    if (!rects || rects.length === 0) return false;
-    const style = window.getComputedStyle?.(node);
-    if (!style) return true;
-    return style.display !== "none" && style.visibility !== "hidden";
+
+    let current = node;
+    while (current && current !== secondary) {
+      if (current.hasAttribute?.("hidden")) return false;
+      if (current.getAttribute?.("aria-hidden") === "true") return false;
+      if (current.style?.display === "none") return false;
+      if (current.style?.visibility === "hidden") return false;
+      current = current.parentElement;
+    }
+
+    return true;
   };
 
   const chatOrPlaylistNodes =
@@ -1078,10 +1122,14 @@ function hideWatchRecommendations() {
       "#chat, ytd-live-chat-frame, ytd-live-chat-renderer, ytd-playlist-panel-renderer"
     ) || [];
 
-  const hasVisibleChatOrPlaylist =
-    Array.from(chatOrPlaylistNodes).some(isElementVisible);
+  // A collapsed parent gives its children no client rects, so rendered
+  // visibility cannot be used here: it creates a self-locking hidden sidebar.
+  // The URL preserves playlist navigation while YouTube is still rendering it.
+  const shouldPreserveSidebar =
+    hasPlaylistContext() ||
+    Array.from(chatOrPlaylistNodes).some(canDisplaySidebarContent);
 
-  if (hasVisibleChatOrPlaylist) {
+  if (shouldPreserveSidebar) {
     delete document.body.dataset.nytsCollapseWatchSidebar;
   } else {
     document.body.dataset.nytsCollapseWatchSidebar = "true";
@@ -1268,29 +1316,93 @@ function installNavigationHooks() {
   );
 }
 
+// A deliberately opened shared Short can play in the regular video player,
+// without entering YouTube's swipeable Shorts feed. replace() avoids adding a
+// Shorts page to history that would trap Back in another redirect.
+function regularWatchUrlForShorts(href) {
+  try {
+    const url = new URL(href);
+    const match = url.pathname.match(/^\/shorts\/([A-Za-z0-9_-]{11})\/?$/);
+    if (!match || !/(^|\.)youtube\.com$/i.test(url.hostname)) return null;
+    const target = new URL("/watch", url.origin);
+    target.searchParams.set("v", match[1]);
+    for (const key of ["t", "start", "end"]) {
+      if (url.searchParams.has(key)) target.searchParams.set(key, url.searchParams.get(key));
+    }
+    return target.href;
+  } catch (_err) {
+    return null;
+  }
+}
+
+let redirectingShortsUrl = null;
+
+function navigateToRegularPlayer(url) {
+  window.location.replace(url);
+}
+
+function redirectShortsToRegularPlayer() {
+  const target = currentSettings.hideShorts && regularWatchUrlForShorts(window.location.href);
+  if (!target) {
+    redirectingShortsUrl = null;
+    return false;
+  }
+  if (redirectingShortsUrl !== window.location.href) {
+    redirectingShortsUrl = window.location.href;
+    try {
+      navigateToRegularPlayer(target);
+    } catch (_err) {
+      redirectingShortsUrl = null;
+      return false;
+    }
+  }
+  return true;
+}
+
+function updateCommunityPostFilter() {
+  document.querySelectorAll("[data-nyts-community-post]").forEach(card => {
+    delete card.dataset.nytsCommunityPost;
+  });
+  if (!currentSettings.hideCommunityPosts || !isHomePage()) {
+    delete document.body.dataset.nytsHideCommunityPosts;
+    return;
+  }
+  document.body.dataset.nytsHideCommunityPosts = "true";
+  document.querySelectorAll([
+    "ytd-post-renderer", "ytd-backstage-post-renderer", "ytd-backstage-post-thread-renderer",
+    "ytm-post-renderer", "ytm-backstage-post-renderer", "ytm-backstage-post-thread-renderer",
+    "yt-post-view-model",
+  ].join(",")).forEach((post) => {
+    const card = post.closest("ytd-rich-item-renderer, ytm-rich-item-renderer") || post;
+    card.dataset.nytsCommunityPost = "true";
+  });
+}
+
 function processPage() {
-  if (!document.body) return;
+  // Inline hiding cannot be undone by removing CSS, so honor the saved choice
+  // before processing the initial page or any early navigation/mutation events.
+  if (!document.body || !settingsLoaded) return;
+
+  injectSettingsStyles();
+  if (redirectShortsToRegularPlayer()) return;
+  updateCommunityPostFilter();
 
   if (currentSettings.hideShorts) {
     injectCriticalStyles();
     hideYouTubeShortsElements();
     removeShortsHeader();
+    countHiddenShortsItems();
   } else {
     removeCriticalStyles();
   }
 
   if (currentSettings.hideHomeFeed) {
-    hideHomeNavigationEntrypoints();
-    redirectHomeToSubscriptions();
-
     if (isHomePage()) {
       hideHomeRecommendations();
     } else {
       restoreHomeRecommendations();
-      removeHomePlaceholder();
     }
   } else {
-    restoreHomeNavigationEntrypoints();
     restoreHomeRecommendations();
   }
 
@@ -1308,6 +1420,10 @@ function processPage() {
 }
 
 const processPageDebounced = debounce(processPage, 150);
+const flushHiddenShortsCountDebounced = debounce(
+  flushHiddenShortsCount,
+  STATS_FLUSH_DELAY_MS
+);
 
 installNavigationHooks();
 
@@ -1320,7 +1436,7 @@ const observer = new MutationObserver((mutations) => {
   }
 });
 
-injectCriticalStyles();
+injectSettingsStyles();
 
 whenBodyReady(() => {
   handleNavigation(true);
@@ -1334,7 +1450,10 @@ whenBodyReady(() => {
 // Initial execution to handle already loaded elements
 getStoredSettings().then((settings) => {
   currentSettings = { ...settings };
+  settingsLoaded = true;
   processPage();
 });
 
 registerSettingsListener();
+reportYouTubeVisit();
+window.addEventListener("pagehide", flushHiddenShortsCount);

@@ -19,7 +19,7 @@ Référence de l’existant (dans ce repo) :
 
 - `manifest.json` (MV3)
   - déclare `content_scripts` (injection), `action.default_popup` (UI), `background.service_worker` (optionnel)
-  - permissions minimales (ici : uniquement `storage`)
+  - permissions minimales (ici : `storage`, plus `nativeMessaging` pour que l’app iOS confirme que l’extension tourne sur YouTube)
 - `content.js`
   - applique les règles sur le site (hide/replace/placeholder)
   - écoute les changements de settings via `storage.onChanged`
@@ -159,7 +159,9 @@ Quand vous masquez un feed complet (home, sidebar…), ajouter un placeholder é
 - palette light/dark (déduite du thème du site ou via `prefers-color-scheme`)
 - suppression quand la feature est off
 
-Existant : `injectHomePlaceholder()` dans `content.js`.
+Dans No Shorts, la page Home reste volontairement vide afin de laisser
+l'utilisateur choisir sa prochaine destination. Les placeholders restent utiles
+pour des zones ciblées, comme les commentaires masqués.
 
 ---
 
@@ -291,4 +293,3 @@ Contraintes non négociables :
 - Storage : fallback `sync → local` + defaults robustes, aucune exception non gérée.
 - Content script : `document_start` + CSS critique + `MutationObserver` + hooks SPA + `processPage()` idempotent.
 - Maintenance : sélecteurs isolés par site/feature, et restaurations via `data-*` + `restoreElements`.
-
