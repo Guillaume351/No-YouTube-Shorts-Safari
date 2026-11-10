@@ -1,10 +1,195 @@
 {
-  "extension_name": {
-    "message": "No Shorts: Blocco per YouTube",
-    "description": "No Shorts: Blocker for YouTube"
-  },
-  "extension_description": {
-    "message": "Nasconde gli Shorts dal sito YouTube su Safari.",
-    "description": "Rimuove automaticamente le sezioni Shorts da tutte le pagine del sito YouTube."
-  }
+    "extension_name": {
+        "message": "No Shorts : Blocker for YouTube",
+        "description": "Extension name shown in Safari. Keep it identical in every locale."
+    },
+    "extension_description": {
+        "message": "Nasconde gli Shorts dal sito di YouTube su Safari.",
+        "description": "Extension description shown in Safari settings."
+    },
+    "popup_subtitle": {
+        "message": "Blocco per YouTube",
+        "description": "Subtitle under the popup title."
+    },
+    "popup_description": {
+        "message": "Nascondi gli Shorts di YouTube mentre navighi",
+        "description": "One-line summary at the top of the popup."
+    },
+    "popup_status_active": {
+        "message": "Estensione attiva",
+        "description": "Status pill shown while the extension runs."
+    },
+    "toggle_shorts_title": {
+        "message": "Nascondi Shorts",
+        "description": "Toggle title."
+    },
+    "toggle_shorts_description": {
+        "message": "Nasconde gli Shorts di YouTube in Safari (attivo per impostazione predefinita).",
+        "description": "Toggle description."
+    },
+    "toggle_home_title": {
+        "message": "Nascondi la home",
+        "description": "Toggle title."
+    },
+    "toggle_home_description": {
+        "message": "Lascia vuoto il feed Home senza reindirizzare a un’altra pagina.",
+        "description": "Toggle description."
+    },
+    "toggle_recommendations_title": {
+        "message": "Nascondi i consigli",
+        "description": "Toggle title."
+    },
+    "toggle_recommendations_description": {
+        "message": "Rimuove i video correlati intorno al player.",
+        "description": "Toggle description."
+    },
+    "toggle_comments_title": {
+        "message": "Nascondi i commenti",
+        "description": "Toggle title."
+    },
+    "toggle_comments_description": {
+        "message": "Rimuove i thread di commenti sotto i video.",
+        "description": "Toggle description."
+    },
+    "stats_shorts_hidden": {
+        "message": "Shorts nascosti su questo dispositivo: $COUNT$",
+        "description": "Counter of Shorts hidden on this device. $COUNT$ is a formatted number.",
+        "placeholders": {
+            "count": {
+                "content": "$1",
+                "example": "1,234"
+            }
+        }
+    },
+    "rating_title": {
+        "message": "Ti piace No Shorts?",
+        "description": "Title of the App Store rating card."
+    },
+    "rating_body": {
+        "message": "Una valutazione veloce su App Store aiuta altre persone a trovarlo.",
+        "description": "Body of the App Store rating card."
+    },
+    "rating_button": {
+        "message": "Valuta su App Store",
+        "description": "Button that opens the App Store review page."
+    },
+    "rating_later": {
+        "message": "Non ora",
+        "description": "Button that hides the rating card for a while."
+    },
+    "bundle_text": {
+        "message": "Usi anche Instagram o X in Safari?",
+        "description": "Cross-sell line for the bundle with the Instagram and X extensions."
+    },
+    "bundle_link": {
+        "message": "Scopri il pacchetto di 3 estensioni",
+        "description": "Link to the App Store bundle."
+    },
+    "support_text": {
+        "message": "Serve aiuto o hai trovato un bug?",
+        "description": "Footer support prompt."
+    },
+    "contact_link": {
+        "message": "Contatta lo sviluppatore",
+        "description": "Footer button that emails the developer."
+    },
+    "response_time": {
+        "message": "Risposta rapida garantita!",
+        "description": "Footer reassurance under the contact button."
+    },
+    "toggle_community_title": {
+        "message": "Nascondi i post della community"
+    },
+    "toggle_community_description": {
+        "message": "Nascondi i post di testo e immagini nella Home."
+    },
+    "pin_title": {
+        "message": "PIN delle impostazioni"
+    },
+    "pin_note": {
+        "message": "Puoi richiedere un PIN per modificare le impostazioni in questa finestra su questo dispositivo. Conservalo al sicuro. Safari può comunque disattivare o rimuovere l’estensione."
+    },
+    "pin_label": {
+        "message": "PIN"
+    },
+    "pin_new": {
+        "message": "Nuovo PIN (4–12 cifre)"
+    },
+    "pin_confirm": {
+        "message": "Conferma PIN"
+    },
+    "pin_unlock": {
+        "message": "Sblocca impostazioni"
+    },
+    "pin_save": {
+        "message": "Salva PIN"
+    },
+    "pin_lock_now": {
+        "message": "Blocca ora"
+    },
+    "pin_remove": {
+        "message": "Rimuovi PIN"
+    },
+    "pin_invalid": {
+        "message": "Inserisci due volte lo stesso PIN di 4–12 cifre."
+    },
+    "pin_saved": {
+        "message": "PIN salvato. Inseriscilo per modificare le impostazioni."
+    },
+    "pin_incorrect": {
+        "message": "PIN errato."
+    },
+    "pin_wait": {
+        "message": "Troppi tentativi. Attendi 30 secondi e riprova."
+    },
+    "pin_unlocked": {
+        "message": "Impostazioni sbloccate fino alla chiusura di questa finestra."
+    },
+    "pin_removed": {
+        "message": "PIN rimosso."
+    },
+    "pin_storage_error": {
+        "message": "Impossibile verificare o salvare il PIN. Riapri l’estensione e riprova."
+    },
+    "settings_save_error": {
+        "message": "Impossibile salvare le impostazioni. Riapri l’estensione e riprova."
+    },
+    "settings_filters_label": {
+        "message": "Filtri YouTube"
+    },
+    "save_unknown": {
+        "message": "Salvataggio non ancora confermato. Attendi oppure riapri questa finestra per verificare lo stato salvato."
+    },
+    "storage_read_error": {
+        "message": "Impossibile leggere le impostazioni salvate. Riapri l’estensione e riprova."
+    },
+    "pin_invalid_data": {
+        "message": "Impossibile leggere i dati del PIN salvato. Le impostazioni rimangono bloccate. Contatta l’assistenza."
+    },
+    "pin_locked": {
+        "message": "Le impostazioni sono bloccate. Inserisci il PIN per modificarle."
+    },
+    "pin_changed": {
+        "message": "Il PIN è stato modificato in un’altra finestra. Usa il PIN attuale per sbloccare le impostazioni."
+    },
+    "pin_crypto_unavailable": {
+        "message": "La protezione tramite PIN non è disponibile in questo contesto di Safari. Aggiorna Safari o riapri l’estensione."
+    },
+    "pin_save_unknown": {
+        "message": "Salvataggio non ancora confermato. Conserva il PIN e attendi, oppure riapri questa finestra per verificare lo stato salvato."
+    },
+    "pin_removed_elsewhere": {
+        "message": "Il PIN è stato rimosso in un’altra finestra. Le impostazioni sono sbloccate."
+    },
+    "pin_removed_retry": {
+        "message": "Il PIN è stato rimosso in un’altra finestra. La modifica non è stata salvata; riprova."
+    },
+    "popup_locale": {
+        "message": "it",
+        "description": "Metadata for popup language, selected by the same i18n message bundle as the visible copy. Not user-facing text."
+    },
+    "popup_direction": {
+        "message": "ltr",
+        "description": "Metadata for popup reading direction. Keep aligned with this locale; not user-facing text."
+    }
 }

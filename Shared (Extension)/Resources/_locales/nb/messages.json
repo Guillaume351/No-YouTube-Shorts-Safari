@@ -1,0 +1,195 @@
+{
+    "extension_name": {
+        "message": "No Shorts : Blocker for YouTube",
+        "description": "Extension name shown in Safari. Keep it identical in every locale."
+    },
+    "extension_description": {
+        "message": "Skjuler Shorts på YouTube-nettstedet i Safari.",
+        "description": "Extension description shown in Safari settings."
+    },
+    "popup_subtitle": {
+        "message": "Blokkering for YouTube",
+        "description": "Subtitle under the popup title."
+    },
+    "popup_description": {
+        "message": "Skjul YouTube Shorts mens du surfer",
+        "description": "One-line summary at the top of the popup."
+    },
+    "popup_status_active": {
+        "message": "Utvidelsen er aktiv",
+        "description": "Status pill shown while the extension runs."
+    },
+    "toggle_shorts_title": {
+        "message": "Skjul Shorts",
+        "description": "Toggle title."
+    },
+    "toggle_shorts_description": {
+        "message": "Skjuler YouTube Shorts i Safari (på som standard).",
+        "description": "Toggle description."
+    },
+    "toggle_home_title": {
+        "message": "Skjul startsiden",
+        "description": "Toggle title."
+    },
+    "toggle_home_description": {
+        "message": "Lar startfeeden stå tom uten å videresende til en annen side.",
+        "description": "Toggle description."
+    },
+    "toggle_recommendations_title": {
+        "message": "Skjul videoanbefalinger",
+        "description": "Toggle title."
+    },
+    "toggle_recommendations_description": {
+        "message": "Fjerner relaterte videoer rundt spilleren på videosider.",
+        "description": "Toggle description."
+    },
+    "toggle_comments_title": {
+        "message": "Skjul kommentarer",
+        "description": "Toggle title."
+    },
+    "toggle_comments_description": {
+        "message": "Fjerner kommentartråder under videoer.",
+        "description": "Toggle description."
+    },
+    "stats_shorts_hidden": {
+        "message": "Shorts skjult på denne enheten: $COUNT$",
+        "description": "Counter of Shorts hidden on this device. $COUNT$ is a formatted number.",
+        "placeholders": {
+            "count": {
+                "content": "$1",
+                "example": "1,234"
+            }
+        }
+    },
+    "rating_title": {
+        "message": "Liker du No Shorts?",
+        "description": "Title of the App Store rating card."
+    },
+    "rating_body": {
+        "message": "En rask vurdering i App Store hjelper andre med å finne appen.",
+        "description": "Body of the App Store rating card."
+    },
+    "rating_button": {
+        "message": "Vurder i App Store",
+        "description": "Button that opens the App Store review page."
+    },
+    "rating_later": {
+        "message": "Ikke nå",
+        "description": "Button that hides the rating card for a while."
+    },
+    "bundle_text": {
+        "message": "Bruker du også Instagram eller X i Safari?",
+        "description": "Cross-sell line for the bundle with the Instagram and X extensions."
+    },
+    "bundle_link": {
+        "message": "Se pakken med 3 utvidelser",
+        "description": "Link to the App Store bundle."
+    },
+    "support_text": {
+        "message": "Trenger du hjelp, eller har du funnet en feil?",
+        "description": "Footer support prompt."
+    },
+    "contact_link": {
+        "message": "Kontakt utvikleren",
+        "description": "Footer button that emails the developer."
+    },
+    "response_time": {
+        "message": "Raskt svar garantert!",
+        "description": "Footer reassurance under the contact button."
+    },
+    "toggle_community_title": {
+        "message": "Skjul fellesskapsinnlegg"
+    },
+    "toggle_community_description": {
+        "message": "Skjuler tekst- og bildeinnlegg i startfeeden."
+    },
+    "pin_title": {
+        "message": "PIN-kode for innstillinger"
+    },
+    "pin_note": {
+        "message": "Du kan velge å kreve en PIN-kode for å endre innstillingene i dette vinduet på denne enheten. Oppbevar den trygt. Safari kan fortsatt slå av eller fjerne utvidelsen."
+    },
+    "pin_label": {
+        "message": "PIN-kode"
+    },
+    "pin_new": {
+        "message": "Ny PIN-kode (4–12 sifre)"
+    },
+    "pin_confirm": {
+        "message": "Bekreft PIN-kode"
+    },
+    "pin_unlock": {
+        "message": "Lås opp innstillinger"
+    },
+    "pin_save": {
+        "message": "Lagre PIN-kode"
+    },
+    "pin_lock_now": {
+        "message": "Lås nå"
+    },
+    "pin_remove": {
+        "message": "Fjern PIN-kode"
+    },
+    "pin_invalid": {
+        "message": "Skriv inn den samme PIN-koden to ganger, med 4 til 12 sifre."
+    },
+    "pin_saved": {
+        "message": "PIN-koden er lagret. Skriv den inn for å endre innstillingene dine."
+    },
+    "pin_incorrect": {
+        "message": "Feil PIN-kode."
+    },
+    "pin_wait": {
+        "message": "For mange forsøk. Vent 30 sekunder og prøv igjen."
+    },
+    "pin_unlocked": {
+        "message": "Innstillingene er låst opp til dette vinduet lukkes."
+    },
+    "pin_removed": {
+        "message": "PIN-koden er fjernet."
+    },
+    "pin_storage_error": {
+        "message": "PIN-koden kunne ikke kontrolleres eller lagres. Åpne utvidelsen på nytt og prøv igjen."
+    },
+    "settings_save_error": {
+        "message": "Innstillingene kunne ikke lagres. Åpne utvidelsen på nytt og prøv igjen."
+    },
+    "settings_filters_label": {
+        "message": "YouTube-filtre"
+    },
+    "save_unknown": {
+        "message": "Lagringen er ikke bekreftet ennå. Vent, eller åpne dette vinduet på nytt for å sjekke den lagrede tilstanden."
+    },
+    "storage_read_error": {
+        "message": "De lagrede innstillingene kunne ikke leses. Åpne utvidelsen på nytt og prøv igjen."
+    },
+    "pin_invalid_data": {
+        "message": "De lagrede PIN-dataene kunne ikke leses. Innstillingene forblir låst. Kontakt kundestøtte."
+    },
+    "pin_locked": {
+        "message": "Innstillingene er låst. Skriv inn PIN-koden din for å gjøre endringer."
+    },
+    "pin_changed": {
+        "message": "PIN-koden ble endret i et annet vindu. Bruk den gjeldende PIN-koden for å låse opp innstillingene."
+    },
+    "pin_crypto_unavailable": {
+        "message": "PIN-beskyttelse er ikke tilgjengelig i denne Safari-konteksten. Oppdater Safari eller åpne utvidelsen på nytt."
+    },
+    "pin_save_unknown": {
+        "message": "Lagringen er ikke bekreftet ennå. Oppbevar PIN-koden din trygt og vent, eller åpne dette vinduet på nytt for å sjekke den lagrede tilstanden."
+    },
+    "pin_removed_elsewhere": {
+        "message": "PIN-koden ble fjernet i et annet vindu. Innstillingene er låst opp."
+    },
+    "pin_removed_retry": {
+        "message": "PIN-koden ble fjernet i et annet vindu. Endringen din ble ikke lagret. Prøv igjen."
+    },
+    "popup_locale": {
+        "message": "nb",
+        "description": "Metadata for popup language, selected by the same i18n message bundle as the visible copy. Not user-facing text."
+    },
+    "popup_direction": {
+        "message": "ltr",
+        "description": "Metadata for popup reading direction. Keep aligned with this locale; not user-facing text."
+    }
+}

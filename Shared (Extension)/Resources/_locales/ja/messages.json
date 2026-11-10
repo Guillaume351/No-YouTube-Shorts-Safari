@@ -1,0 +1,195 @@
+{
+    "extension_name": {
+        "message": "No Shorts : Blocker for YouTube",
+        "description": "Extension name shown in Safari. Keep it identical in every locale."
+    },
+    "extension_description": {
+        "message": "SafariでYouTubeサイトのShortsを非表示にします。",
+        "description": "Extension description shown in Safari settings."
+    },
+    "popup_subtitle": {
+        "message": "YouTube用ブロッカー",
+        "description": "Subtitle under the popup title."
+    },
+    "popup_description": {
+        "message": "ブラウジング中のYouTube Shortsを非表示",
+        "description": "One-line summary at the top of the popup."
+    },
+    "popup_status_active": {
+        "message": "拡張機能は有効です",
+        "description": "Status pill shown while the extension runs."
+    },
+    "toggle_shorts_title": {
+        "message": "Shortsを非表示",
+        "description": "Toggle title."
+    },
+    "toggle_shorts_description": {
+        "message": "SafariでYouTube Shortsを非表示にします（デフォルトでオン）。",
+        "description": "Toggle description."
+    },
+    "toggle_home_title": {
+        "message": "ホームを非表示",
+        "description": "Toggle title."
+    },
+    "toggle_home_description": {
+        "message": "ホームフィードを空白にします。ほかのページには移動しません。",
+        "description": "Toggle description."
+    },
+    "toggle_recommendations_title": {
+        "message": "おすすめ動画を非表示",
+        "description": "Toggle title."
+    },
+    "toggle_recommendations_description": {
+        "message": "再生ページでプレーヤーの周りの関連動画を削除します。",
+        "description": "Toggle description."
+    },
+    "toggle_comments_title": {
+        "message": "コメントを非表示",
+        "description": "Toggle title."
+    },
+    "toggle_comments_description": {
+        "message": "動画の下のコメントを削除します。",
+        "description": "Toggle description."
+    },
+    "stats_shorts_hidden": {
+        "message": "このデバイスで非表示にしたShorts：$COUNT$",
+        "description": "Counter of Shorts hidden on this device. $COUNT$ is a formatted number.",
+        "placeholders": {
+            "count": {
+                "content": "$1",
+                "example": "1,234"
+            }
+        }
+    },
+    "rating_title": {
+        "message": "No Shortsを気に入っていただけましたか？",
+        "description": "Title of the App Store rating card."
+    },
+    "rating_body": {
+        "message": "App Storeで評価していただくと、ほかの方が見つけやすくなります。",
+        "description": "Body of the App Store rating card."
+    },
+    "rating_button": {
+        "message": "App Storeで評価する",
+        "description": "Button that opens the App Store review page."
+    },
+    "rating_later": {
+        "message": "今はしない",
+        "description": "Button that hides the rating card for a while."
+    },
+    "bundle_text": {
+        "message": "SafariでInstagramやXも使っていますか？",
+        "description": "Cross-sell line for the bundle with the Instagram and X extensions."
+    },
+    "bundle_link": {
+        "message": "3つの拡張機能のセットを見る",
+        "description": "Link to the App Store bundle."
+    },
+    "support_text": {
+        "message": "お困りのことや不具合はありますか？",
+        "description": "Footer support prompt."
+    },
+    "contact_link": {
+        "message": "開発者に連絡",
+        "description": "Footer button that emails the developer."
+    },
+    "response_time": {
+        "message": "すばやくお返事します！",
+        "description": "Footer reassurance under the contact button."
+    },
+    "toggle_community_title": {
+        "message": "コミュニティ投稿を非表示"
+    },
+    "toggle_community_description": {
+        "message": "ホームフィードのテキスト投稿や画像投稿を非表示にします。"
+    },
+    "pin_title": {
+        "message": "設定のPIN"
+    },
+    "pin_note": {
+        "message": "必要に応じて、このデバイスのこのポップアップで設定を変更するときにPINを求めることができます。PINは大切に保管してください。Safariからは引き続き拡張機能をオフにしたり削除したりできます。"
+    },
+    "pin_label": {
+        "message": "PIN"
+    },
+    "pin_new": {
+        "message": "新しいPIN（4〜12桁）"
+    },
+    "pin_confirm": {
+        "message": "PINを確認"
+    },
+    "pin_unlock": {
+        "message": "設定のロックを解除"
+    },
+    "pin_save": {
+        "message": "PINを保存"
+    },
+    "pin_lock_now": {
+        "message": "今すぐロック"
+    },
+    "pin_remove": {
+        "message": "PINを削除"
+    },
+    "pin_invalid": {
+        "message": "4〜12桁の同じPINを2回入力してください。"
+    },
+    "pin_saved": {
+        "message": "PINを保存しました。設定を変更するにはPINを入力してください。"
+    },
+    "pin_incorrect": {
+        "message": "PINが正しくありません。"
+    },
+    "pin_wait": {
+        "message": "試行回数が多すぎます。30秒待ってからもう一度お試しください。"
+    },
+    "pin_unlocked": {
+        "message": "このポップアップを閉じるまで設定のロックが解除されます。"
+    },
+    "pin_removed": {
+        "message": "PINを削除しました。"
+    },
+    "pin_storage_error": {
+        "message": "PINを確認または保存できませんでした。拡張機能を開き直して、もう一度お試しください。"
+    },
+    "settings_save_error": {
+        "message": "設定を保存できませんでした。拡張機能を開き直して、もう一度お試しください。"
+    },
+    "settings_filters_label": {
+        "message": "YouTubeフィルタ"
+    },
+    "save_unknown": {
+        "message": "保存はまだ確認されていません。しばらく待つか、このポップアップを開き直して保存状態を確認してください。"
+    },
+    "storage_read_error": {
+        "message": "保存された設定を読み込めませんでした。拡張機能を開き直して、もう一度お試しください。"
+    },
+    "pin_invalid_data": {
+        "message": "保存されたPINデータを読み込めませんでした。設定はロックされたままです。サポートにお問い合わせください。"
+    },
+    "pin_locked": {
+        "message": "設定はロックされています。変更するにはPINを入力してください。"
+    },
+    "pin_changed": {
+        "message": "別のウインドウでPINが変更されました。現在のPINで設定のロックを解除してください。"
+    },
+    "pin_crypto_unavailable": {
+        "message": "このSafari環境ではPIN保護を利用できません。Safariをアップデートするか、拡張機能を開き直してください。"
+    },
+    "pin_save_unknown": {
+        "message": "保存はまだ確認されていません。PINを控えたうえでしばらく待つか、このポップアップを開き直して保存状態を確認してください。"
+    },
+    "pin_removed_elsewhere": {
+        "message": "別のウインドウでPINが削除されました。設定のロックは解除されています。"
+    },
+    "pin_removed_retry": {
+        "message": "別のウインドウでPINが削除されました。変更は保存されていません。もう一度お試しください。"
+    },
+    "popup_locale": {
+        "message": "ja",
+        "description": "Metadata for popup language, selected by the same i18n message bundle as the visible copy. Not user-facing text."
+    },
+    "popup_direction": {
+        "message": "ltr",
+        "description": "Metadata for popup reading direction. Keep aligned with this locale; not user-facing text."
+    }
+}

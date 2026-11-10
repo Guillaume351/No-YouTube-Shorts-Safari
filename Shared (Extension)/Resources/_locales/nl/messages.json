@@ -1,0 +1,195 @@
+{
+    "extension_name": {
+        "message": "No Shorts : Blocker for YouTube",
+        "description": "Extension name shown in Safari. Keep it identical in every locale."
+    },
+    "extension_description": {
+        "message": "Verbergt Shorts op de YouTube-website in Safari.",
+        "description": "Extension description shown in Safari settings."
+    },
+    "popup_subtitle": {
+        "message": "Blocker voor YouTube",
+        "description": "Subtitle under the popup title."
+    },
+    "popup_description": {
+        "message": "Verberg YouTube Shorts tijdens het surfen",
+        "description": "One-line summary at the top of the popup."
+    },
+    "popup_status_active": {
+        "message": "Extensie actief",
+        "description": "Status pill shown while the extension runs."
+    },
+    "toggle_shorts_title": {
+        "message": "Shorts verbergen",
+        "description": "Toggle title."
+    },
+    "toggle_shorts_description": {
+        "message": "Verbergt YouTube Shorts in Safari (standaard aan).",
+        "description": "Toggle description."
+    },
+    "toggle_home_title": {
+        "message": "Startpagina verbergen",
+        "description": "Toggle title."
+    },
+    "toggle_home_description": {
+        "message": "Laat de startfeed leeg zonder door te sturen naar een andere pagina.",
+        "description": "Toggle description."
+    },
+    "toggle_recommendations_title": {
+        "message": "Videoaanbevelingen verbergen",
+        "description": "Toggle title."
+    },
+    "toggle_recommendations_description": {
+        "message": "Verwijdert gerelateerde video’s rond de speler op videopagina’s.",
+        "description": "Toggle description."
+    },
+    "toggle_comments_title": {
+        "message": "Reacties verbergen",
+        "description": "Toggle title."
+    },
+    "toggle_comments_description": {
+        "message": "Verwijdert reacties onder video’s.",
+        "description": "Toggle description."
+    },
+    "stats_shorts_hidden": {
+        "message": "Shorts verborgen op dit apparaat: $COUNT$",
+        "description": "Counter of Shorts hidden on this device. $COUNT$ is a formatted number.",
+        "placeholders": {
+            "count": {
+                "content": "$1",
+                "example": "1,234"
+            }
+        }
+    },
+    "rating_title": {
+        "message": "Bevalt No Shorts je?",
+        "description": "Title of the App Store rating card."
+    },
+    "rating_body": {
+        "message": "Een snelle beoordeling in de App Store helpt anderen de app te vinden.",
+        "description": "Body of the App Store rating card."
+    },
+    "rating_button": {
+        "message": "Beoordeel in de App Store",
+        "description": "Button that opens the App Store review page."
+    },
+    "rating_later": {
+        "message": "Niet nu",
+        "description": "Button that hides the rating card for a while."
+    },
+    "bundle_text": {
+        "message": "Gebruik je Instagram of X ook in Safari?",
+        "description": "Cross-sell line for the bundle with the Instagram and X extensions."
+    },
+    "bundle_link": {
+        "message": "Bekijk de bundel met 3 extensies",
+        "description": "Link to the App Store bundle."
+    },
+    "support_text": {
+        "message": "Hulp nodig of een bug gevonden?",
+        "description": "Footer support prompt."
+    },
+    "contact_link": {
+        "message": "Contact met ontwikkelaar",
+        "description": "Footer button that emails the developer."
+    },
+    "response_time": {
+        "message": "Snel antwoord gegarandeerd!",
+        "description": "Footer reassurance under the contact button."
+    },
+    "toggle_community_title": {
+        "message": "Communityposts verbergen"
+    },
+    "toggle_community_description": {
+        "message": "Verbergt tekst- en afbeeldingsposts in de startfeed."
+    },
+    "pin_title": {
+        "message": "Pincode voor instellingen"
+    },
+    "pin_note": {
+        "message": "Vraag desgewenst om een pincode voordat instellingen in deze pop-up op dit apparaat kunnen worden gewijzigd. Bewaar hem goed. Safari kan de extensie nog steeds uitschakelen of verwijderen."
+    },
+    "pin_label": {
+        "message": "Pincode"
+    },
+    "pin_new": {
+        "message": "Nieuwe pincode (4–12 cijfers)"
+    },
+    "pin_confirm": {
+        "message": "Bevestig pincode"
+    },
+    "pin_unlock": {
+        "message": "Instellingen ontgrendelen"
+    },
+    "pin_save": {
+        "message": "Pincode opslaan"
+    },
+    "pin_lock_now": {
+        "message": "Nu vergrendelen"
+    },
+    "pin_remove": {
+        "message": "Pincode verwijderen"
+    },
+    "pin_invalid": {
+        "message": "Voer twee keer dezelfde pincode van 4 tot 12 cijfers in."
+    },
+    "pin_saved": {
+        "message": "Pincode opgeslagen. Voer hem in om je instellingen te wijzigen."
+    },
+    "pin_incorrect": {
+        "message": "Onjuiste pincode."
+    },
+    "pin_wait": {
+        "message": "Te veel pogingen. Wacht 30 seconden en probeer het opnieuw."
+    },
+    "pin_unlocked": {
+        "message": "Instellingen ontgrendeld tot deze pop-up sluit."
+    },
+    "pin_removed": {
+        "message": "Pincode verwijderd."
+    },
+    "pin_storage_error": {
+        "message": "De pincode kon niet worden gecontroleerd of opgeslagen. Open de extensie opnieuw en probeer het nog eens."
+    },
+    "settings_save_error": {
+        "message": "De instellingen konden niet worden opgeslagen. Open de extensie opnieuw en probeer het nog eens."
+    },
+    "settings_filters_label": {
+        "message": "YouTube-filters"
+    },
+    "save_unknown": {
+        "message": "Opslaan nog niet bevestigd. Wacht even of open deze pop-up opnieuw om de opgeslagen status te controleren."
+    },
+    "storage_read_error": {
+        "message": "De opgeslagen instellingen konden niet worden gelezen. Open de extensie opnieuw en probeer het nog eens."
+    },
+    "pin_invalid_data": {
+        "message": "De opgeslagen pincodegegevens konden niet worden gelezen. De instellingen blijven vergrendeld. Neem contact op met support."
+    },
+    "pin_locked": {
+        "message": "De instellingen zijn vergrendeld. Voer je pincode in om iets te wijzigen."
+    },
+    "pin_changed": {
+        "message": "De pincode is in een ander venster gewijzigd. Gebruik de huidige pincode om de instellingen te ontgrendelen."
+    },
+    "pin_crypto_unavailable": {
+        "message": "Pincodebeveiliging is niet beschikbaar in deze Safari-context. Werk Safari bij of open de extensie opnieuw."
+    },
+    "pin_save_unknown": {
+        "message": "Opslaan nog niet bevestigd. Bewaar je pincode goed en wacht even, of open deze pop-up opnieuw om de opgeslagen status te controleren."
+    },
+    "pin_removed_elsewhere": {
+        "message": "De pincode is in een ander venster verwijderd. De instellingen zijn ontgrendeld."
+    },
+    "pin_removed_retry": {
+        "message": "De pincode is in een ander venster verwijderd. Je wijziging is niet opgeslagen; probeer het opnieuw."
+    },
+    "popup_locale": {
+        "message": "nl",
+        "description": "Metadata for popup language, selected by the same i18n message bundle as the visible copy. Not user-facing text."
+    },
+    "popup_direction": {
+        "message": "ltr",
+        "description": "Metadata for popup reading direction. Keep aligned with this locale; not user-facing text."
+    }
+}

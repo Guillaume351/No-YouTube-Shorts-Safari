@@ -32,6 +32,49 @@ body {
   transition: all 0.2s ease;
 }
 
+/*
+ * iPadOS can expose a desktop-style user agent while still presenting the
+ * extension in a narrow touch popover. Force Safari to size the document from
+ * its content width instead of compressing every control into that viewport.
+ */
+html.is-ipad,
+html.is-ipad body {
+  width: 540px;
+  min-width: 540px;
+  max-width: 540px;
+}
+
+html.is-ipad .content {
+  padding-right: 24px;
+  padding-left: 24px;
+}
+
+html.is-ipad .toggle {
+  gap: 20px;
+  padding-right: 18px;
+  padding-left: 18px;
+}
+
+@media (hover: none) and (pointer: coarse) and (min-device-width: 700px) {
+  html,
+  body {
+    width: 540px;
+    min-width: 540px;
+    max-width: 540px;
+  }
+
+  .content {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .toggle {
+    gap: 20px;
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+}
+
 /* Wider popup on desktop (macOS Safari) */
 @media (hover: hover) and (pointer: fine) {
   body {
@@ -181,6 +224,16 @@ body {
   transform: translateX(20px);
 }
 
+/* Mirror the thumb with the popup's reading direction; checked state is unchanged. */
+html[dir="rtl"] .slider::before {
+  left: auto;
+  right: 3px;
+}
+
+html[dir="rtl"] .switch input:checked + .slider::before {
+  transform: translateX(-20px);
+}
+
 .description p {
   font-size: 1rem;
   text-align: center;
@@ -230,10 +283,106 @@ body {
   color: var(--success-color);
 }
 
+.stats {
+  margin-top: -4px;
+  margin-bottom: 16px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-secondary-light);
+}
+
+.stats[hidden],
+.rating-card[hidden] {
+  display: none;
+}
+
+.rating-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(214, 40, 40, 0.28);
+  border-radius: 12px;
+  background: rgba(214, 40, 40, 0.06);
+  text-align: center;
+}
+
+.rating-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary-light);
+}
+
+.rating-body {
+  font-size: 0.85rem;
+  line-height: 1.35;
+  color: var(--text-secondary-light);
+}
+
+.rating-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.rating-open,
+.rating-later {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.rating-open {
+  background: var(--primary-color);
+  color: #ffffff;
+}
+
+.rating-open:hover {
+  background: var(--primary-hover);
+}
+
+.rating-later {
+  border: 1px solid var(--border-light);
+  background: transparent;
+  color: var(--text-secondary-light);
+}
+
 .footer {
   background: rgba(0, 0, 0, 0.02);
   padding: 20px;
   border-top: 1px solid var(--border-light);
+}
+
+.bundle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 6px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 0.85rem;
+  text-align: center;
+  color: var(--text-secondary-light);
+}
+
+.bundle-link {
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.bundle-link:hover {
+  text-decoration: underline;
 }
 
 .support {
@@ -326,7 +475,86 @@ body {
     background: rgba(255, 255, 255, 0.02);
   }
 
+  .rating-title {
+    color: var(--text-primary-dark);
+  }
+
+  .stats,
+  .rating-body,
+  .rating-later,
+  .bundle {
+    color: var(--text-secondary-dark);
+  }
+
+  .rating-card {
+    border-color: rgba(255, 99, 99, 0.35);
+    background: rgba(255, 99, 99, 0.08);
+  }
+
+  .rating-later,
+  .bundle {
+    border-color: var(--border-dark);
+  }
+
+  .bundle-link {
+    color: #ff6b6b;
+  }
+
 .toggle-description {
   color: var(--text-secondary-dark);
 }
 }
+
+/* Keep filters visible while requiring an explicit PIN unlock to edit them. */
+fieldset.toggles {
+  border: 0;
+  padding: 0;
+  min-width: 0;
+}
+.toggles:disabled .toggle { opacity: 0.6; }
+.toggles:disabled .slider { cursor: not-allowed; }
+.pin-card {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+.pin-card h2 { font-size: 1rem; margin-bottom: 6px; }
+.pin-card p { margin-bottom: 12px; }
+.pin-card form { display: grid; gap: 8px; }
+.pin-card [hidden] { display: none; }
+.pin-card input {
+  min-width: 0;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  font: inherit;
+}
+.pin-card button {
+  margin: 4px 4px 4px 0;
+  padding: 8px 12px;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  font: inherit;
+  cursor: pointer;
+}
+#settings-status { margin-top: 12px; font-size: 0.85rem; line-height: 1.4; }
+@media (prefers-color-scheme: dark) {
+  .pin-card, .pin-card input, .pin-card button { border-color: var(--border-dark); }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+[aria-busy="true"] button,
+fieldset[aria-busy="true"] .slider { cursor: progress; }
