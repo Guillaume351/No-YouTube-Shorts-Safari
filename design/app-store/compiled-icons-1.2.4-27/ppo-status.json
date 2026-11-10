@@ -1,0 +1,38 @@
+{
+  "verifiedDate": "2026-10-03",
+  "source": "App Store Connect UI in authenticated Chrome",
+  "appID": "6502996298",
+  "publishedVersion": {
+    "version": "1.2.4",
+    "build": "27",
+    "iosState": "READY_FOR_SALE",
+    "macosState": "READY_FOR_SALE"
+  },
+  "previousTest": {
+    "id": "2f17f6bd-95f9-444a-81eb-e9b06ad90c97",
+    "name": "Clarity — nouvelle charte — 2026-09",
+    "stateDisplayed": "Arrêté par le développeur",
+    "stoppedDate": "2026-10-03",
+    "treatmentAppliedToOriginal": false
+  },
+  "iconTest": {
+    "id": "5adaee55-887d-4d00-beee-60a7365a28b5",
+    "name": "Icon C vs E — 1.2.4",
+    "stateDisplayed": "En attente de vérification",
+    "running": false,
+    "startedDate": null,
+    "referenceIcon": "AppIcon",
+    "referenceTrafficPercent": 50,
+    "treatmentID": "cba694db-b16a-48f0-9abd-3d60668c7c03",
+    "treatmentName": "E — TealNoSign",
+    "treatmentIcon": "AppIconTeal",
+    "treatmentTrafficPercent": 50,
+    "localizations": ["ar-SA", "cs", "de-DE", "en-US", "es-ES", "es-MX", "fr-FR", "it", "ko", "pt-BR", "ru", "vi", "zh-Hans", "zh-Hant"],
+    "screenshotsAndPreviewsChanged": false,
+    "reviewSubmissionID": "932bbb7a-cf2a-4210-9617-c721a14b8475",
+    "submissionConfirmation": "1 élément envoyé",
+    "newBinarySubmitted": false,
+    "url": "https://appstoreconnect.apple.com/apps/6502996298/distribution/optimization/5adaee55-887d-4d00-beee-60a7365a28b5"
+  },
+  "screenshots": ["ppo-status-2026-10-03.jpg", "ppo-icons-2026-10-03.jpg"]
+}

@@ -1,0 +1,75 @@
+{
+  "fill": {
+    "automatic-gradient": "display-p3:0.24000,0.50000,0.53000,1.00000"
+  },
+  "groups": [
+    {
+      "layers": [
+        {
+          "glass": false,
+          "image-name": "slash.svg",
+          "name": "slash",
+          "fill-specializations": [
+            {
+              "value": {
+                "solid": "display-p3:0.06300,0.15000,0.17300,1.00000"
+              }
+            },
+            {
+              "appearance": "dark",
+              "value": {
+                "solid": "display-p3:0.33000,0.72000,0.76000,1.00000"
+              }
+            }
+          ]
+        },
+        {
+          "glass": false,
+          "image-name": "play.svg",
+          "name": "play",
+          "fill-specializations": [
+            {
+              "value": {
+                "solid": "display-p3:0.88000,0.24000,0.19000,1.00000"
+              }
+            }
+          ]
+        },
+        {
+          "glass": false,
+          "image-name": "card.svg",
+          "name": "card",
+          "fill-specializations": [
+            {
+              "value": {
+                "solid": "display-p3:1.00000,1.00000,1.00000,1.00000"
+              }
+            },
+            {
+              "appearance": "dark",
+              "value": {
+                "solid": "display-p3:1.00000,1.00000,1.00000,1.00000"
+              }
+            }
+          ]
+        }
+      ],
+      "lighting": "individual",
+      "shadow": {
+        "kind": "none",
+        "opacity": 0.5
+      },
+      "specular": true,
+      "translucency": {
+        "enabled": false,
+        "value": 0.5
+      }
+    }
+  ],
+  "supported-platforms": {
+    "circles": [
+      "watchOS"
+    ],
+    "squares": "shared"
+  }
+}

@@ -1,0 +1,187 @@
+{
+    "extension_name": {
+        "message": "No Shorts : Blocker for YouTube",
+        "description": "Extension name shown in Safari. Keep it identical in every locale."
+    },
+    "extension_description": {
+        "message": "Oculta los Shorts del sitio web de YouTube en Safari.",
+        "description": "Extension description shown in Safari settings."
+    },
+    "popup_subtitle": {
+        "message": "Bloqueador para YouTube",
+        "description": "Subtitle under the popup title."
+    },
+    "popup_description": {
+        "message": "Oculta los Shorts de YouTube mientras navegas",
+        "description": "One-line summary at the top of the popup."
+    },
+    "popup_status_active": {
+        "message": "Extensión activa",
+        "description": "Status pill shown while the extension runs."
+    },
+    "toggle_shorts_title": {
+        "message": "Ocultar Shorts",
+        "description": "Toggle title."
+    },
+    "toggle_shorts_description": {
+        "message": "Elimina los Shorts en todo YouTube (activado por defecto).",
+        "description": "Toggle description."
+    },
+    "toggle_home_title": {
+        "message": "Ocultar la página de inicio",
+        "description": "Toggle title."
+    },
+    "toggle_home_description": {
+        "message": "Deja vacío el feed de Inicio sin redirigir a otra página.",
+        "description": "Toggle description."
+    },
+    "toggle_recommendations_title": {
+        "message": "Ocultar recomendaciones",
+        "description": "Toggle title."
+    },
+    "toggle_recommendations_description": {
+        "message": "Elimina los vídeos relacionados alrededor del reproductor.",
+        "description": "Toggle description."
+    },
+    "toggle_comments_title": {
+        "message": "Ocultar comentarios",
+        "description": "Toggle title."
+    },
+    "toggle_comments_description": {
+        "message": "Elimina los hilos de comentarios bajo los vídeos.",
+        "description": "Toggle description."
+    },
+    "stats_shorts_hidden": {
+        "message": "Shorts ocultados en este dispositivo: $COUNT$",
+        "description": "Counter of Shorts hidden on this device. $COUNT$ is a formatted number.",
+        "placeholders": {
+            "count": {
+                "content": "$1",
+                "example": "1,234"
+            }
+        }
+    },
+    "rating_title": {
+        "message": "¿Te gusta No Shorts?",
+        "description": "Title of the App Store rating card."
+    },
+    "rating_body": {
+        "message": "Una valoración rápida en el App Store ayuda a otras personas a encontrarlo.",
+        "description": "Body of the App Store rating card."
+    },
+    "rating_button": {
+        "message": "Valorar en el App Store",
+        "description": "Button that opens the App Store review page."
+    },
+    "rating_later": {
+        "message": "Ahora no",
+        "description": "Button that hides the rating card for a while."
+    },
+    "bundle_text": {
+        "message": "¿También usas Instagram o X en Safari?",
+        "description": "Cross-sell line for the bundle with the Instagram and X extensions."
+    },
+    "bundle_link": {
+        "message": "Ver el pack de 3 extensiones",
+        "description": "Link to the App Store bundle."
+    },
+    "support_text": {
+        "message": "¿Necesitas ayuda o encontraste un error?",
+        "description": "Footer support prompt."
+    },
+    "contact_link": {
+        "message": "Contactar al desarrollador",
+        "description": "Footer button that emails the developer."
+    },
+    "response_time": {
+        "message": "¡Respuesta rápida garantizada!",
+        "description": "Footer reassurance under the contact button."
+    },
+    "toggle_community_title": {
+        "message": "Ocultar publicaciones de la comunidad"
+    },
+    "toggle_community_description": {
+        "message": "Oculta publicaciones de texto e imágenes del inicio."
+    },
+    "pin_title": {
+        "message": "PIN de ajustes"
+    },
+    "pin_note": {
+        "message": "Puedes exigir un PIN para cambiar los ajustes en esta ventana y en este dispositivo. Guárdalo en un lugar seguro. Safari aún puede desactivar o eliminar la extensión."
+    },
+    "pin_label": {
+        "message": "PIN"
+    },
+    "pin_new": {
+        "message": "Nuevo PIN (4–12 dígitos)"
+    },
+    "pin_confirm": {
+        "message": "Confirmar PIN"
+    },
+    "pin_unlock": {
+        "message": "Desbloquear ajustes"
+    },
+    "pin_save": {
+        "message": "Guardar PIN"
+    },
+    "pin_lock_now": {
+        "message": "Bloquear ahora"
+    },
+    "pin_remove": {
+        "message": "Eliminar PIN"
+    },
+    "pin_invalid": {
+        "message": "Introduce dos veces el mismo PIN de entre 4 y 12 dígitos."
+    },
+    "pin_saved": {
+        "message": "PIN guardado. Introdúcelo para cambiar los ajustes."
+    },
+    "pin_incorrect": {
+        "message": "PIN incorrecto."
+    },
+    "pin_wait": {
+        "message": "Demasiados intentos. Espera 30 segundos y vuelve a intentarlo."
+    },
+    "pin_unlocked": {
+        "message": "Ajustes desbloqueados hasta que se cierre esta ventana."
+    },
+    "pin_removed": {
+        "message": "PIN eliminado."
+    },
+    "pin_storage_error": {
+        "message": "No se pudo comprobar o guardar el PIN. Vuelve a abrir la extensión e inténtalo de nuevo."
+    },
+    "settings_save_error": {
+        "message": "No se pudieron guardar los ajustes. Vuelve a abrir la extensión e inténtalo de nuevo."
+    },
+    "settings_filters_label": {
+        "message": "Filtros de YouTube"
+    },
+    "save_unknown": {
+        "message": "El guardado aún no está confirmado. Espera o vuelve a abrir esta ventana para comprobar el estado guardado."
+    },
+    "storage_read_error": {
+        "message": "No se pudieron leer los ajustes guardados. Vuelve a abrir la extensión e inténtalo de nuevo."
+    },
+    "pin_invalid_data": {
+        "message": "No se pudieron leer los datos del PIN guardado. Los ajustes siguen bloqueados. Contacta con soporte."
+    },
+    "pin_locked": {
+        "message": "Los ajustes están bloqueados. Introduce tu PIN para cambiarlos."
+    },
+    "pin_changed": {
+        "message": "El PIN cambió en otra ventana. Usa el PIN actual para desbloquear los ajustes."
+    },
+    "pin_crypto_unavailable": {
+        "message": "La protección por PIN no está disponible en este contexto de Safari. Actualiza Safari o vuelve a abrir la extensión."
+    },
+    "pin_save_unknown": {
+        "message": "El guardado aún no está confirmado. Conserva tu PIN y espera, o vuelve a abrir esta ventana para comprobar el estado guardado."
+    },
+    "pin_removed_elsewhere": {
+        "message": "El PIN se eliminó en otra ventana. Los ajustes están desbloqueados."
+    },
+    "pin_removed_retry": {
+        "message": "El PIN se eliminó en otra ventana. Tu cambio no se guardó; vuelve a intentarlo."
+    }
+}

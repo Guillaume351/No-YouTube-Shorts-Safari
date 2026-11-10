@@ -1,0 +1,11 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <mask id="gap" maskUnits="userSpaceOnUse" x="0" y="0" width="1024" height="1024">
+      <rect width="1024" height="1024" fill="white"/>
+      <path d="M272 272L752 752" stroke="black" stroke-width="100" stroke-linecap="round"/>
+    </mask>
+  </defs>
+  <g mask="url(#gap)">
+    <rect x="352" y="212" width="320" height="600" rx="88" fill="white"/>
+  </g>
+</svg>

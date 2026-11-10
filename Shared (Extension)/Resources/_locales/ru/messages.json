@@ -1,0 +1,187 @@
+{
+    "extension_name": {
+        "message": "No Shorts : Blocker for YouTube",
+        "description": "Extension name shown in Safari. Keep it identical in every locale."
+    },
+    "extension_description": {
+        "message": "Скрывает Shorts на сайте YouTube в Safari.",
+        "description": "Extension description shown in Safari settings."
+    },
+    "popup_subtitle": {
+        "message": "Блокировщик для YouTube",
+        "description": "Subtitle under the popup title."
+    },
+    "popup_description": {
+        "message": "Скрывайте YouTube Shorts во время просмотра",
+        "description": "One-line summary at the top of the popup."
+    },
+    "popup_status_active": {
+        "message": "Расширение активно",
+        "description": "Status pill shown while the extension runs."
+    },
+    "toggle_shorts_title": {
+        "message": "Скрыть Shorts",
+        "description": "Toggle title."
+    },
+    "toggle_shorts_description": {
+        "message": "Убирает Shorts по всему YouTube (включено по умолчанию).",
+        "description": "Toggle description."
+    },
+    "toggle_home_title": {
+        "message": "Скрыть главную страницу",
+        "description": "Toggle title."
+    },
+    "toggle_home_description": {
+        "message": "Оставляет ленту главной пустой без перехода на другую страницу.",
+        "description": "Toggle description."
+    },
+    "toggle_recommendations_title": {
+        "message": "Скрыть рекомендации",
+        "description": "Toggle title."
+    },
+    "toggle_recommendations_description": {
+        "message": "Убирает похожие видео вокруг плеера.",
+        "description": "Toggle description."
+    },
+    "toggle_comments_title": {
+        "message": "Скрыть комментарии",
+        "description": "Toggle title."
+    },
+    "toggle_comments_description": {
+        "message": "Убирает ветки комментариев под видео.",
+        "description": "Toggle description."
+    },
+    "stats_shorts_hidden": {
+        "message": "Скрыто Shorts на этом устройстве: $COUNT$",
+        "description": "Counter of Shorts hidden on this device. $COUNT$ is a formatted number.",
+        "placeholders": {
+            "count": {
+                "content": "$1",
+                "example": "1,234"
+            }
+        }
+    },
+    "rating_title": {
+        "message": "Нравится No Shorts?",
+        "description": "Title of the App Store rating card."
+    },
+    "rating_body": {
+        "message": "Короткая оценка в App Store помогает другим найти приложение.",
+        "description": "Body of the App Store rating card."
+    },
+    "rating_button": {
+        "message": "Оценить в App Store",
+        "description": "Button that opens the App Store review page."
+    },
+    "rating_later": {
+        "message": "Не сейчас",
+        "description": "Button that hides the rating card for a while."
+    },
+    "bundle_text": {
+        "message": "Пользуетесь Instagram или X в Safari?",
+        "description": "Cross-sell line for the bundle with the Instagram and X extensions."
+    },
+    "bundle_link": {
+        "message": "Набор из 3 расширений",
+        "description": "Link to the App Store bundle."
+    },
+    "support_text": {
+        "message": "Нужна помощь или нашли ошибку?",
+        "description": "Footer support prompt."
+    },
+    "contact_link": {
+        "message": "Написать разработчику",
+        "description": "Footer button that emails the developer."
+    },
+    "response_time": {
+        "message": "Быстрый ответ гарантирован!",
+        "description": "Footer reassurance under the contact button."
+    },
+    "toggle_community_title": {
+        "message": "Скрывать публикации сообщества"
+    },
+    "toggle_community_description": {
+        "message": "Скрывать текстовые публикации и изображения на главной странице."
+    },
+    "pin_title": {
+        "message": "ПИН-код настроек"
+    },
+    "pin_note": {
+        "message": "При желании защитите изменение настроек в этом окне на этом устройстве ПИН-кодом. Сохраните его в надёжном месте. Safari по-прежнему может отключить или удалить расширение."
+    },
+    "pin_label": {
+        "message": "ПИН-код"
+    },
+    "pin_new": {
+        "message": "Новый ПИН-код (4–12 цифр)"
+    },
+    "pin_confirm": {
+        "message": "Подтвердите ПИН-код"
+    },
+    "pin_unlock": {
+        "message": "Разблокировать настройки"
+    },
+    "pin_save": {
+        "message": "Сохранить ПИН-код"
+    },
+    "pin_lock_now": {
+        "message": "Заблокировать"
+    },
+    "pin_remove": {
+        "message": "Удалить ПИН-код"
+    },
+    "pin_invalid": {
+        "message": "Дважды введите одинаковый ПИН-код из 4–12 цифр."
+    },
+    "pin_saved": {
+        "message": "ПИН-код сохранён. Введите его для изменения настроек."
+    },
+    "pin_incorrect": {
+        "message": "Неверный ПИН-код."
+    },
+    "pin_wait": {
+        "message": "Слишком много попыток. Подождите 30 секунд и повторите попытку."
+    },
+    "pin_unlocked": {
+        "message": "Настройки разблокированы до закрытия этого окна."
+    },
+    "pin_removed": {
+        "message": "ПИН-код удалён."
+    },
+    "pin_storage_error": {
+        "message": "Не удалось проверить или сохранить ПИН-код. Откройте расширение заново и повторите попытку."
+    },
+    "settings_save_error": {
+        "message": "Не удалось сохранить настройки. Откройте расширение заново и повторите попытку."
+    },
+    "settings_filters_label": {
+        "message": "Фильтры YouTube"
+    },
+    "save_unknown": {
+        "message": "Сохранение пока не подтверждено. Подождите либо откройте это окно заново, чтобы проверить сохранённое состояние."
+    },
+    "storage_read_error": {
+        "message": "Не удалось прочитать сохранённые настройки. Откройте расширение заново и повторите попытку."
+    },
+    "pin_invalid_data": {
+        "message": "Не удалось прочитать данные сохранённого ПИН-кода. Настройки остаются заблокированными. Обратитесь в службу поддержки."
+    },
+    "pin_locked": {
+        "message": "Настройки заблокированы. Введите ПИН-код для их изменения."
+    },
+    "pin_changed": {
+        "message": "ПИН-код изменён в другом окне. Для разблокировки используйте текущий ПИН-код."
+    },
+    "pin_crypto_unavailable": {
+        "message": "Защита ПИН-кодом недоступна в этом контексте Safari. Обновите Safari или откройте расширение заново."
+    },
+    "pin_save_unknown": {
+        "message": "Сохранение пока не подтверждено. Сохраните ПИН-код и подождите либо откройте это окно заново, чтобы проверить сохранённое состояние."
+    },
+    "pin_removed_elsewhere": {
+        "message": "ПИН-код удалён в другом окне. Настройки разблокированы."
+    },
+    "pin_removed_retry": {
+        "message": "ПИН-код удалён в другом окне. Ваше изменение не сохранено; повторите попытку."
+    }
+}

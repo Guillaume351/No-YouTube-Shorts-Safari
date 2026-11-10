@@ -1,0 +1,71 @@
+{
+  "verifiedDate": "2026-10-02",
+  "versions": [
+    {
+      "activeBuildID": "33cd60eb-23ad-405e-98aa-6f97ce31cb9f",
+      "appID": "6502996298",
+      "copyright": "2026 Guillaume Claverie",
+      "createdDate": 812657089,
+      "id": "266ff193-d172-450d-9870-9dcb55af3c4d",
+      "platform": "IOS",
+      "releaseType": "AFTER_APPROVAL",
+      "state": "WAITING_FOR_REVIEW",
+      "versionString": "1.2.4"
+    },
+    {
+      "activeBuildID": "612b3824-c830-4e2c-9e8c-9886473f2602",
+      "appID": "6502996298",
+      "copyright": "2026 Guillaume Claverie",
+      "createdDate": 812657156,
+      "id": "dc7676a0-33d0-4365-8079-a887793570b4",
+      "platform": "MAC_OS",
+      "releaseType": "AFTER_APPROVAL",
+      "state": "WAITING_FOR_REVIEW",
+      "versionString": "1.2.4"
+    }
+  ],
+  "submissions": [
+    {
+      "appID": "6502996298",
+      "appVersion": {
+        "id": "266ff193-d172-450d-9870-9dcb55af3c4d",
+        "state": "WAITING_FOR_REVIEW",
+        "versionString": "1.2.4"
+      },
+      "items": [
+        {
+          "id": "ODkxNTQzNmEtZjQxNS00MGYyLTg2MDQtOWIzYzk4MTk1NDI3fDZ8ODkyNDIxNjcx",
+          "resourceID": "266ff193-d172-450d-9870-9dcb55af3c4d",
+          "state": "READY_FOR_REVIEW",
+          "type": "appVersion",
+          "versionString": "1.2.4"
+        }
+      ],
+      "platform": "IOS",
+      "state": "WAITING_FOR_REVIEW",
+      "submissionID": "8915436a-f415-40f2-8604-9b3c98195427",
+      "submittedDate": 812658433.662
+    },
+    {
+      "appID": "6502996298",
+      "appVersion": {
+        "id": "dc7676a0-33d0-4365-8079-a887793570b4",
+        "state": "WAITING_FOR_REVIEW",
+        "versionString": "1.2.4"
+      },
+      "items": [
+        {
+          "id": "OTdhOTEyYmYtNDFhYi00OTRjLTk5NmEtOTkzMzJkZjg3YTQ3fDZ8ODkyNDIxNzA1",
+          "resourceID": "dc7676a0-33d0-4365-8079-a887793570b4",
+          "state": "READY_FOR_REVIEW",
+          "type": "appVersion",
+          "versionString": "1.2.4"
+        }
+      ],
+      "platform": "MAC_OS",
+      "state": "WAITING_FOR_REVIEW",
+      "submissionID": "97a912bf-41ab-494c-996a-99332df87a47",
+      "submittedDate": 812658373.8299999
+    }
+  ]
+}

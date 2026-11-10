@@ -1,0 +1,161 @@
+{
+  "en-US": {
+    "ipad1": {"Eyebrow":"NO SHORTS • SAFARI FOR IPAD","Headline":"Shorts? Not anymore.","Subhead":"Block the shelf before it becomes a scroll.","LabelBefore":"BEFORE","LabelAfter":"AFTER • CLEAN","Footer":"Shorts disappear. YouTube stays.","Proof":"Subscriptions, search and regular videos keep working as usual."},
+    "ipad2": {"Eyebrow":"NO SHORTS • SAFARI FOR IPAD","Headline":"A calmer home feed.","Subhead":"Keep the videos you chose. Lose the endless detour."},
+    "ipad3": {"Eyebrow":"NO SHORTS TAB • SAFARI FOR IPAD","Headline":"No shortcut back to the scroll.","Subhead":"The Shorts shelf and navigation entry disappear together."},
+    "ipad4": {"Eyebrow":"NO SHORTS • SAFARI FOR IPAD","Headline":"Simple controls. Your rules.","Subhead":"Choose exactly what disappears — and change it anytime."},
+    "ipad5": {"Eyebrow":"NO SHORTS • SAFARI FOR IPAD","Headline":"Set it once. Browse lighter.","Subhead":"A focused Safari extension that stays out of the way."},
+    "mac1": {"Eyebrow":"NO SHORTS • SAFARI FOR MAC","Headline":"Remove Shorts. Keep YouTube.","Subhead":"One switch removes the Shorts shelf and tab — without hiding the videos you came for.","LabelBefore":"BEFORE","LabelAfter":"AFTER • CLEAN","Proof":"Long videos stay. Endless scrolling doesn’t."},
+    "mac2": {"Eyebrow":"A CLEANER HOME FEED","Headline":"Long videos stay. Shorts disappear.","Subhead":"Your homepage remains useful — only the short-form feed is removed."},
+    "mac3": {"Eyebrow":"NO SHORTS TAB","Headline":"No shortcut back to the scroll.","Subhead":"The Shorts shelf and sidebar entry disappear together.","LabelBefore":"SHORTS VISIBLE","LabelAfter":"SHORTS REMOVED","Proof":"Home stays useful. Navigation stays focused."},
+    "mac4": {"Eyebrow":"ONE SWITCH","Headline":"Turn off Shorts. That’s it.","Subhead":"Hide Shorts is on. Every other option remains optional."},
+    "mac5": {"Eyebrow":"YOUR YOUTUBE, MINUS SHORTS","Headline":"Subscriptions stay yours.","Subhead":"Keep the creators and long-form videos you follow — without the Shorts detour."}
+  },
+  "fr-FR": {
+    "ipad1": {"Eyebrow":"PAS DE SHORTS • SAFARI SUR IPAD","Headline":"Les Shorts ? C’est fini.","Subhead":"Bloquez la section avant que le scroll ne commence.","LabelBefore":"AVANT","LabelAfter":"APRÈS • ÉPURÉ","Footer":"Les Shorts disparaissent. YouTube reste.","Proof":"Abonnements, recherche et vidéos classiques continuent de fonctionner."},
+    "ipad2": {"Eyebrow":"PAS DE SHORTS • SAFARI SUR IPAD","Headline":"Un accueil plus calme.","Subhead":"Gardez les vidéos choisies. Oubliez le détour sans fin."},
+    "ipad3": {"Eyebrow":"PAS D’ONGLET SHORTS • SAFARI SUR IPAD","Headline":"Plus de raccourci vers le scroll.","Subhead":"La section Shorts et son entrée de navigation disparaissent ensemble."},
+    "ipad4": {"Eyebrow":"PAS DE SHORTS • SAFARI SUR IPAD","Headline":"Des commandes simples. Vos règles.","Subhead":"Choisissez ce qui disparaît — et modifiez-le quand vous voulez."},
+    "ipad5": {"Eyebrow":"PAS DE SHORTS • SAFARI SUR IPAD","Headline":"Réglez une fois. Naviguez léger.","Subhead":"Une extension Safari discrète, conçue pour rester en retrait."},
+    "mac1": {"Eyebrow":"PAS DE SHORTS • SAFARI SUR MAC","Headline":"Supprimez les Shorts. Gardez YouTube.","Subhead":"Un seul bouton supprime la section et l’onglet Shorts — vos vidéos restent visibles.","LabelBefore":"AVANT","LabelAfter":"APRÈS • ÉPURÉ","Proof":"Les vidéos longues restent. Le scroll sans fin disparaît."},
+    "mac2": {"Eyebrow":"UN ACCUEIL PLUS CALME","Headline":"Les vidéos longues restent. Les Shorts disparaissent.","Subhead":"Votre accueil reste utile — seul le flux de vidéos courtes est supprimé."},
+    "mac3": {"Eyebrow":"PAS D’ONGLET SHORTS","Headline":"Plus de raccourci vers le scroll.","Subhead":"La section Shorts et son entrée latérale disparaissent ensemble.","LabelBefore":"SHORTS VISIBLES","LabelAfter":"SHORTS SUPPRIMÉS","Proof":"L’accueil reste utile. La navigation reste ciblée."},
+    "mac4": {"Eyebrow":"UN SEUL BOUTON","Headline":"Désactivez les Shorts. C’est tout.","Subhead":"Masquer les Shorts est activé. Toutes les autres options restent facultatives."},
+    "mac5": {"Eyebrow":"VOTRE YOUTUBE, SANS LES SHORTS","Headline":"Vos abonnements restent à vous.","Subhead":"Gardez les créateurs et vidéos longues que vous suivez — sans détour par les Shorts."}
+  },
+  "de-DE": {
+    "ipad1": {"Eyebrow":"KEINE SHORTS • SAFARI AUF DEM IPAD","Headline":"Keine Shorts mehr.","Subhead":"Blockiere sie, bevor das Scrollen beginnt.","LabelBefore":"VORHER","LabelAfter":"NACHHER • AUFGERÄUMT","Footer":"Shorts weg. YouTube bleibt.","Proof":"Abos, Suche und lange Videos funktionieren wie gewohnt."},
+    "ipad2": {"Eyebrow":"KEINE SHORTS • SAFARI AUF DEM IPAD","Headline":"Ein ruhigerer Start.","Subhead":"Behalte deine Videos. Vergiss den endlosen Umweg."},
+    "ipad3": {"Eyebrow":"KEIN SHORTS-TAB • SAFARI AUF DEM IPAD","Headline":"Kein Weg zurück zum Scrollen.","Subhead":"Shorts-Bereich und Navigationseintrag verschwinden zusammen."},
+    "ipad4": {"Eyebrow":"KEINE SHORTS • SAFARI AUF DEM IPAD","Headline":"Einfache Regeln. Deine Wahl.","Subhead":"Bestimme, was verschwindet — jederzeit änderbar."},
+    "ipad5": {"Eyebrow":"KEINE SHORTS • SAFARI AUF DEM IPAD","Headline":"Einmal einstellen. Freier surfen.","Subhead":"Eine fokussierte Safari-Erweiterung, die dezent im Hintergrund bleibt."},
+    "mac1": {"Eyebrow":"KEINE SHORTS • SAFARI AUF DEM MAC","Headline":"Shorts entfernen. YouTube behalten.","Subhead":"Ein Schalter entfernt Shorts-Bereich und Tab — deine Videos bleiben sichtbar.","LabelBefore":"VORHER","LabelAfter":"NACHHER • AUFGERÄUMT","Proof":"Lange Videos bleiben. Endloses Scrollen nicht."},
+    "mac2": {"Eyebrow":"EINE RUHIGERE STARTSEITE","Headline":"Lange Videos bleiben. Shorts verschwinden.","Subhead":"Deine Startseite bleibt nützlich — nur der Kurzvideo-Feed wird entfernt."},
+    "mac3": {"Eyebrow":"KEIN SHORTS-TAB","Headline":"Kein Weg zurück zum Scrollen.","Subhead":"Shorts-Bereich und Seitenleisten-Eintrag verschwinden zusammen.","LabelBefore":"SHORTS SICHTBAR","LabelAfter":"SHORTS ENTFERNT","Proof":"Startseite bleibt nützlich. Navigation bleibt fokussiert."},
+    "mac4": {"Eyebrow":"EIN SCHALTER","Headline":"Shorts ausschalten. Fertig.","Subhead":"Shorts ausblenden ist aktiv. Alle anderen Optionen bleiben freiwillig."},
+    "mac5": {"Eyebrow":"DEIN YOUTUBE, OHNE SHORTS","Headline":"Deine Abos bleiben.","Subhead":"Behalte Creators und lange Videos, denen du folgst — ohne Shorts-Umweg."}
+  },
+  "it": {
+    "ipad1": {"Eyebrow":"NIENTE SHORTS • SAFARI SU IPAD","Headline":"Shorts? Non più.","Subhead":"Blocca la sezione prima che inizi lo scroll.","LabelBefore":"PRIMA","LabelAfter":"DOPO • PULITO","Footer":"Gli Shorts spariscono. YouTube resta.","Proof":"Iscrizioni, ricerca e video normali continuano a funzionare."},
+    "ipad2": {"Eyebrow":"NIENTE SHORTS • SAFARI SU IPAD","Headline":"Una home più tranquilla.","Subhead":"Tieni i video scelti. Perdi la deviazione infinita."},
+    "ipad3": {"Eyebrow":"NIENTE SCHEDA SHORTS • SAFARI SU IPAD","Headline":"Nessuna scorciatoia verso lo scroll.","Subhead":"La sezione Shorts e la voce di navigazione spariscono insieme."},
+    "ipad4": {"Eyebrow":"NIENTE SHORTS • SAFARI SU IPAD","Headline":"Controlli semplici. Le tue regole.","Subhead":"Scegli cosa sparisce — e cambialo quando vuoi."},
+    "ipad5": {"Eyebrow":"NIENTE SHORTS • SAFARI SU IPAD","Headline":"Imposta una volta. Naviga leggero.","Subhead":"Un’estensione Safari discreta, sempre fuori dai piedi."},
+    "mac1": {"Eyebrow":"NIENTE SHORTS • SAFARI SU MAC","Headline":"Rimuovi gli Shorts. Tieni YouTube.","Subhead":"Un interruttore elimina sezione e scheda Shorts — i tuoi video restano.","LabelBefore":"PRIMA","LabelAfter":"DOPO • PULITO","Proof":"I video lunghi restano. Lo scroll infinito no."},
+    "mac2": {"Eyebrow":"UNA HOME PIÙ TRANQUILLA","Headline":"I video lunghi restano. Gli Shorts spariscono.","Subhead":"La home resta utile — viene rimosso solo il feed di video brevi."},
+    "mac3": {"Eyebrow":"NIENTE SCHEDA SHORTS","Headline":"Nessuna scorciatoia verso lo scroll.","Subhead":"La sezione Shorts e la voce laterale spariscono insieme.","LabelBefore":"SHORTS VISIBILI","LabelAfter":"SHORTS RIMOSSI","Proof":"La home resta utile. La navigazione resta mirata."},
+    "mac4": {"Eyebrow":"UN INTERRUTTORE","Headline":"Disattiva gli Shorts. Fatto.","Subhead":"Nascondi Shorts è attivo. Ogni altra opzione resta facoltativa."},
+    "mac5": {"Eyebrow":"IL TUO YOUTUBE, SENZA SHORTS","Headline":"Le tue iscrizioni restano tue.","Subhead":"Tieni creator e video lunghi che segui — senza la deviazione Shorts."}
+  },
+  "es-ES": {
+    "ipad1": {"Eyebrow":"SIN SHORTS • SAFARI PARA IPAD","Headline":"¿Shorts? Se acabaron.","Subhead":"Bloquea la sección antes de que empiece el scroll.","LabelBefore":"ANTES","LabelAfter":"DESPUÉS • LIMPIO","Footer":"Los Shorts desaparecen. YouTube se queda.","Proof":"Suscripciones, búsqueda y vídeos normales siguen funcionando."},
+    "ipad2": {"Eyebrow":"SIN SHORTS • SAFARI PARA IPAD","Headline":"Un inicio más tranquilo.","Subhead":"Quédate con tus vídeos. Olvida el desvío infinito."},
+    "ipad3": {"Eyebrow":"SIN PESTAÑA SHORTS • SAFARI PARA IPAD","Headline":"Sin atajo de vuelta al scroll.","Subhead":"La sección Shorts y su acceso de navegación desaparecen a la vez."},
+    "ipad4": {"Eyebrow":"SIN SHORTS • SAFARI PARA IPAD","Headline":"Controles simples. Tus reglas.","Subhead":"Elige qué desaparece y cámbialo cuando quieras."},
+    "ipad5": {"Eyebrow":"SIN SHORTS • SAFARI PARA IPAD","Headline":"Configúralo una vez. Navega ligero.","Subhead":"Una extensión de Safari discreta y sin molestias."}
+  },
+  "es-MX": {
+    "ipad1": {"Eyebrow":"SIN SHORTS • SAFARI PARA IPAD","Headline":"¿Shorts? Se acabaron.","Subhead":"Bloquea la sección antes de que empiece el scroll.","LabelBefore":"ANTES","LabelAfter":"DESPUÉS • LIMPIO","Footer":"Los Shorts desaparecen. YouTube se queda.","Proof":"Suscripciones, búsqueda y videos normales siguen funcionando."},
+    "ipad2": {"Eyebrow":"SIN SHORTS • SAFARI PARA IPAD","Headline":"Un inicio más tranquilo.","Subhead":"Quédate con tus videos. Olvida el desvío infinito."},
+    "ipad3": {"Eyebrow":"SIN PESTAÑA SHORTS • SAFARI PARA IPAD","Headline":"Sin atajo de vuelta al scroll.","Subhead":"La sección Shorts y su acceso de navegación desaparecen a la vez."},
+    "ipad4": {"Eyebrow":"SIN SHORTS • SAFARI PARA IPAD","Headline":"Controles simples. Tus reglas.","Subhead":"Elige qué desaparece y cámbialo cuando quieras."},
+    "ipad5": {"Eyebrow":"SIN SHORTS • SAFARI PARA IPAD","Headline":"Configúralo una vez. Navega ligero.","Subhead":"Una extensión de Safari discreta y sin molestias."},
+    "mac1": {"Eyebrow":"SIN SHORTS • SAFARI PARA MAC","Headline":"Quita Shorts. Conserva YouTube.","Subhead":"Un interruptor quita la sección y pestaña Shorts — tus videos siguen visibles.","LabelBefore":"ANTES","LabelAfter":"DESPUÉS • LIMPIO","Proof":"Los videos largos se quedan. El scroll infinito no."},
+    "mac2": {"Eyebrow":"UN INICIO MÁS TRANQUILO","Headline":"Los videos largos se quedan. Los Shorts desaparecen.","Subhead":"Tu página de inicio sigue útil — solo se elimina el feed de videos cortos."},
+    "mac3": {"Eyebrow":"SIN PESTAÑA SHORTS","Headline":"Sin atajo de vuelta al scroll.","Subhead":"La sección Shorts y su acceso lateral desaparecen a la vez.","LabelBefore":"SHORTS VISIBLES","LabelAfter":"SHORTS ELIMINADOS","Proof":"El inicio sigue útil. La navegación sigue enfocada."},
+    "mac4": {"Eyebrow":"UN INTERRUPTOR","Headline":"Desactiva Shorts. Eso es todo.","Subhead":"Ocultar Shorts está activo. Las demás opciones siguen siendo opcionales."},
+    "mac5": {"Eyebrow":"TU YOUTUBE, SIN SHORTS","Headline":"Tus suscripciones siguen siendo tuyas.","Subhead":"Conserva los creadores y videos largos que sigues — sin el desvío de Shorts."}
+  },
+  "pt-BR": {
+    "ipad1": {"Eyebrow":"SEM SHORTS • SAFARI PARA IPAD","Headline":"Shorts? Nunca mais.","Subhead":"Bloqueie a seção antes que a rolagem comece.","LabelBefore":"ANTES","LabelAfter":"DEPOIS • LIMPO","Footer":"Shorts somem. YouTube fica.","Proof":"Inscrições, busca e vídeos normais continuam funcionando."},
+    "ipad2": {"Eyebrow":"SEM SHORTS • SAFARI PARA IPAD","Headline":"Uma página inicial mais tranquila.","Subhead":"Fique com seus vídeos. Esqueça o desvio infinito."},
+    "ipad3": {"Eyebrow":"SEM ABA SHORTS • SAFARI PARA IPAD","Headline":"Sem atalho de volta à rolagem.","Subhead":"A seção Shorts e o item de navegação somem juntos."},
+    "ipad4": {"Eyebrow":"SEM SHORTS • SAFARI PARA IPAD","Headline":"Controles simples. Suas regras.","Subhead":"Escolha o que some — e mude quando quiser."},
+    "ipad5": {"Eyebrow":"SEM SHORTS • SAFARI PARA IPAD","Headline":"Configure uma vez. Navegue mais leve.","Subhead":"Uma extensão focada do Safari que não atrapalha."},
+    "mac1": {"Eyebrow":"SEM SHORTS • SAFARI PARA MAC","Headline":"Remova os Shorts. Mantenha o YouTube.","Subhead":"Um botão remove a seção e a aba Shorts — seus vídeos continuam visíveis.","LabelBefore":"ANTES","LabelAfter":"DEPOIS • LIMPO","Proof":"Vídeos longos ficam. A rolagem infinita não."},
+    "mac2": {"Eyebrow":"UMA PÁGINA INICIAL MAIS TRANQUILA","Headline":"Vídeos longos ficam. Shorts somem.","Subhead":"Sua página inicial continua útil — só o feed de vídeos curtos é removido."},
+    "mac3": {"Eyebrow":"SEM ABA SHORTS","Headline":"Sem atalho de volta à rolagem.","Subhead":"A seção Shorts e o item lateral somem juntos.","LabelBefore":"SHORTS VISÍVEIS","LabelAfter":"SHORTS REMOVIDOS","Proof":"A página inicial continua útil. A navegação segue focada."},
+    "mac4": {"Eyebrow":"UM BOTÃO","Headline":"Desative os Shorts. Pronto.","Subhead":"Ocultar Shorts está ativo. As outras opções continuam opcionais."},
+    "mac5": {"Eyebrow":"SEU YOUTUBE, SEM SHORTS","Headline":"Suas inscrições continuam com você.","Subhead":"Mantenha os criadores e vídeos longos que segue — sem o desvio dos Shorts."}
+  },
+  "cs": {
+    "ipad1": {"Eyebrow":"ŽÁDNÉ SHORTS • SAFARI PRO IPAD","Headline":"Shorts? Už ne.","Subhead":"Zablokujte sekci dřív, než začne nekonečné posouvání.","LabelBefore":"PŘED","LabelAfter":"PO • ČISTÉ","Footer":"Shorts zmizí. YouTube zůstává.","Proof":"Odběry, vyhledávání a běžná videa fungují dál."},
+    "ipad2": {"Eyebrow":"ŽÁDNÉ SHORTS • SAFARI PRO IPAD","Headline":"Klidnější domovská stránka.","Subhead":"Nechte si vybraná videa. Zbavte se nekonečné odbočky."},
+    "ipad3": {"Eyebrow":"BEZ KARTY SHORTS • SAFARI PRO IPAD","Headline":"Žádná zkratka zpět ke scrollování.","Subhead":"Sekce Shorts i položka navigace zmizí společně."},
+    "ipad4": {"Eyebrow":"ŽÁDNÉ SHORTS • SAFARI PRO IPAD","Headline":"Jednoduché ovládání. Vaše pravidla.","Subhead":"Vyberte, co zmizí — a kdykoli to změňte."},
+    "ipad5": {"Eyebrow":"ŽÁDNÉ SHORTS • SAFARI PRO IPAD","Headline":"Nastavte jednou. Procházejte lehčeji.","Subhead":"Nenápadné rozšíření Safari, které nepřekáží."}
+  },
+  "ru": {
+    "ipad1": {"Eyebrow":"БЕЗ SHORTS • SAFARI ДЛЯ IPAD","Headline":"Shorts? Больше нет.","Subhead":"Скройте раздел до начала бесконечной прокрутки.","LabelBefore":"ДО","LabelAfter":"ПОСЛЕ • ЧИСТО","Footer":"Shorts исчезают. YouTube остаётся.","Proof":"Подписки, поиск и обычные видео работают как всегда."},
+    "ipad2": {"Eyebrow":"БЕЗ SHORTS • SAFARI ДЛЯ IPAD","Headline":"Более спокойная главная.","Subhead":"Оставьте выбранные видео. Уберите бесконечные отвлечения."},
+    "ipad3": {"Eyebrow":"БЕЗ ВКЛАДКИ SHORTS • SAFARI ДЛЯ IPAD","Headline":"Без пути обратно к прокрутке.","Subhead":"Раздел Shorts и пункт навигации исчезают вместе."},
+    "ipad4": {"Eyebrow":"БЕЗ SHORTS • SAFARI ДЛЯ IPAD","Headline":"Простое управление. Ваши правила.","Subhead":"Выберите, что скрыть, и меняйте это когда угодно."},
+    "ipad5": {"Eyebrow":"БЕЗ SHORTS • SAFARI ДЛЯ IPAD","Headline":"Настройте один раз. Смотрите без лишнего.","Subhead":"Незаметное расширение Safari, которое не мешает."},
+    "mac1": {"Eyebrow":"БЕЗ SHORTS • SAFARI ДЛЯ MAC","Headline":"Уберите Shorts. Оставьте YouTube.","Subhead":"Один переключатель убирает раздел и вкладку Shorts — нужные видео остаются.","LabelBefore":"ДО","LabelAfter":"ПОСЛЕ • ЧИСТО","Proof":"Длинные видео остаются. Бесконечная прокрутка — нет."},
+    "mac2": {"Eyebrow":"БОЛЕЕ СПОКОЙНАЯ ГЛАВНАЯ","Headline":"Длинные видео остаются. Shorts исчезают.","Subhead":"Главная страница остаётся полезной — удаляется только лента коротких видео."},
+    "mac3": {"Eyebrow":"БЕЗ ВКЛАДКИ SHORTS","Headline":"Без пути обратно к прокрутке.","Subhead":"Раздел Shorts и пункт бокового меню исчезают вместе.","LabelBefore":"SHORTS ВИДНЫ","LabelAfter":"SHORTS УДАЛЕНЫ","Proof":"Главная остаётся полезной. Навигация — сфокусированной."},
+    "mac4": {"Eyebrow":"ОДИН ПЕРЕКЛЮЧАТЕЛЬ","Headline":"Отключите Shorts. Вот и всё.","Subhead":"Скрытие Shorts включено. Остальные параметры — по желанию."},
+    "mac5": {"Eyebrow":"ВАШ YOUTUBE, БЕЗ SHORTS","Headline":"Подписки остаются с вами.","Subhead":"Смотрите любимых авторов и длинные видео — без обхода через Shorts."}
+  },
+  "vi": {
+    "ipad1": {"Eyebrow":"KHÔNG SHORTS • SAFARI CHO IPAD","Headline":"Shorts? Không còn nữa.","Subhead":"Chặn mục Shorts trước khi bạn cuộn mãi.","LabelBefore":"TRƯỚC","LabelAfter":"SAU • GỌN SẠCH","Footer":"Shorts biến mất. YouTube vẫn còn.","Proof":"Kênh đăng ký, tìm kiếm và video thường vẫn hoạt động bình thường."},
+    "ipad2": {"Eyebrow":"KHÔNG SHORTS • SAFARI CHO IPAD","Headline":"Trang chủ nhẹ nhàng hơn.","Subhead":"Giữ video bạn chọn. Bỏ lối rẽ vô tận."},
+    "ipad3": {"Eyebrow":"KHÔNG TAB SHORTS • SAFARI CHO IPAD","Headline":"Không còn đường tắt về vòng cuộn.","Subhead":"Mục Shorts và lối vào điều hướng cùng biến mất."},
+    "ipad4": {"Eyebrow":"KHÔNG SHORTS • SAFARI CHO IPAD","Headline":"Điều khiển đơn giản. Theo cách của bạn.","Subhead":"Chọn nội dung cần ẩn — thay đổi bất cứ lúc nào."},
+    "ipad5": {"Eyebrow":"KHÔNG SHORTS • SAFARI CHO IPAD","Headline":"Cài một lần. Lướt nhẹ hơn.","Subhead":"Tiện ích Safari tập trung, gọn gàng và không gây phiền."},
+    "mac1": {"Eyebrow":"KHÔNG SHORTS • SAFARI CHO MAC","Headline":"Xóa Shorts. Giữ YouTube.","Subhead":"Một nút xóa mục và tab Shorts — video bạn cần vẫn còn.","LabelBefore":"TRƯỚC","LabelAfter":"SAU • GỌN SẠCH","Proof":"Video dài vẫn còn. Cuộn vô tận thì không."},
+    "mac2": {"Eyebrow":"TRANG CHỦ GỌN HƠN","Headline":"Video dài vẫn còn. Shorts biến mất.","Subhead":"Trang chủ vẫn hữu ích — chỉ bảng tin video ngắn bị xóa."},
+    "mac3": {"Eyebrow":"KHÔNG TAB SHORTS","Headline":"Không còn đường tắt về vòng cuộn.","Subhead":"Mục Shorts và lối vào thanh bên cùng biến mất.","LabelBefore":"CÓ SHORTS","LabelAfter":"ĐÃ XÓA SHORTS","Proof":"Trang chủ vẫn hữu ích. Điều hướng luôn tập trung."},
+    "mac4": {"Eyebrow":"MỘT CÔNG TẮC","Headline":"Tắt Shorts. Vậy thôi.","Subhead":"Ẩn Shorts đang bật. Các tùy chọn khác đều không bắt buộc."},
+    "mac5": {"Eyebrow":"YOUTUBE CỦA BẠN, KHÔNG SHORTS","Headline":"Kênh đăng ký vẫn là của bạn.","Subhead":"Giữ nhà sáng tạo và video dài bạn theo dõi — không vòng qua Shorts."}
+  },
+  "ko": {
+    "ipad1": {"Eyebrow":"SHORTS 차단 • IPAD용 SAFARI","Headline":"Shorts? 이제 없습니다.","Subhead":"끝없는 스크롤이 시작되기 전에 Shorts 영역을 차단하세요.","LabelBefore":"이전","LabelAfter":"이후 • 깔끔하게","Footer":"Shorts는 사라지고 YouTube는 그대로.","Proof":"구독, 검색, 일반 동영상은 평소처럼 작동합니다."},
+    "ipad2": {"Eyebrow":"SHORTS 차단 • IPAD용 SAFARI","Headline":"더 차분한 홈 피드.","Subhead":"선택한 영상은 남기고 끝없는 샛길은 없애세요."},
+    "ipad3": {"Eyebrow":"SHORTS 탭 차단 • IPAD용 SAFARI","Headline":"스크롤로 돌아가는 지름길은 없습니다.","Subhead":"Shorts 영역과 탐색 항목이 함께 사라집니다."},
+    "ipad4": {"Eyebrow":"SHORTS 차단 • IPAD용 SAFARI","Headline":"간단한 설정. 내 방식대로.","Subhead":"숨길 항목을 직접 선택하고 언제든 바꾸세요."},
+    "ipad5": {"Eyebrow":"SHORTS 차단 • IPAD용 SAFARI","Headline":"한 번 설정하고 가볍게 탐색하세요.","Subhead":"방해 없이 조용히 작동하는 Safari 확장 프로그램."},
+    "mac1": {"Eyebrow":"SHORTS 차단 • MAC용 SAFARI","Headline":"Shorts는 없애고 YouTube는 그대로.","Subhead":"스위치 하나로 Shorts 영역과 탭만 제거합니다. 원하는 영상은 그대로입니다.","LabelBefore":"이전","LabelAfter":"이후 • 깔끔하게","Proof":"긴 영상은 남고 끝없는 스크롤은 사라집니다."},
+    "mac2": {"Eyebrow":"더 깔끔한 홈 피드","Headline":"긴 영상은 남고 Shorts는 사라집니다.","Subhead":"홈은 그대로 유용합니다. 짧은 영상 피드만 제거됩니다."},
+    "mac3": {"Eyebrow":"SHORTS 탭 차단","Headline":"스크롤로 돌아가는 지름길은 없습니다.","Subhead":"Shorts 영역과 사이드바 항목이 함께 사라집니다.","LabelBefore":"SHORTS 표시","LabelAfter":"SHORTS 제거","Proof":"홈은 그대로 유용하고 탐색은 더 집중됩니다."},
+    "mac4": {"Eyebrow":"스위치 하나","Headline":"Shorts를 끄세요. 그게 전부입니다.","Subhead":"Shorts 숨기기는 켜져 있습니다. 다른 옵션은 모두 선택 사항입니다."},
+    "mac5": {"Eyebrow":"내 YOUTUBE, SHORTS 없이","Headline":"구독은 그대로 유지됩니다.","Subhead":"팔로우하는 크리에이터와 긴 영상은 그대로 — Shorts 우회 없이."}
+  },
+  "zh-Hans": {
+    "ipad1": {"Eyebrow":"屏蔽 SHORTS • IPAD 版 SAFARI","Headline":"Shorts？不再出现。","Subhead":"在无限滚动开始前屏蔽 Shorts 区域。","LabelBefore":"屏蔽前","LabelAfter":"屏蔽后 • 清爽","Footer":"Shorts 消失，YouTube 依旧。","Proof":"订阅、搜索和普通视频一切照常。"},
+    "ipad2": {"Eyebrow":"屏蔽 SHORTS • IPAD 版 SAFARI","Headline":"更清爽的首页。","Subhead":"保留你选择的视频，告别无尽绕路。"},
+    "ipad3": {"Eyebrow":"屏蔽 SHORTS 标签 • IPAD 版 SAFARI","Headline":"不再有返回滚动的捷径。","Subhead":"Shorts 区域和导航入口同时消失。"},
+    "ipad4": {"Eyebrow":"屏蔽 SHORTS • IPAD 版 SAFARI","Headline":"简单控制，由你决定。","Subhead":"精确选择要隐藏的内容，随时更改。"},
+    "ipad5": {"Eyebrow":"屏蔽 SHORTS • IPAD 版 SAFARI","Headline":"设置一次，轻松浏览。","Subhead":"专注且不打扰的 Safari 扩展。"},
+    "mac1": {"Eyebrow":"屏蔽 SHORTS • MAC 版 SAFARI","Headline":"移除 Shorts，保留 YouTube。","Subhead":"一个开关移除 Shorts 区域和标签，不隐藏你想看的视频。","LabelBefore":"屏蔽前","LabelAfter":"屏蔽后 • 清爽","Proof":"长视频保留，无限滚动消失。"},
+    "mac2": {"Eyebrow":"更清爽的首页","Headline":"长视频保留，Shorts 消失。","Subhead":"首页依然实用 — 只移除短视频信息流。"},
+    "mac3": {"Eyebrow":"屏蔽 SHORTS 标签","Headline":"不再有返回滚动的捷径。","Subhead":"Shorts 区域和侧边栏入口同时消失。","LabelBefore":"SHORTS 可见","LabelAfter":"SHORTS 已移除","Proof":"首页依然实用，导航更加专注。"},
+    "mac4": {"Eyebrow":"一个开关","Headline":"关闭 Shorts，仅此而已。","Subhead":"已开启隐藏 Shorts。其他选项均可自由选择。"},
+    "mac5": {"Eyebrow":"你的 YOUTUBE，没有 SHORTS","Headline":"订阅内容始终属于你。","Subhead":"保留你关注的创作者和长视频，告别 Shorts 绕路。"}
+  },
+  "zh-Hant": {
+    "ipad1": {"Eyebrow":"封鎖 SHORTS • IPAD 版 SAFARI","Headline":"Shorts？不再出現。","Subhead":"在無限捲動開始前封鎖 Shorts 區塊。","LabelBefore":"封鎖前","LabelAfter":"封鎖後 • 清爽","Footer":"Shorts 消失，YouTube 依舊。","Proof":"訂閱、搜尋與一般影片一切照常。"},
+    "ipad2": {"Eyebrow":"封鎖 SHORTS • IPAD 版 SAFARI","Headline":"更清爽的首頁。","Subhead":"保留你選擇的影片，告別無盡繞路。"},
+    "ipad3": {"Eyebrow":"封鎖 SHORTS 標籤 • IPAD 版 SAFARI","Headline":"不再有返回捲動的捷徑。","Subhead":"Shorts 區塊與導覽入口同時消失。"},
+    "ipad4": {"Eyebrow":"封鎖 SHORTS • IPAD 版 SAFARI","Headline":"簡單控制，由你決定。","Subhead":"精確選擇要隱藏的內容，隨時更改。"},
+    "ipad5": {"Eyebrow":"封鎖 SHORTS • IPAD 版 SAFARI","Headline":"設定一次，輕鬆瀏覽。","Subhead":"專注且不打擾的 Safari 延伸功能。"},
+    "mac1": {"Eyebrow":"封鎖 SHORTS • MAC 版 SAFARI","Headline":"移除 Shorts，保留 YouTube。","Subhead":"一個開關移除 Shorts 區塊和標籤，不隱藏你想看的影片。","LabelBefore":"封鎖前","LabelAfter":"封鎖後 • 清爽","Proof":"長影片保留，無限捲動消失。"},
+    "mac2": {"Eyebrow":"更清爽的首頁","Headline":"長影片保留，Shorts 消失。","Subhead":"首頁依然實用 — 只移除短影片動態。"},
+    "mac3": {"Eyebrow":"封鎖 SHORTS 標籤","Headline":"不再有返回捲動的捷徑。","Subhead":"Shorts 區塊與側邊欄入口同時消失。","LabelBefore":"SHORTS 可見","LabelAfter":"SHORTS 已移除","Proof":"首頁依然實用，導覽更加專注。"},
+    "mac4": {"Eyebrow":"一個開關","Headline":"關閉 Shorts，僅此而已。","Subhead":"已開啟隱藏 Shorts。其他選項皆可自由選擇。"},
+    "mac5": {"Eyebrow":"你的 YOUTUBE，沒有 SHORTS","Headline":"訂閱內容始終屬於你。","Subhead":"保留你追蹤的創作者和長影片，告別 Shorts 繞路。"}
+  },
+  "ar-SA": {
+    "_direction":"rtl",
+    "ipad1": {"Eyebrow":"بلا SHORTS • SAFARI على IPAD","Headline":"Shorts؟ لم تعد موجودة.","Subhead":"احجب قسم Shorts قبل أن يبدأ التمرير بلا نهاية.","LabelBefore":"قبل","LabelAfter":"بعد • أنظف","Footer":"تختفي Shorts. ويبقى YouTube.","Proof":"تظل الاشتراكات والبحث والفيديوهات العادية تعمل كالمعتاد."},
+    "ipad2": {"Eyebrow":"بلا SHORTS • SAFARI على IPAD","Headline":"صفحة رئيسية أكثر هدوءًا.","Subhead":"احتفظ بالفيديوهات التي اخترتها. وتخلّص من المسار اللانهائي."},
+    "ipad3": {"Eyebrow":"بلا علامة SHORTS • SAFARI على IPAD","Headline":"لا اختصار للعودة إلى التمرير.","Subhead":"يختفي قسم Shorts ومدخل التنقل معًا."},
+    "ipad4": {"Eyebrow":"بلا SHORTS • SAFARI على IPAD","Headline":"تحكم بسيط. قواعدك أنت.","Subhead":"اختر ما تريد إخفاءه بدقة — وغيّره في أي وقت."},
+    "ipad5": {"Eyebrow":"بلا SHORTS • SAFARI على IPAD","Headline":"اضبطها مرة. وتصفح بخفة.","Subhead":"إضافة Safari مركّزة لا تعترض طريقك."},
+    "mac1": {"Eyebrow":"بلا SHORTS • SAFARI على MAC","Headline":"أزل Shorts. وأبقِ YouTube.","Subhead":"مفتاح واحد يزيل قسم وعلامة Shorts — من دون إخفاء الفيديوهات التي تريدها.","LabelBefore":"قبل","LabelAfter":"بعد • أنظف","Proof":"تبقى الفيديوهات الطويلة. ويختفي التمرير بلا نهاية."},
+    "mac2": {"Eyebrow":"صفحة رئيسية أكثر هدوءًا","Headline":"تبقى الفيديوهات الطويلة. وتختفي Shorts.","Subhead":"تبقى صفحتك الرئيسية مفيدة — ولا تُزال إلا خلاصة الفيديوهات القصيرة."},
+    "mac3": {"Eyebrow":"بلا علامة SHORTS","Headline":"لا اختصار للعودة إلى التمرير.","Subhead":"يختفي قسم Shorts ومدخل الشريط الجانبي معًا.","LabelBefore":"SHORTS ظاهرة","LabelAfter":"تمت إزالة SHORTS","Proof":"تبقى الرئيسية مفيدة. ويبقى التنقل مركّزًا."},
+    "mac4": {"Eyebrow":"مفتاح واحد","Headline":"أوقف Shorts. هذا كل شيء.","Subhead":"إخفاء Shorts مفعّل. وكل الخيارات الأخرى اختيارية."},
+    "mac5": {"Eyebrow":"YOUTUBE الخاص بك، بلا SHORTS","Headline":"تبقى اشتراكاتك لك.","Subhead":"احتفظ بصنّاع المحتوى والفيديوهات الطويلة التي تتابعها — بلا التفاف عبر Shorts."}
+  }
+}

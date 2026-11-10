@@ -13,23 +13,35 @@
         <div class="header">
             <div class="icon">🚫</div>
             <h1 class="title">No Shorts</h1>
-            <p class="subtitle">Blocker for YouTube</p>
+            <p class="subtitle" data-i18n="popup_subtitle">Blocker for YouTube</p>
         </div>
 
         <div class="content">
             <div class="description">
-                <p>✨ Hide YouTube Shorts from your browsing experience</p>
+                <p>✨ <span data-i18n="popup_description">Hide YouTube Shorts while you browse</span></p>
                 <div class="status">
                     <span class="status-indicator active"></span>
-                    <span class="status-text">Extension Active</span>
+                    <span class="status-text" data-i18n="popup_status_active">Extension Active</span>
                 </div>
+                <p id="stats" class="stats" hidden></p>
             </div>
 
-            <div class="toggles">
+            <section id="rating-card" class="rating-card" aria-labelledby="rating-title" hidden>
+                <h2 id="rating-title" class="rating-title" data-i18n="rating_title">Enjoying No Shorts?</h2>
+                <p class="rating-body" data-i18n="rating_body">A quick rating on the App Store helps other people find it.</p>
+                <div class="rating-actions">
+                    <a id="rating-open" class="rating-open" href="https://apps.apple.com/app/id6502996298?action=write-review"
+                        target="_blank" rel="noopener" data-i18n="rating_button">Rate on the App Store</a>
+                    <button type="button" id="rating-later" class="rating-later" data-i18n="rating_later">Not now</button>
+                </div>
+            </section>
+
+            <fieldset id="settings-controls" class="toggles" disabled>
+                <legend class="visually-hidden" data-i18n="settings_filters_label">YouTube filters</legend>
                 <label class="toggle">
                     <div class="toggle-copy">
-                        <span class="toggle-title">Hide Shorts</span>
-                        <span class="toggle-description">Remove Shorts everywhere on YouTube (enabled by default).</span>
+                        <span class="toggle-title" data-i18n="toggle_shorts_title">Hide Shorts</span>
+                        <span class="toggle-description" data-i18n="toggle_shorts_description">Remove Shorts everywhere on YouTube (enabled by default).</span>
                     </div>
                     <div class="switch">
                         <input type="checkbox" id="hide-shorts" />
@@ -39,8 +51,8 @@
 
                 <label class="toggle">
                     <div class="toggle-copy">
-                        <span class="toggle-title">Hide home page</span>
-                        <span class="toggle-description">Hide the home feed and redirect to Subscriptions by default.</span>
+                        <span class="toggle-title" data-i18n="toggle_home_title">Hide home page</span>
+                        <span class="toggle-description" data-i18n="toggle_home_description">Leave the Home feed blank without redirecting to another page.</span>
                     </div>
                     <div class="switch">
                         <input type="checkbox" id="hide-home-feed" />
@@ -50,8 +62,8 @@
 
                 <label class="toggle">
                     <div class="toggle-copy">
-                        <span class="toggle-title">Hide video recommendations</span>
-                        <span class="toggle-description">Remove related videos around the player on watch pages.</span>
+                        <span class="toggle-title" data-i18n="toggle_recommendations_title">Hide video recommendations</span>
+                        <span class="toggle-description" data-i18n="toggle_recommendations_description">Remove related videos around the player on watch pages.</span>
                     </div>
                     <div class="switch">
                         <input type="checkbox" id="hide-watch-recommendations" />
@@ -61,24 +73,61 @@
 
                 <label class="toggle">
                     <div class="toggle-copy">
-                        <span class="toggle-title">Hide comments</span>
-                        <span class="toggle-description">Strip comment threads under videos when enabled.</span>
+                        <span class="toggle-title" data-i18n="toggle_comments_title">Hide comments</span>
+                        <span class="toggle-description" data-i18n="toggle_comments_description">Remove comment threads under videos.</span>
                     </div>
                     <div class="switch">
                         <input type="checkbox" id="hide-comments" />
                         <span class="slider"></span>
                     </div>
                 </label>
-            </div>
+                <label class="toggle">
+                    <div class="toggle-copy">
+                        <span class="toggle-title" data-i18n="toggle_community_title">Hide community posts</span>
+                        <span class="toggle-description" data-i18n="toggle_community_description">Hide text and image posts from the Home feed.</span>
+                    </div>
+                    <div class="switch">
+                        <input type="checkbox" id="hide-community-posts" />
+                        <span class="slider"></span>
+                    </div>
+                </label>
+            </fieldset>
+
+            <section class="pin-card" aria-labelledby="pin-title">
+                <h2 id="pin-title" data-i18n="pin_title">Settings PIN</h2>
+                <p data-i18n="pin_note">Optionally require a PIN to change settings in this popup on this device. Keep it safe. Safari can still disable or remove the extension.</p>
+                <form id="pin-unlock-form" hidden>
+                    <label for="pin-unlock" data-i18n="pin_label">PIN</label>
+                    <input id="pin-unlock" type="password" inputmode="numeric" autocomplete="current-password" pattern="[0-9]{4,12}" minlength="4" maxlength="12" required />
+                    <button type="submit" data-i18n="pin_unlock">Unlock settings</button>
+                </form>
+                <form id="pin-set-form" hidden>
+                    <label for="pin-new" data-i18n="pin_new">New PIN (4–12 digits)</label>
+                    <input id="pin-new" type="password" inputmode="numeric" autocomplete="new-password" pattern="[0-9]{4,12}" minlength="4" maxlength="12" required />
+                    <label for="pin-confirm" data-i18n="pin_confirm">Confirm PIN</label>
+                    <input id="pin-confirm" type="password" inputmode="numeric" autocomplete="new-password" pattern="[0-9]{4,12}" minlength="4" maxlength="12" required />
+                    <button type="submit" data-i18n="pin_save">Save PIN</button>
+                </form>
+                <div id="pin-lock-actions" hidden>
+                    <button type="button" id="pin-lock-now" data-i18n="pin_lock_now">Lock now</button>
+                    <button type="button" id="pin-remove" data-i18n="pin_remove">Remove PIN</button>
+                </div>
+            </section>
+            <p id="settings-status" role="status" aria-live="polite" tabindex="-1"></p>
         </div>
 
         <div class="footer">
+            <p class="bundle">
+                <span data-i18n="bundle_text">Use Instagram or X in Safari too?</span>
+                <a id="bundle-link" class="bundle-link" href="https://apps.apple.com/app-bundle/id1878643524"
+                    target="_blank" rel="noopener" data-i18n="bundle_link">See the 3-extension bundle</a>
+            </p>
             <div class="support">
-                <p class="support-text">Need help or found a bug?</p>
+                <p class="support-text" data-i18n="support_text">Need help or found a bug?</p>
                 <a href="mailto:guillaume.claverie@mail.com" class="contact-link">
-                    📧 Contact Developer
+                    📧 <span data-i18n="contact_link">Contact Developer</span>
                 </a>
-                <p class="response-time">Quick response guaranteed!</p>
+                <p class="response-time" data-i18n="response_time">Quick response guaranteed!</p>
             </div>
         </div>
     </div>

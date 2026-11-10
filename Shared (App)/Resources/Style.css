@@ -158,10 +158,7 @@ button,
 .video-guide {
     width: 100%;
     max-width: 480px;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
+    display: block;
     text-align: left;
 }
 
@@ -179,4 +176,196 @@ button,
     border-radius: 16px;
     background: #000;
     aspect-ratio: 16 / 9;
+    margin-top: 12px;
+}
+
+li + li {
+    margin-top: 10px;
+}
+
+summary {
+    cursor: pointer;
+    padding-block: 8px;
+}
+
+summary:focus-visible,
+button:focus-visible,
+a:focus-visible,
+select:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+}
+
+.safari-preview {
+    align-self: stretch;
+    text-align: start;
+}
+
+.preview-note {
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+.preview-pair {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.preview-card {
+    border: 1px solid currentColor;
+    border-radius: 12px;
+    padding: 12px;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.preview-card h2 {
+    font-size: 1em;
+    margin: 0 0 12px;
+}
+
+.preview-video,
+.preview-shorts,
+.preview-removed {
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(128, 128, 128, 0.12);
+    line-height: 1.4;
+}
+
+.preview-removed {
+    background: transparent;
+    border: 1px dashed currentColor;
+}
+
+@media (max-width: 380px) {
+    .preview-pair {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* BrowseKind cross-promotion (iPhone only, shown below the setup steps). */
+.browsekind-promo {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+    border-radius: 16px;
+    border: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+    background: color-mix(in srgb, currentColor 5%, transparent);
+    text-align: left;
+}
+
+.browsekind-promo[hidden] {
+    display: none;
+}
+
+[dir="rtl"] .browsekind-promo {
+    text-align: right;
+}
+
+.browsekind-promo-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.browsekind-promo-icon {
+    flex: none;
+    width: 44px;
+    height: 44px;
+}
+
+.browsekind-promo-title {
+    flex: 1;
+    margin: 0;
+    font: -apple-system-headline;
+}
+
+.browsekind-promo .browsekind-promo-dismiss {
+    flex: none;
+    align-self: flex-start;
+    width: 44px;
+    height: 44px;
+    margin: -12px -12px 0 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: inherit;
+    opacity: 0.55;
+    font-size: 1em;
+}
+
+[dir="rtl"] .browsekind-promo .browsekind-promo-dismiss {
+    margin: -12px 0 0 -12px;
+}
+
+.browsekind-promo-body {
+    margin: 0;
+    font: -apple-system-body;
+}
+
+.browsekind-promo .browsekind-promo-open {
+    align-self: stretch;
+    font: -apple-system-headline;
+    border-color: color-mix(in srgb, currentColor 22%, transparent);
+    background: color-mix(in srgb, currentColor 7%, transparent);
+}
+
+.browsekind-promo-note {
+    margin: 0;
+    font: -apple-system-footnote;
+    opacity: 0.7;
+}
+
+/* Setup status on iOS: confirms the extension actually ran on YouTube. */
+.setup-status {
+    margin: 0;
+    padding: 12px 16px;
+    border-radius: 12px;
+    /* rgba fallbacks for iOS 15–16.1, which lack color-mix(). */
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    border: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+    background: rgba(128, 128, 128, 0.08);
+    background: color-mix(in srgb, currentColor 5%, transparent);
+    font-weight: 600;
+}
+
+.setup-status[hidden] {
+    display: none;
+}
+
+.setup-status[data-state="working"] {
+    border-color: rgba(46, 139, 87, 0.4);
+    background: rgba(46, 139, 87, 0.12);
+}
+
+.setup-status[data-state="off"] {
+    border-color: rgba(214, 40, 40, 0.35);
+    background: rgba(214, 40, 40, 0.08);
+}
+
+/* Cross-sell for the bundle with the Instagram and X extensions. */
+.bundle-promo {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    gap: 4px 6px;
+    font: -apple-system-footnote;
+    opacity: 0.85;
+}
+
+.bundle-promo .bundle-link {
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #007aff;
+    color: -apple-system-blue;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
 }

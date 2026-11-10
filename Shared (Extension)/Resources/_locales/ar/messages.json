@@ -1,0 +1,187 @@
+{
+    "extension_name": {
+        "message": "No Shorts : Blocker for YouTube",
+        "description": "Extension name shown in Safari. Keep it identical in every locale."
+    },
+    "extension_description": {
+        "message": "يُخفي Shorts من موقع YouTube في Safari.",
+        "description": "Extension description shown in Safari settings."
+    },
+    "popup_subtitle": {
+        "message": "أداة حظر لـ YouTube",
+        "description": "Subtitle under the popup title."
+    },
+    "popup_description": {
+        "message": "أخفِ YouTube Shorts أثناء التصفح",
+        "description": "One-line summary at the top of the popup."
+    },
+    "popup_status_active": {
+        "message": "الإضافة مفعّلة",
+        "description": "Status pill shown while the extension runs."
+    },
+    "toggle_shorts_title": {
+        "message": "إخفاء Shorts",
+        "description": "Toggle title."
+    },
+    "toggle_shorts_description": {
+        "message": "يزيل Shorts من كل أنحاء YouTube (مفعّل افتراضيًا).",
+        "description": "Toggle description."
+    },
+    "toggle_home_title": {
+        "message": "إخفاء الصفحة الرئيسية",
+        "description": "Toggle title."
+    },
+    "toggle_home_description": {
+        "message": "يترك خلاصة الصفحة الرئيسية فارغة دون إعادة توجيه إلى صفحة أخرى.",
+        "description": "Toggle description."
+    },
+    "toggle_recommendations_title": {
+        "message": "إخفاء الفيديوهات المقترحة",
+        "description": "Toggle title."
+    },
+    "toggle_recommendations_description": {
+        "message": "يزيل الفيديوهات ذات الصلة حول المشغّل.",
+        "description": "Toggle description."
+    },
+    "toggle_comments_title": {
+        "message": "إخفاء التعليقات",
+        "description": "Toggle title."
+    },
+    "toggle_comments_description": {
+        "message": "يزيل سلاسل التعليقات أسفل الفيديوهات.",
+        "description": "Toggle description."
+    },
+    "stats_shorts_hidden": {
+        "message": "عدد Shorts المخفية على هذا الجهاز: $COUNT$",
+        "description": "Counter of Shorts hidden on this device. $COUNT$ is a formatted number.",
+        "placeholders": {
+            "count": {
+                "content": "$1",
+                "example": "1,234"
+            }
+        }
+    },
+    "rating_title": {
+        "message": "هل أعجبك No Shorts؟",
+        "description": "Title of the App Store rating card."
+    },
+    "rating_body": {
+        "message": "تقييم سريع في App Store يساعد الآخرين على العثور عليه.",
+        "description": "Body of the App Store rating card."
+    },
+    "rating_button": {
+        "message": "قيّمه في App Store",
+        "description": "Button that opens the App Store review page."
+    },
+    "rating_later": {
+        "message": "ليس الآن",
+        "description": "Button that hides the rating card for a while."
+    },
+    "bundle_text": {
+        "message": "هل تستخدم Instagram أو X في Safari أيضًا؟",
+        "description": "Cross-sell line for the bundle with the Instagram and X extensions."
+    },
+    "bundle_link": {
+        "message": "اطّلع على حزمة الإضافات الثلاث",
+        "description": "Link to the App Store bundle."
+    },
+    "support_text": {
+        "message": "هل تحتاج إلى مساعدة أو وجدت خطأ؟",
+        "description": "Footer support prompt."
+    },
+    "contact_link": {
+        "message": "راسل المطوّر",
+        "description": "Footer button that emails the developer."
+    },
+    "response_time": {
+        "message": "ردّ سريع مضمون!",
+        "description": "Footer reassurance under the contact button."
+    },
+    "toggle_community_title": {
+        "message": "إخفاء منشورات المجتمع"
+    },
+    "toggle_community_description": {
+        "message": "إخفاء المنشورات النصية والصور من الصفحة الرئيسية."
+    },
+    "pin_title": {
+        "message": "رمز الإعدادات"
+    },
+    "pin_note": {
+        "message": "يمكنك اختيار طلب رمز لتغيير الإعدادات في هذه النافذة على هذا الجهاز. احتفظ به في مكان آمن. يظل بإمكان Safari تعطيل الإضافة أو حذفها."
+    },
+    "pin_label": {
+        "message": "الرمز"
+    },
+    "pin_new": {
+        "message": "رمز جديد (4 إلى 12 رقمًا)"
+    },
+    "pin_confirm": {
+        "message": "تأكيد الرمز"
+    },
+    "pin_unlock": {
+        "message": "فتح الإعدادات"
+    },
+    "pin_save": {
+        "message": "حفظ الرمز"
+    },
+    "pin_lock_now": {
+        "message": "القفل الآن"
+    },
+    "pin_remove": {
+        "message": "حذف الرمز"
+    },
+    "pin_invalid": {
+        "message": "أدخل الرمز نفسه مرتين باستخدام 4 إلى 12 رقمًا."
+    },
+    "pin_saved": {
+        "message": "تم حفظ الرمز. أدخله لتغيير الإعدادات."
+    },
+    "pin_incorrect": {
+        "message": "الرمز غير صحيح."
+    },
+    "pin_wait": {
+        "message": "محاولات كثيرة جدًا. انتظر 30 ثانية وحاول مجددًا."
+    },
+    "pin_unlocked": {
+        "message": "الإعدادات مفتوحة حتى إغلاق هذه النافذة."
+    },
+    "pin_removed": {
+        "message": "تم حذف الرمز."
+    },
+    "pin_storage_error": {
+        "message": "تعذر التحقق من الرمز أو حفظه. أعد فتح الإضافة وحاول مجددًا."
+    },
+    "settings_save_error": {
+        "message": "تعذر حفظ الإعدادات. أعد فتح الإضافة وحاول مجددًا."
+    },
+    "settings_filters_label": {
+        "message": "مرشحات YouTube"
+    },
+    "save_unknown": {
+        "message": "لم يتأكد الحفظ بعد. انتظر، أو أعد فتح هذه النافذة للتحقق من الحالة المحفوظة."
+    },
+    "storage_read_error": {
+        "message": "تعذرت قراءة الإعدادات المحفوظة. أعد فتح الإضافة وحاول مجددًا."
+    },
+    "pin_invalid_data": {
+        "message": "تعذرت قراءة بيانات الرمز المحفوظ. تظل الإعدادات مقفلة. تواصل مع الدعم."
+    },
+    "pin_locked": {
+        "message": "الإعدادات مقفلة. أدخل الرمز لتغييرها."
+    },
+    "pin_changed": {
+        "message": "تم تغيير الرمز في نافذة أخرى. استخدم الرمز الحالي لفتح الإعدادات."
+    },
+    "pin_crypto_unavailable": {
+        "message": "حماية الرمز غير متاحة في سياق Safari هذا. حدّث Safari أو أعد فتح الإضافة."
+    },
+    "pin_save_unknown": {
+        "message": "لم يتأكد الحفظ بعد. احتفظ بالرمز وانتظر، أو أعد فتح هذه النافذة للتحقق من الحالة المحفوظة."
+    },
+    "pin_removed_elsewhere": {
+        "message": "تم حذف الرمز في نافذة أخرى. الإعدادات مفتوحة."
+    },
+    "pin_removed_retry": {
+        "message": "تم حذف الرمز في نافذة أخرى. لم يُحفظ التغيير؛ حاول مجددًا."
+    }
+}
